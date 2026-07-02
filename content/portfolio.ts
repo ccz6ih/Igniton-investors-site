@@ -40,7 +40,7 @@ export const products: Product[] = [
   {
     key: 'longevity',
     suffix: 'Longevity',
-    image: '/products/longevity.png',
+    image: '/products/longevity.jpg',
     positioning:
       'The systemic-inflammation and longevity formula — peer-reviewed across three independent measurement methods, and the other half of the top revenue pairing.',
     tier: 'University study, published in a peer-reviewed journal',

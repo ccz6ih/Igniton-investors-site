@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { hero, metrics } from '@/content/overview'
 import { MetricCell } from './Metric'
@@ -47,8 +48,19 @@ export function Hero() {
             </Reveal>
           </div>
 
-          {/* Right column is intentionally open — the warm orb lives here. */}
-          <div className="hidden lg:block" aria-hidden="true" />
+          {/* Right column: the "Born from Light" visual, haloed by the warm orb. */}
+          <Reveal delay={200} className="relative hidden lg:block">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-[4px] shadow-[0_20px_60px_rgba(18,18,65,0.18)]">
+              <Image
+                src="/hero/yoga.jpg"
+                alt="A figure in a warrior pose within a radiant field of light — Igniton's ‘Born from Light’ motif"
+                fill
+                priority
+                sizes="(max-width: 1024px) 0px, 40vw"
+                className="object-cover"
+              />
+            </div>
+          </Reveal>
         </div>
 
         {/* At-a-glance metric band */}

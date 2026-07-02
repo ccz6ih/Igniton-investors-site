@@ -128,13 +128,13 @@ export function Portfolio() {
       <div className="mt-12 grid gap-6 sm:grid-cols-2">
         {products.map((p, i) => (
           <Reveal key={p.key} delay={i * 70} className="flex flex-col overflow-hidden rounded-card border border-hairline bg-white">
-            <div className="relative aspect-[16/10] bg-off-white">
+            <div className="relative aspect-[4/5] bg-off-white">
               <Image
                 src={p.image}
-                alt={`Igni${p.suffix} product`}
+                alt={`Igni${p.suffix} — premium supplement bottle`}
                 fill
                 sizes="(max-width: 640px) 100vw, 50vw"
-                className="object-contain p-6"
+                className="object-cover"
               />
             </div>
             <div className="flex flex-1 flex-col p-7">
@@ -221,6 +221,32 @@ export function Traction() {
         </ul>
       </Reveal>
     </Section>
+  )
+}
+
+/* -------------------------------------------------------- LIFESTYLE BAND */
+export function LifestyleBand() {
+  return (
+    <section className="relative h-[46vh] min-h-[340px] overflow-hidden">
+      <Image
+        src="/lifestyle/hand.jpg"
+        alt="An Igniton supplement held in warm natural light — premium daily ritual"
+        fill
+        sizes="100vw"
+        className="object-cover object-center"
+      />
+      <div className="absolute inset-0 bg-gradient-to-r from-navy/70 via-navy/40 to-transparent" />
+      <div className="relative z-10 flex h-full items-center">
+        <div className="container-brand">
+          <Reveal>
+            <p className="eyebrow mb-4">Made in Colorado, USA</p>
+            <p className="max-w-2xl font-display text-3xl leading-tight text-white md:text-4xl">
+              A premium ritual, engineered to <em className="emphasis">work</em>.
+            </p>
+          </Reveal>
+        </div>
+      </div>
+    </section>
   )
 }
 

@@ -6,7 +6,22 @@ Rule from the brand doc: **use real bottle photography — never AI-generated pr
 
 ---
 
-## Needed assets (download these)
+## Premium photography (client Google Drive — now the primary set)
+
+The client supplied a new professional photo shoot (Google Drive) that is higher quality than the consumer CDN shots and helps differentiate the investor site. Selected + optimized into `/public`:
+
+| Use | Drive source | → in `/public` |
+|---|---|---|
+| **Hero visual** — figure in warrior pose within a sun-glow ("Born from Light") | Evergreen `Igniton_yoga_MA_0002` | `hero/yoga.jpg` |
+| **Portfolio — Cognition** (premium bottle) | `DSC06206` | `products/cognition.jpg` |
+| **Portfolio — Longevity** | `DSC06346` | `products/longevity.jpg` |
+| **Portfolio — REM Sleep** | `DSC06357` | `products/rem.jpg` |
+| **Portfolio — Peptide serum** (gold dropper on sand) | `DSC06464` | `products/peptide.jpg` |
+| **Lifestyle band** — bottle held in warm light | Evergreen `Igniton0550` | `lifestyle/hand.jpg` |
+
+Also available in the Drive (not yet used): a sleep-scene lifestyle shot, additional white-background bottle shots, and moody REM product shots — good for future sections. The Drive "01. Lab" and "Brand" folders were empty (no facility/logo photos there yet); a **Jirka Rysavy** and **Dr. Ken Ro** headshot are still needed.
+
+## Consumer-CDN assets (fallback / secondary)
 
 | Purpose | Source filename (on CDN) | → target in `/public` |
 |---|---|---|

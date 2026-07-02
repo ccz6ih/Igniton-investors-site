@@ -3,6 +3,7 @@ import {
   Thesis,
   Technology,
   Portfolio,
+  LifestyleBand,
   Traction,
   Company,
   Roadmap,
@@ -17,6 +18,7 @@ export default function HomePage() {
       <Thesis />
       <Technology />
       <Portfolio />
+      <LifestyleBand />
       <Traction />
       <Company />
       <Roadmap />
