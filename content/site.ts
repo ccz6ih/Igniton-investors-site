@@ -19,8 +19,11 @@ export const site = {
 
 export type NavItem = { label: string; href: string }
 
+// Mirrors the consumer nav's shape (Products/Science/Results/About) but points
+// at the investor equivalents, plus investor-only sections.
 export const nav: NavItem[] = [
   { label: 'Overview', href: '/#overview' },
+  { label: 'Portfolio', href: '/#portfolio' },
   { label: 'Technology', href: '/#technology' },
   { label: 'Traction', href: '/#traction' },
   { label: 'Team', href: '/team' },

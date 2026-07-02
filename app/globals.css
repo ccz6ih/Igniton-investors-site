@@ -195,31 +195,42 @@ a { color: inherit; }
 
 /* ==========================================================================
    THE LUMINOUS GLOW ORB (CSS radial gradient — the "Born from Light" motif)
+   Matches the consumer home: warm cream/gold glow on a LIGHT background,
+   positioned to the RIGHT so the left-aligned headline stays on clean canvas.
    ========================================================================== */
 .hero-orb {
   position: absolute;
-  left: 50%;
-  top: 45%;
+  left: 74%;
+  top: 42%;
   transform: translate(-50%, -50%);
-  width: 750px;
-  height: 750px;
-  max-width: 130vw;
+  width: min(760px, 92vw);
+  height: min(760px, 92vw);
   border-radius: 50%;
-  opacity: 0.5;
-  filter: blur(2px);
+  opacity: 0.9;
+  filter: blur(4px);
   z-index: 0;
   pointer-events: none;
+  /* warm orb: --ig-ember (#B49153) mixed into --ig-warm-white (#fdfaf5) */
   background: radial-gradient(
-    circle at 42% 42%,
-    rgba(211, 162, 60, 0.55) 0%,
-    rgba(180, 145, 83, 0.35) 40%,
-    rgba(25, 24, 128, 0.05) 70%,
-    transparent 100%
+    circle at 40% 40%,
+    color-mix(in srgb, #b49153 14%, #fdfaf5) 0%,
+    color-mix(in srgb, #b49153 30%, #fdfaf5) 55%,
+    #c9a96e 100%
   );
-  animation: none;
 }
 @media (min-width: 768px) {
-  .hero-orb { animation: orb-drift 14s ease-in-out infinite; }
+  .hero-orb { animation: orb-drift 16s ease-in-out infinite; }
+}
+/* On small screens the orb sits high/behind; keep it faint so navy text over it
+   stays readable (dark text on a light warm wash). */
+@media (max-width: 767px) {
+  .hero-orb {
+    left: 50%;
+    top: 18%;
+    opacity: 0.55;
+    width: min(460px, 90vw);
+    height: min(460px, 90vw);
+  }
 }
 
 /* ==========================================================================

@@ -130,7 +130,9 @@ On a **navy** hero, warm the orb toward gold on dark navy for the "Born from Lig
 
 ## 7. Header & footer
 
-**Header** — logo left (PNG, 32–40px tall) · nav center/right (uppercase, `letter-spacing:.18em`, 600) · **Request Access** gold button top-right. Live site is sticky on scroll-up, navy-translucent; brand-tokens documents a static 72px white bar. **Decision:** implement **sticky, navy-translucent** to match the live consumer feel (spec asks for this explicitly).
+**Header** — matches the consumer chrome: **light/white, sticky, 72px**, native (non-inverted) logo PNG left + an "Investors" lockup, investor nav center/right (uppercase, `letter-spacing:.16em`, 600), a subtle gold **Shop ↗** link out to the store, and the bright-gold **Contact IR** button in the top-right accent slot. (The consumer header uses scheme-1: white bg `#ffffff`, navy foreground — so the investor header is light to match, not navy.)
+
+**Hero** — also **light** to match the consumer home (scheme-1, `orb_style: warm`): warm-white canvas `#fdfaf5`, **left-aligned** navy Playfair headline with one gold italic accent, warm glow orb positioned to the **right** (x≈74%) so text stays on clean canvas, navy primary + text-link secondary, metric band below. (An earlier dark-navy hero with a centered orb behind white text was replaced — it clashed with the consumer home and hurt readability.)
 
 **Footer** — dark navy (`#121241`), gold wordmark. Columns of investor links (Overview · Technology · Team · Roadmap · Request Access · Legal) + "**Powered by Ignitons™**" signature + social icons + the disclaimer block (see [04_COMPLIANCE.md](04_COMPLIANCE.md)). Reveal-on-scroll cascade.
 
