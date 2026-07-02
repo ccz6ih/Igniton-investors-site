@@ -71,4 +71,6 @@ foreach ($k in $map.Keys) {
 }
 ```
 
+> **Committed-repo notes (post-cleanup):** `products/longevity.png` was resampled 3000²→1500² (11 MB → 1.3 MB). `hero/solar.jpg` came down broken (12 KB) and is **not committed** — re-fetch or replace before using it. `docs/press-kit.pdf` (17 MB) is **not committed** to keep the repo lean; run `npm run assets` to pull it if you decide to link it. `public/` totals ~5.5 MB.
+>
 > Note: some assets historically resolved under `https://cdn.shopify.com/s/files/1/0604/2573/2151/files/<filename>`. If a URL 404s, try that base, or pull the file directly from the store's **Content → Files** admin. Verify licensing on the stock photos (envato-style filenames indicate licensed stock — confirm rights before reuse).

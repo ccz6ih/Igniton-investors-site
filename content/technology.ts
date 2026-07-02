@@ -7,12 +7,12 @@ export const technology = {
   headlineEmphasis: 'done',
   headlinePost: ' to it.',
   intro:
-    'Standard supplements deliver ingredients passively; oral bioavailability is rarely better than 30–40%. Igniton’s charging process enhances the molecular state of each ingredient before it enters the body — improving cellular uptake and reducing the effective dose required.',
+    'The defensible asset is the process, not the ingredient list. In an otherwise commodity category, Igniton’s cold-plasma charging alters each ingredient’s molecular state before encapsulation — the step competitors can’t easily replicate, and the reason head-to-head studies favor the charged formula over the same uncharged inputs.',
 
   wedge: [
     {
-      title: 'Same ingredients. Different delivery.',
-      body: 'Ordinary GRAS ingredients are processed into an “excited” state via cold-plasma charging before encapsulation. The formula holds; the enhancement is the variable.',
+      title: 'Commodity inputs, proprietary process',
+      body: 'The ingredients are ordinary GRAS compounds; the moat is what’s done to them. Cold-plasma charging puts each into an “excited” state before encapsulation — the formula holds, the enhancement is the variable.',
     },
     {
       title: 'A lower effective dose',

@@ -49,6 +49,14 @@ export function Header() {
               {item.label}
             </Link>
           ))}
+          <a
+            href={site.consumerUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-gold/90 transition-colors hover:text-gold"
+          >
+            Shop ↗
+          </a>
           <Link href={headerCta.href} className="btn-primary btn-primary--gold">
             {headerCta.label}
           </Link>
@@ -81,6 +89,16 @@ export function Header() {
                 </Link>
               </li>
             ))}
+            <li>
+              <a
+                href={site.consumerUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block py-1 text-sm font-semibold uppercase tracking-[0.16em] text-gold"
+              >
+                Shop at {site.consumerLabel} ↗
+              </a>
+            </li>
             <li className="pt-2">
               <Link
                 href={headerCta.href}

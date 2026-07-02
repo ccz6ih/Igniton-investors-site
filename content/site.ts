@@ -6,11 +6,15 @@ export const site = {
   legalName: 'Igniton, Inc.',
   domain: 'ignitoninc.com',
   url: 'https://ignitoninc.com',
-  tagline: '30 years of research. Measurable in 30 days.',
+  tagline: 'Revenue today. Platform tomorrow.',
   description:
     'Igniton is a revenue-generating premium wellness brand today — and a quantum-wellness technology platform tomorrow. Investor overview, technology moat, traction, team, and roadmap.',
   // IR contact — replace with the real inbox before launch (see docs/04_COMPLIANCE.md).
   irEmail: 'investors@ignitoninc.com',
+  // The consumer store — where products are actually sold. This investor site
+  // links out to it (no commerce lives here).
+  consumerUrl: 'https://igniton.com',
+  consumerLabel: 'igniton.com',
 }
 
 export type NavItem = { label: string; href: string }
@@ -47,7 +51,7 @@ export const footerColumns: { heading: string; links: NavItem[] }[] = [
     heading: 'Investor Relations',
     links: [
       { label: 'Contact IR', href: '/#contact' },
-      { label: 'Consumer site ↗', href: 'https://igniton.com' },
+      { label: 'Shop at igniton.com ↗', href: 'https://igniton.com' },
     ],
   },
 ]

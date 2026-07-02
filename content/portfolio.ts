@@ -25,7 +25,8 @@ export const products: Product[] = [
     key: 'cognition',
     suffix: 'Cognition',
     image: '/products/cognition.jpg',
-    positioning: 'Sharper memory, stronger focus, faster thinking — measurable in 30 days.**',
+    positioning:
+      'The flagship line and deepest evidence base in the portfolio — and half of the validated Cognition + Longevity revenue pairing.',
     tier: 'University study, published in a peer-reviewed journal',
     figures: [
       '+83% quality of mental performance**',
@@ -40,7 +41,8 @@ export const products: Product[] = [
     key: 'longevity',
     suffix: 'Longevity',
     image: '/products/longevity.png',
-    positioning: 'Less discomfort, faster recovery, feeling better — measurable in 30 days.**',
+    positioning:
+      'The systemic-inflammation and longevity formula — peer-reviewed across three independent measurement methods, and the other half of the top revenue pairing.',
     tier: 'University study, published in a peer-reviewed journal',
     figures: ['−37% IL-6**', '−28% CRP**', '−13% GGT**', '−8/9% blood pressure**'],
     citation:
@@ -50,7 +52,8 @@ export const products: Product[] = [
     key: 'peptide',
     suffix: 'Peptide Eye Serum',
     image: '/products/peptide.jpg',
-    positioning: 'An eye treatment engineered to work where most products quit — Igniton-charged EGF.',
+    positioning:
+      'The topical entry point into skincare — Igniton-charged EGF, validated by an independent contract-research clinical trial.',
     tier: 'Independent clinical study',
     figures: [
       '+52% skin hydration*',
@@ -65,7 +68,8 @@ export const products: Product[] = [
     key: 'rem',
     suffix: 'REM Sleep',
     image: '/products/rem.jpg',
-    positioning: 'Brighter mornings, more rested — more REM sleep measurable in 30 days. No melatonin.',
+    positioning:
+      'The sleep formula and newest pipeline entry — an early-stage study showing increased REM versus placebo, expanding the line.',
     tier: 'A study (initial)',
     figures: ['+25% more REM vs. placebo**', 'Fewer wake-ups: 2.6 → 1.2 / night**', 'More sleep: 6.3 → 7.1 hrs**'],
     citation:

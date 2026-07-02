@@ -111,6 +111,18 @@ export function Portfolio() {
           {portfolioIntro.headlinePost}
         </h2>
         <p className="mt-6 max-w-2xl text-warm-gray">{portfolioIntro.body}</p>
+        <p className="mt-4 text-sm text-warm-gray">
+          Products are sold to consumers at{' '}
+          <a
+            href={site.consumerUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-navy underline decoration-gold decoration-2 underline-offset-4 hover:text-gold"
+          >
+            {site.consumerLabel} ↗
+          </a>
+          . No pricing or checkout appears on this investor site.
+        </p>
       </Reveal>
 
       <div className="mt-12 grid gap-6 sm:grid-cols-2">
