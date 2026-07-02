@@ -1,0 +1,247 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================================================
+   BRAND TOKENS — mirrors _theme_reference/assets/brand-tokens.css
+   (single source of truth). See docs/01_DESIGN_SYSTEM.md.
+   ========================================================================== */
+:root {
+  --color-white: #ffffff;
+  --color-navy: #121241;
+  --color-gold: #b49153;
+  --color-gold-bright: #d3a23c;
+  --color-off-white: #f5f1ea;
+  --color-cream-light: #fff8ed;
+  --color-warm-gray: #6b6660;
+  --color-border: #e5e0d6;
+  --color-indigo: #191880;
+
+  --space-section-v: 7rem;
+  --space-section-h: 3rem;
+  --container: 1200px;
+  --nav-height: 72px;
+
+  --ls-eyebrow: 0.22em;
+  --ls-label: 0.18em;
+}
+
+/* ==========================================================================
+   BASE
+   ========================================================================== */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--nav-height) + 1rem);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--color-white);
+  color: var(--color-navy);
+  font-family: var(--font-jakarta), 'Plus Jakarta Sans', sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-playfair), 'Playfair Display', serif;
+  font-weight: 600;
+  color: var(--color-navy);
+  text-wrap: balance;
+}
+
+/* The editorial signature: one italic-gold emphasis word per headline. */
+h1 em, h2 em, h3 em, .emphasis {
+  font-style: italic;
+  font-family: var(--font-playfair), 'Playfair Display', serif;
+  color: var(--color-gold);
+}
+
+a { color: inherit; }
+
+::selection {
+  background: var(--color-gold);
+  color: var(--color-white);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
+/* ==========================================================================
+   COMPONENT CLASSES
+   ========================================================================== */
+@layer components {
+  .container-brand {
+    max-width: var(--container);
+    margin-inline: auto;
+    padding-inline: clamp(1.25rem, 4vw, var(--space-section-h));
+  }
+
+  .eyebrow {
+    font-family: var(--font-jakarta), sans-serif;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: var(--ls-eyebrow);
+    text-transform: uppercase;
+    color: var(--color-gold);
+  }
+
+  .h-hero {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+  }
+  .h-section {
+    font-size: clamp(1.75rem, 4vw, 2.75rem);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+  .h-subhead {
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+    line-height: 1.25;
+    font-weight: 600;
+  }
+
+  .prose-brand p {
+    color: var(--color-navy);
+    line-height: 1.7;
+  }
+  .prose-brand.on-dark p { color: rgba(255, 255, 255, 0.82); }
+
+  /* Buttons — TWO levels only (brand rule). */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.9rem 1.75rem;
+    font-family: var(--font-jakarta), sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: var(--ls-label);
+    text-transform: uppercase;
+    color: var(--color-white);
+    background: var(--color-navy);
+    border: 1px solid var(--color-navy);
+    border-radius: 2px;
+    text-decoration: none;
+    transition: opacity 0.25s ease, background 0.25s ease, transform 0.2s ease;
+  }
+  .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
+
+  /* Bright-gold variant for the header CTA (the consumer accent-button slot). */
+  .btn-primary--gold {
+    background: var(--color-gold-bright);
+    border-color: var(--color-gold-bright);
+    color: var(--color-navy);
+  }
+  .btn-primary--gold:hover { opacity: 0.92; }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    font-family: var(--font-jakarta), sans-serif;
+    font-weight: 500;
+    color: var(--color-navy);
+    text-decoration: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  .btn-secondary::after { content: '→'; color: var(--color-gold); transition: transform 0.2s ease; }
+  .btn-secondary:hover::after { transform: translateX(3px); }
+  .on-dark .btn-secondary, .btn-secondary.on-dark { color: var(--color-white); }
+
+  /* Hairline card grid — shared borders, never gap-separated. */
+  .card-grid {
+    display: grid;
+    border: 1px solid var(--color-border);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .card-cell {
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+    border-right: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  /* Muted "pending" chip for unverified placeholders. */
+  .chip-pending {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.2rem 0.6rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--color-warm-gray);
+    background: var(--color-off-white);
+    border: 1px dashed var(--color-border);
+    border-radius: 999px;
+  }
+  .chip-pending::before { content: '▢'; }
+  .on-dark .chip-pending {
+    color: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.18);
+  }
+}
+
+/* ==========================================================================
+   THE LUMINOUS GLOW ORB (CSS radial gradient — the "Born from Light" motif)
+   ========================================================================== */
+.hero-orb {
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  transform: translate(-50%, -50%);
+  width: 750px;
+  height: 750px;
+  max-width: 130vw;
+  border-radius: 50%;
+  opacity: 0.5;
+  filter: blur(2px);
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at 42% 42%,
+    rgba(211, 162, 60, 0.55) 0%,
+    rgba(180, 145, 83, 0.35) 40%,
+    rgba(25, 24, 128, 0.05) 70%,
+    transparent 100%
+  );
+  animation: none;
+}
+@media (min-width: 768px) {
+  .hero-orb { animation: orb-drift 14s ease-in-out infinite; }
+}
+
+/* ==========================================================================
+   SCROLL REVEAL (progressive enhancement; content visible without JS)
+   ========================================================================== */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+/* If JS never runs, never leave content hidden. */
+.no-js [data-reveal] { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  [data-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .hero-orb { animation: none !important; }
+}

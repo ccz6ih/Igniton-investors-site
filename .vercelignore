@@ -1,0 +1,4 @@
+# Keep the deploy lean — these are local reference/design material, not the app.
+_theme_reference/
+*.zip
+Igniton_Investor_Site_Spec.md
