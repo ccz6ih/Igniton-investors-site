@@ -102,61 +102,69 @@ export function Technology() {
 /* ------------------------------------------------------------- PORTFOLIO */
 export function Portfolio() {
   return (
-    <Section id="portfolio" tone="alt">
-      <Reveal>
-        <Eyebrow>{portfolioIntro.eyebrow}</Eyebrow>
-        <h2 className="h-section max-w-3xl">
-          {portfolioIntro.headlineLead}
-          <em>{portfolioIntro.headlineEmphasis}</em>
-          {portfolioIntro.headlinePost}
-        </h2>
-        <p className="mt-6 max-w-2xl text-warm-gray">{portfolioIntro.body}</p>
-        <p className="mt-4 text-sm text-warm-gray">
-          Products are sold to consumers at{' '}
-          <a
-            href={site.consumerUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-semibold text-navy underline decoration-gold decoration-2 underline-offset-4 hover:text-gold"
-          >
-            {site.consumerLabel} ↗
-          </a>
-          . No pricing or checkout appears on this investor site.
-        </p>
-      </Reveal>
+    <section id="portfolio" className="bg-off-white py-[clamp(3.5rem,9vw,7rem)]">
+      <div className="container-brand">
+        <Reveal>
+          <Eyebrow>{portfolioIntro.eyebrow}</Eyebrow>
+          <h2 className="h-section max-w-3xl">
+            {portfolioIntro.headlineLead}
+            <em>{portfolioIntro.headlineEmphasis}</em>
+            {portfolioIntro.headlinePost}
+          </h2>
+          <p className="mt-6 max-w-2xl text-warm-gray">{portfolioIntro.body}</p>
+          <p className="mt-4 text-sm text-warm-gray">
+            Products are sold to consumers at{' '}
+            <a
+              href={site.consumerUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-navy underline decoration-gold decoration-2 underline-offset-4 hover:text-gold"
+            >
+              {site.consumerLabel} ↗
+            </a>
+            . No pricing or checkout appears on this investor site.
+          </p>
+        </Reveal>
+      </div>
 
-      <div className="mt-12 grid gap-6 sm:grid-cols-2">
+      {/* Full-width, 4-across product row to match the consumer site */}
+      <div className="mt-12 grid grid-cols-1 gap-px border-y border-hairline bg-hairline sm:grid-cols-2 lg:grid-cols-4">
         {products.map((p, i) => (
-          <Reveal key={p.key} delay={i * 70} className="flex flex-col overflow-hidden rounded-card border border-hairline bg-white">
+          <Reveal key={p.key} delay={i * 60} className="flex flex-col bg-white">
             <div className="relative aspect-[4/5] bg-off-white">
               <Image
                 src={p.image}
                 alt={`Igni${p.suffix} — premium supplement bottle`}
                 fill
-                sizes="(max-width: 640px) 100vw, 50vw"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 className="object-cover"
               />
             </div>
-            <div className="flex flex-1 flex-col p-7">
-              <h3 className="text-2xl">
+            <div className="flex flex-1 flex-col p-6">
+              <h3 className="text-xl">
                 <BrandName suffix={p.suffix} />
               </h3>
-              <p className="mt-1 text-xs font-semibold uppercase tracking-[0.12em] text-gold">{p.tier}</p>
+              <p className="mt-1 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-gold">
+                {p.tier}
+              </p>
               <p className="mt-3 text-sm text-warm-gray">{p.positioning}</p>
-              <ul className="mt-4 grid grid-cols-2 gap-2">
+              <ul className="mt-4 grid grid-cols-2 gap-1.5">
                 {p.figures.map((f) => (
-                  <li key={f} className="rounded bg-off-white px-3 py-2 text-sm font-semibold text-navy">
+                  <li key={f} className="rounded bg-off-white px-2.5 py-1.5 text-xs font-semibold text-navy">
                     {f}
                   </li>
                 ))}
               </ul>
-              <p className="mt-4 text-[0.7rem] leading-relaxed text-warm-gray">{p.citation}</p>
+              <p className="mt-4 text-[0.68rem] leading-relaxed text-warm-gray">{p.citation}</p>
             </div>
           </Reveal>
         ))}
       </div>
-      <p className="mt-8 text-xs text-warm-gray">{disclaimers.fda}</p>
-    </Section>
+
+      <div className="container-brand">
+        <p className="mt-8 text-xs text-warm-gray">{disclaimers.fda}</p>
+      </div>
+    </section>
   )
 }
 
@@ -266,13 +274,17 @@ export function LifestyleBand() {
         sizes="100vw"
         className="object-cover object-center"
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-navy/70 via-navy/40 to-transparent" />
+      {/* Darken for legible text regardless of what's behind it */}
+      <div className="absolute inset-0 bg-navy/35" />
+      <div className="absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/65 to-navy/10" />
       <div className="relative z-10 flex h-full items-center">
         <div className="container-brand">
           <Reveal>
-            <p className="eyebrow mb-4">Made in Colorado, USA</p>
-            <p className="max-w-2xl font-display text-3xl leading-tight text-white md:text-4xl">
-              A premium ritual, engineered to <em className="emphasis">work</em>.
+            <p className="eyebrow mb-4 text-gold-bright [text-shadow:0_1px_12px_rgba(0,0,0,0.5)]">
+              Made in Colorado, USA
+            </p>
+            <p className="max-w-2xl font-display text-3xl leading-tight text-white [text-shadow:0_2px_24px_rgba(0,0,0,0.55)] md:text-4xl">
+              A premium ritual, engineered to <em className="emphasis text-gold-bright">work</em>.
             </p>
           </Reveal>
         </div>
