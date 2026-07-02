@@ -18,8 +18,16 @@ export const founder: Person = {
   name: 'Jirka Rysavy',
   title: 'Founder',
   bio: 'Built several billion-dollar companies, including Corporate Express — Colorado’s largest privately owned company at $4.7B in revenue before its acquisition by Staples. Pioneered organic food retail with Crystal Market, the foundation of Wild Oats (later acquired by Whole Foods). Founder of Gaia Inc. (NASDAQ: GAIA). A former athletic champion and child math prodigy from the Czech Republic who lives simply in a mountain cabin.',
-  image: null, // request a clean headshot from the client
+  image: null, // by preference, the founder does not use portraits — track record leads
 }
+
+// The founder prefers no portrait; his record is the credential.
+export const founderMonogram = 'JR'
+export const founderCredentials = [
+  'Corporate Express — $4.7B revenue, acquired by Staples',
+  'Crystal Market → Wild Oats → Whole Foods',
+  'Founder, Gaia Inc. (NASDAQ: GAIA)',
+]
 
 export const advisors: Person[] = [
   {
@@ -32,7 +40,7 @@ export const advisors: Person[] = [
     name: 'Dr. Kenneth Ro, M.D.',
     title: 'Emergency & Internal Medicine',
     bio: 'Board-certified in Emergency and Internal Medicine with 35+ years of experience. Founder and medical director of “Back in the Game Men,” and author of PRIME: How to Win the Second Half of Life (2025).',
-    image: null,
+    image: '/team/kenro.jpg',
   },
   {
     name: 'Dr. Gail King, M.D., FACOG, FAARM',

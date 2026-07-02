@@ -7,7 +7,7 @@ import { MetricCell } from './Metric'
 import { pillars, credibility } from '@/content/overview'
 import { technology } from '@/content/technology'
 import { portfolioIntro, products } from '@/content/portfolio'
-import { tractionIntro, businessMetrics, scientificValidation, endorsement, pendingProof } from '@/content/traction'
+import { tractionIntro, businessMetrics, scientificValidation, endorsement, pendingProof, awards } from '@/content/traction'
 import { company } from '@/content/company'
 import { roadmapIntro, horizons } from '@/content/roadmap'
 import { disclaimers } from '@/content/disclaimers'
@@ -209,6 +209,37 @@ export function Traction() {
           </figure>
         </Reveal>
       </div>
+
+      {/* COVR awards — verified */}
+      <Reveal className="mt-14">
+        <h3 className="h-subhead">{awards.title}</h3>
+        <p className="mt-1 text-sm text-warm-gray">{awards.org}</p>
+        <div className="mt-6 grid gap-6 sm:grid-cols-3">
+          {awards.items.map((a) => {
+            const ring =
+              a.tier === 'Gold'
+                ? 'text-gold-bright border-gold-bright'
+                : a.tier === 'Silver'
+                ? 'text-warm-gray border-warm-gray'
+                : 'text-gold border-gold'
+            return (
+              <div key={a.tier} className="flex items-center gap-4 rounded-card border border-hairline p-6">
+                <span
+                  className={`flex h-14 w-14 flex-none items-center justify-center rounded-full border-2 font-display text-lg ${ring}`}
+                >
+                  {a.tier[0]}
+                </span>
+                <span>
+                  <span className="block text-xs font-semibold uppercase tracking-[0.14em] text-warm-gray">
+                    2025 {a.tier}
+                  </span>
+                  <span className="font-display text-lg text-navy">{a.category}</span>
+                </span>
+              </div>
+            )
+          })}
+        </div>
+      </Reveal>
 
       <Reveal className="mt-10 rounded-card border border-dashed border-hairline p-6">
         <p className="text-xs font-semibold uppercase tracking-[0.14em] text-warm-gray">

@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { footerColumns, site } from '@/content/site'
 import { disclaimers } from '@/content/disclaimers'
 
@@ -12,8 +13,15 @@ export function Footer() {
       <div className="container-brand py-16">
         <div className="grid gap-10 md:grid-cols-4">
           <div>
-            <p className="font-display text-2xl italic text-gold">Igniton</p>
-            <p className="mt-3 max-w-xs text-sm text-white/70">
+            {/* Reverse logo treatment (white on navy) — never re-typeset the wordmark. */}
+            <Image
+              src="/brand/logo.png"
+              alt={site.name}
+              width={160}
+              height={48}
+              className="h-8 w-auto brightness-0 invert"
+            />
+            <p className="mt-4 max-w-xs text-sm text-white/70">
               A revenue business today. A wellness technology tomorrow.
             </p>
           </div>

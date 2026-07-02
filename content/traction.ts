@@ -21,6 +21,18 @@ export const businessMetrics: Metric[] = [
   { label: 'CAC / LTV', value: null, verified: false },
 ]
 
+// Verified via public press release (igniton.com/blogs/press-release):
+// Igniton won three 2025 COVR Visionary Awards (Coalition of Visionary Resources).
+export const awards = {
+  title: 'Three 2025 COVR Visionary Awards',
+  org: 'Coalition of Visionary Resources (COVR) — Mind-Body-Spirit marketplace',
+  items: [
+    { tier: 'Gold', category: 'Online Retailer' },
+    { tier: 'Silver', category: 'Personal Products' },
+    { tier: 'Bronze', category: 'Transformational Products' },
+  ],
+}
+
 export const scientificValidation = [
   'Three peer-reviewed published studies (Cognition, post-COVID Cognition, Longevity/Stress).',
   'Additional independent clinical study (Peptide) and an initial study (REM).',
@@ -37,9 +49,8 @@ export const endorsement = {
   note: 'Confirm permission to quote/attribute for investor use.',
 }
 
-// Items the source did not substantiate — omit until proof supplied.
+// Items not yet substantiated — omit until proof supplied.
 export const pendingProof = [
-  'COVR award tiers (not found in source)',
   '“As seen in” publication names',
   'Specific customer-review counts (theme defaults were placeholders)',
 ]

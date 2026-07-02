@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Section, Eyebrow } from '@/components/Section'
 import { Reveal } from '@/components/Reveal'
-import { teamIntro, founder, advisors, type Person } from '@/content/team'
+import { teamIntro, founder, founderMonogram, founderCredentials, advisors, type Person } from '@/content/team'
 import { site } from '@/content/site'
 
 export const metadata: Metadata = {
@@ -59,19 +59,31 @@ export default function TeamPage() {
         </Reveal>
       </Section>
 
-      {/* Founder */}
+      {/* Founder — no portrait by preference; the track record is the visual. */}
       <Section tone="primary">
-        <Reveal className="grid gap-8 rounded-card border border-hairline p-8 md:grid-cols-[auto,1fr] md:items-start">
-          <Avatar person={founder} />
+        <Reveal className="grid gap-8 rounded-card border border-hairline p-8 md:grid-cols-[auto,1fr] md:items-center">
+          <div className="flex h-40 w-40 flex-none flex-col items-center justify-center rounded-card bg-navy text-white">
+            <span className="font-display text-5xl italic text-gold">{founderMonogram}</span>
+            <span className="mt-2 text-[0.6rem] font-semibold uppercase tracking-[0.2em] text-white/60">
+              Founder
+            </span>
+          </div>
           <div>
             <h2 className="font-display text-3xl">{founder.name}</h2>
             <p className="mt-1 text-xs font-semibold uppercase tracking-[0.16em] text-gold">
               {founder.title}
             </p>
             <p className="mt-4 max-w-3xl leading-relaxed text-warm-gray">{founder.bio}</p>
-            {!founder.image && (
-              <p className="mt-3 text-[0.7rem] italic text-warm-gray">Headshot to be supplied.</p>
-            )}
+            <ul className="mt-5 flex flex-wrap gap-2">
+              {founderCredentials.map((c) => (
+                <li
+                  key={c}
+                  className="rounded-full border border-hairline bg-off-white px-3 py-1.5 text-xs font-semibold text-navy"
+                >
+                  {c}
+                </li>
+              ))}
+            </ul>
           </div>
         </Reveal>
       </Section>

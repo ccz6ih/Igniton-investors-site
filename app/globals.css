@@ -48,7 +48,7 @@ body {
 
 h1, h2, h3 {
   font-family: var(--font-playfair), 'Playfair Display', serif;
-  font-weight: 600;
+  font-weight: 400; /* brand: Playfair Regular for display + subheads */
   color: var(--color-navy);
   text-wrap: balance;
 }
@@ -105,7 +105,7 @@ a { color: inherit; }
   .h-subhead {
     font-size: clamp(1.25rem, 2.5vw, 1.75rem);
     line-height: 1.25;
-    font-weight: 600;
+    font-weight: 400;
   }
 
   .prose-brand p {

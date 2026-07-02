@@ -64,6 +64,7 @@ export const pillars: Pillar[] = [
 export const credibility = [
   'Gaia Inc. — NASDAQ: GAIA',
   'University-led, peer-reviewed studies',
+  'Three 2025 COVR Visionary Awards',
   'Medical & scientific advisory board',
   'Made in Colorado, USA',
 ]

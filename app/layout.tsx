@@ -5,9 +5,11 @@ import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
 import { site } from '@/content/site'
 
+// Brand guidelines: Playfair Display is used at REGULAR weight for headlines and
+// product names (italic emphasizes a single word). Not 600.
 const playfair = Playfair_Display({
   subsets: ['latin'],
-  weight: ['600'],
+  weight: ['400'],
   style: ['normal', 'italic'],
   variable: '--font-playfair',
   display: 'swap',
