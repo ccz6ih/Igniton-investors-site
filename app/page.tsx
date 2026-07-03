@@ -48,12 +48,12 @@ export default function HomePage() {
           <div className="marquee-track">
             {[...home.carousel, ...home.carousel].map((s, i) => (
               <div key={i} className="relative h-52 w-72 flex-none overflow-hidden rounded-section sm:h-60 sm:w-80">
-                <Image src={s.image} alt={i < home.carousel.length ? s.caption : ''} fill sizes="20rem" className="object-cover" />
+                <Image src={s.image} alt={i < home.carousel.length ? home.carouselCaption : ''} fill sizes="20rem" className="object-cover" />
               </div>
             ))}
           </div>
         </div>
-        <p className="mt-4 text-center text-xs text-warm-gray">{home.carousel[0].caption}</p>
+        <p className="mt-4 text-center text-xs text-warm-gray">{home.carouselCaption}</p>
       </Section>
 
       {/* Disclaimer */}

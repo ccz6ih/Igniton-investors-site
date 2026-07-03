@@ -12,12 +12,18 @@ export const home = {
   // Owner will provide the company video; placeholder slot until then.
   videoPlaceholder: 'Company video — to be provided',
   confidential: 'STRICTLY PRIVATE & CONFIDENTIAL — IGNITON, INC.',
-  // Science-image carousel — owner to supply final images ("ask Malek").
+  // Science-image carousel. Owner to supply final images incl. a facility
+  // exterior ("ask Malek"); using our real Colorado lab/apparatus shots for now.
+  carouselCaption: 'Igniton stabilization and concentration facility in Colorado, USA',
   carousel: [
-    { image: '/lab/cleanroom.jpg', caption: 'Igniton stabilization and concentration facility in Colorado, USA' },
-    { image: '/lab/production.jpg', caption: 'Igniton stabilization and concentration facility in Colorado, USA' },
-    { image: '/lab/measurement.jpg', caption: 'Igniton stabilization and concentration facility in Colorado, USA' },
-    { image: '/apparatus/coldplasma.jpg', caption: 'Igniton stabilization and concentration facility in Colorado, USA' },
+    { image: '/lab/cleanroom.jpg' },
+    { image: '/apparatus/coldplasma.jpg' },
+    { image: '/lab/production.jpg' },
+    { image: '/apparatus/light-matter.jpg' },
+    { image: '/lab/measurement.jpg' },
+    { image: '/apparatus/control.jpg' },
+    { image: '/apparatus/deposition.jpg' },
+    { image: '/apparatus/resonance.jpg' },
   ],
 }
 
