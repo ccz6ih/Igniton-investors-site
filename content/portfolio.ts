@@ -20,14 +20,20 @@ export const portfolioIntro = {
   body: 'The current product line is the de-risked, cash-generating base of the business. Each formula carries its own study tier and exact figures. The Cognition + Longevity pairing is the validated top revenue line.',
 }
 
-// Real-people lifestyle strip — the products in everyday routines.
+// Real-people lifestyle ticker — the products across everyday routines.
 export const routines = {
   eyebrow: 'In real routines',
   heading: 'Part of 10,000+ daily routines.',
   shots: [
     { image: '/lifestyle/routine-kitchen.jpg', alt: 'A customer with IgniCognition in her kitchen' },
     { image: '/lifestyle/routine-man.jpg', alt: 'A customer examining IgniCognition outdoors' },
+    { image: '/lifestyle/peptide-hold.jpg', alt: 'Holding the IgniPeptide eye serum' },
     { image: '/lifestyle/routine-shared.jpg', alt: 'IgniLongevity in a shared morning ritual' },
+    { image: '/lifestyle/couple.jpg', alt: 'A couple with IgniLongevity at the table' },
+    { image: '/lifestyle/rem-night.jpg', alt: 'IgniREM Sleep on the nightstand' },
+    { image: '/lifestyle/longevity-foliage.jpg', alt: 'IgniLongevity held in natural light' },
+    { image: '/lifestyle/kitchen-reach.jpg', alt: 'Reaching for IgniCognition in the kitchen' },
+    { image: '/lifestyle/meditation.jpg', alt: 'A quiet moment with IgniCognition' },
   ],
 }
 

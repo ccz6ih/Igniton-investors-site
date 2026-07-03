@@ -13,8 +13,6 @@ export function Hero() {
       id="overview"
       className="relative overflow-hidden bg-[#fdfaf5] text-navy"
     >
-      <div className="hero-orb" aria-hidden="true" />
-
       <div className="container-wide relative z-10 py-20 sm:py-24 lg:py-28">
         <div className="grid items-center gap-10 lg:grid-cols-[1.15fr,0.85fr]">
           <div className="max-w-2xl text-center lg:text-left">

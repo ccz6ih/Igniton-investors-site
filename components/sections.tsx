@@ -135,23 +135,34 @@ export function Portfolio() {
         ))}
       </div>
 
-      {/* In real routines — the products in everyday life */}
+      {/* In real routines — full-width auto-scrolling lifestyle ticker */}
       <div className="container-brand mt-16">
         <Reveal>
           <Eyebrow>{routines.eyebrow}</Eyebrow>
           <h3 className="h-subhead max-w-xl">{routines.heading}</h3>
         </Reveal>
-        <div className="mt-8 grid gap-4 sm:grid-cols-3">
-          {routines.shots.map((s, i) => (
-            <Reveal key={s.image} delay={i * 70} className="relative aspect-square overflow-hidden rounded-section">
-              <Image src={s.image} alt={s.alt} fill sizes="(max-width:640px) 100vw, 33vw" className="object-cover" />
-            </Reveal>
+      </div>
+      <div className="marquee mt-8" aria-label="Lifestyle photos of customers using Igniton products">
+        <div className="marquee-track">
+          {[...routines.shots, ...routines.shots].map((s, i) => (
+            <div
+              key={i}
+              className="relative h-56 w-44 flex-none overflow-hidden rounded-section sm:h-72 sm:w-56"
+            >
+              <Image
+                src={s.image}
+                alt={i < routines.shots.length ? s.alt : ''}
+                fill
+                sizes="14rem"
+                className="object-cover"
+              />
+            </div>
           ))}
         </div>
       </div>
 
       <div className="container-brand">
-        <p className="mt-8 text-xs text-warm-gray">{disclaimers.fda}</p>
+        <p className="mt-10 text-xs text-warm-gray">{disclaimers.fda}</p>
       </div>
     </section>
   )

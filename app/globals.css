@@ -241,6 +241,33 @@ a { color: inherit; }
 }
 
 /* ==========================================================================
+   LIFESTYLE MARQUEE / TICKER (CSS-only, seamless loop)
+   The track holds the image set TWICE; translating -50% loops seamlessly.
+   ========================================================================== */
+.marquee {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  gap: 1rem;
+  animation: marquee 55s linear infinite;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-50% - 0.5rem)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
+  .marquee { overflow-x: auto; }
+}
+
+/* ==========================================================================
    SCROLL REVEAL (progressive enhancement; content visible without JS)
    ========================================================================== */
 [data-reveal] {
