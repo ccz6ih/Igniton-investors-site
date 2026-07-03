@@ -75,8 +75,8 @@ export const technology = {
     body: 'Gas Discharge Visualization (GDV) — pioneered by advisor Prof. Konstantin Korotkov and used in the published trials — measures a sample’s energy output and molecular order. Untreated water, next to Igniton-charged water.',
     unit: 'Energy · 10⁻² Joules',
     compare: [
-      { tag: 'Uncharged', label: 'Standard water', energy: '5.56', noise: '3,033' },
-      { tag: 'Igniton', label: 'Charged water', energy: '14.04', noise: '1' },
+      { tag: 'Uncharged', label: 'Standard water', energy: '5.56', noise: '3,033', image: '/science/gdv-regular.png' },
+      { tag: 'Igniton', label: 'Charged water', energy: '14.04', noise: '1', image: '/science/gdv-charged.png' },
     ],
   },
 

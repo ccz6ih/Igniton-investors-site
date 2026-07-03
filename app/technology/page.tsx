@@ -124,6 +124,15 @@ export default function TechnologyPage() {
                 i === 1 ? 'bg-navy text-white on-dark' : 'border border-hairline bg-off-white'
               }`}
             >
+              <div className="mb-6 flex justify-center">
+                <Image
+                  src={c.image}
+                  alt={`GDV capture — ${c.label}`}
+                  width={220}
+                  height={220}
+                  className="h-40 w-40 object-contain"
+                />
+              </div>
               <p className={`text-xs font-semibold uppercase tracking-[0.16em] ${i === 1 ? 'text-gold' : 'text-warm-gray'}`}>
                 {c.tag}
               </p>
