@@ -48,16 +48,33 @@ export function Hero() {
             </Reveal>
           </div>
 
-          {/* Right column: the "Born from Light" visual, haloed by the warm orb. */}
-          <Reveal delay={200} className="relative hidden lg:block">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-[4px] shadow-[0_20px_60px_rgba(18,18,65,0.18)]">
+          {/* Right column: the visual held INSIDE the luminous orb — "Born from Light". */}
+          <Reveal delay={200} className="relative hidden items-center justify-center lg:flex">
+            {/* Soft gold glow radiating from behind the orb */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 scale-125"
+              style={{
+                background:
+                  'radial-gradient(circle at 50% 50%, rgba(211,162,60,0.55) 0%, rgba(180,145,83,0.28) 42%, rgba(180,145,83,0) 70%)',
+                filter: 'blur(6px)',
+              }}
+            />
+            {/* The circular orb holding the image */}
+            <div className="relative aspect-square w-full max-w-[440px] overflow-hidden rounded-full shadow-[0_0_90px_18px_rgba(211,162,60,0.30)] ring-1 ring-gold/40">
               <Image
                 src="/hero/yoga.jpg"
-                alt="A figure in a warrior pose within a radiant field of light — Igniton's ‘Born from Light’ motif"
+                alt="A figure within a radiant field of light — Igniton's ‘Born from Light’ motif"
                 fill
                 priority
                 sizes="(max-width: 1024px) 0px, 40vw"
-                className="object-cover"
+                className="scale-105 object-cover"
+              />
+              {/* Inner warmth ring so the photo melts into the glow */}
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 rounded-full"
+                style={{ boxShadow: 'inset 0 0 60px 10px rgba(211,162,60,0.35)' }}
               />
             </div>
           </Reveal>

@@ -27,9 +27,9 @@ export const awards = {
   title: 'Three 2025 COVR Visionary Awards',
   org: 'Coalition of Visionary Resources (COVR) — Mind-Body-Spirit marketplace',
   items: [
-    { tier: 'Gold', category: 'Online Retailer' },
-    { tier: 'Silver', category: 'Personal Products' },
-    { tier: 'Bronze', category: 'Transformational Products' },
+    { tier: 'Gold', category: 'Online Retailer', badge: '/awards/covr-gold.png' },
+    { tier: 'Silver', category: 'Personal Products', badge: '/awards/covr-silver.png' },
+    { tier: 'Bronze', category: 'Transformational Products', badge: '/awards/covr-bronze.png' },
   ],
 }
 
