@@ -38,3 +38,5 @@ yarn-error.log*
 # internal client collateral must never be committed to the (public) repo
 *.pptx
 docs/*.pdf
+docs/*.docx
+docs/*.html

@@ -397,10 +397,14 @@ export function Contact() {
           For the investor overview, data room access, or a conversation with the team, reach
           out to investor relations.
         </p>
-        <a href={`mailto:${site.irEmail}`} className="btn-primary btn-primary--gold mt-8">
-          Email investor relations
+        <a
+          href={site.contactUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn-primary btn-primary--gold mt-8"
+        >
+          Contact investor relations
         </a>
-        <p className="mt-4 text-sm text-warm-gray">{site.irEmail}</p>
         <p className="mx-auto mt-10 max-w-xl text-[0.7rem] leading-relaxed text-warm-gray">
           {disclaimers.notAnOffer}
         </p>

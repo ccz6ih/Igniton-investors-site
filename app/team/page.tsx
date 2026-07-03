@@ -123,8 +123,13 @@ export default function TeamPage() {
           <h2 className="h-section">
             Talk to <em>us</em>.
           </h2>
-          <a href={`mailto:${site.irEmail}`} className="btn-primary btn-primary--gold mt-8">
-            Email investor relations
+          <a
+            href={site.contactUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary btn-primary--gold mt-8"
+          >
+            Contact investor relations
           </a>
         </Reveal>
       </Section>

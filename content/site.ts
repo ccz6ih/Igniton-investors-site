@@ -15,6 +15,8 @@ export const site = {
   // links out to it (no commerce lives here).
   consumerUrl: 'https://igniton.com',
   consumerLabel: 'igniton.com',
+  // Contact routes to the existing Shopify contact page (working form, no build).
+  contactUrl: 'https://igniton.com/pages/contact',
 }
 
 export type NavItem = { label: string; href: string }
@@ -26,6 +28,7 @@ export const nav: NavItem[] = [
   { label: 'Portfolio', href: '/#portfolio' },
   { label: 'Technology', href: '/#technology' },
   { label: 'Traction', href: '/#traction' },
+  { label: 'Vision', href: '/vision' },
   { label: 'Team', href: '/team' },
   { label: 'Roadmap', href: '/#roadmap' },
 ]
