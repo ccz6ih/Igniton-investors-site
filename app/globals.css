@@ -82,6 +82,13 @@ a { color: inherit; }
     padding-inline: clamp(1.25rem, 4vw, var(--space-section-h));
   }
 
+  /* Wider container for the header + hero so they don't feel squished. */
+  .container-wide {
+    max-width: 1760px;
+    margin-inline: auto;
+    padding-inline: clamp(1.5rem, 5vw, 4rem);
+  }
+
   .eyebrow {
     font-family: var(--font-jakarta), sans-serif;
     font-size: 0.6875rem;

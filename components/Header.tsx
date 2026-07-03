@@ -27,7 +27,7 @@ export function Header() {
           : 'bg-white/80 backdrop-blur-sm'
       } border-b border-hairline`}
     >
-      <div className="container-brand flex h-[72px] items-center justify-between gap-6">
+      <div className="container-wide flex h-[72px] items-center justify-between gap-6">
         <Link href="/" className="flex items-center gap-3" aria-label={`${site.name} — Investor Relations`}>
           <Image
             src="/brand/logo.png"
