@@ -60,25 +60,21 @@ export function Hero() {
                 filter: 'blur(6px)',
               }}
             />
-            {/* The circular orb — a luminous Igniton-charged coherence pattern (GDV) */}
-            <div
-              className="relative flex aspect-square w-full max-w-[440px] items-center justify-center overflow-hidden rounded-full shadow-[0_0_90px_18px_rgba(211,162,60,0.30)] ring-1 ring-gold/40"
-              style={{ background: 'radial-gradient(circle at 50% 45%, #1b1b57 0%, #121241 72%)' }}
-            >
+            {/* The circular orb holding the warm, luminous visual — "Born from Light" */}
+            <div className="relative aspect-square w-full max-w-[440px] overflow-hidden rounded-full shadow-[0_0_90px_18px_rgba(211,162,60,0.30)] ring-1 ring-gold/40">
               <Image
-                src="/science/gdv-charged.png"
-                alt="Igniton-charged water shown as a symmetric GDV coherence pattern — the ‘Born from Light’ motif"
-                width={440}
-                height={440}
+                src="/hero/eye-serum.jpg"
+                alt="A face bathed in warm light as an Igniton serum is applied — the ‘Born from Light’ motif"
+                fill
                 priority
                 sizes="(max-width: 1024px) 0px, 40vw"
-                className="h-[80%] w-[80%] object-contain"
+                className="object-cover"
               />
-              {/* Inner warmth ring so the pattern melts into the glow */}
+              {/* Inner warmth ring so the photo melts into the glow */}
               <div
                 aria-hidden="true"
                 className="pointer-events-none absolute inset-0 rounded-full"
-                style={{ boxShadow: 'inset 0 0 70px 12px rgba(211,162,60,0.30)' }}
+                style={{ boxShadow: 'inset 0 0 60px 10px rgba(211,162,60,0.30)' }}
               />
             </div>
           </Reveal>
