@@ -2,12 +2,12 @@ import type { MetadataRoute } from 'next'
 import { site } from '@/content/site'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date('2026-07-02')
-  return [
-    { url: `${site.url}/`, lastModified, changeFrequency: 'monthly', priority: 1 },
-    { url: `${site.url}/technology`, lastModified, changeFrequency: 'monthly', priority: 0.9 },
-    { url: `${site.url}/vision`, lastModified, changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${site.url}/media`, lastModified, changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${site.url}/team`, lastModified, changeFrequency: 'monthly', priority: 0.8 },
-  ]
+  const lastModified = new Date('2026-07-03')
+  const routes = ['/', '/about-us', '/product-overview', '/technology', '/science']
+  return routes.map((r) => ({
+    url: `${site.url}${r}`,
+    lastModified,
+    changeFrequency: 'monthly' as const,
+    priority: r === '/' ? 1 : 0.8,
+  }))
 }

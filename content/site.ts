@@ -21,12 +21,12 @@ export const site = {
 
 export type NavItem = { label: string; href: string }
 
-// Simplified top nav — three easy destinations. Everything else lives in the
-// footer and is cross-linked from the homepage.
+// Top nav mirrors the owner's deck structure.
 export const nav: NavItem[] = [
-  { label: 'Science', href: '/#traction' },
+  { label: 'About Us', href: '/about-us' },
+  { label: 'Product Overview', href: '/product-overview' },
   { label: 'Technology', href: '/technology' },
-  { label: 'About', href: '/vision' },
+  { label: 'Science', href: '/science' },
 ]
 
 export const headerCta: NavItem = { label: 'Contact IR', href: '/#contact' }
