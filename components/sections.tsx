@@ -6,7 +6,7 @@ import { BrandName } from './BrandName'
 import { MetricCell } from './Metric'
 import { pillars, credibility } from '@/content/overview'
 import { technology } from '@/content/technology'
-import { portfolioIntro, products } from '@/content/portfolio'
+import { portfolioIntro, products, routines } from '@/content/portfolio'
 import { tractionIntro, businessMetrics, sellThrough, scientificValidation, endorsement, physicianEndorsement, bloodwork, reviews, pendingProof, awards } from '@/content/traction'
 import { company } from '@/content/company'
 import { roadmapIntro, horizons } from '@/content/roadmap'
@@ -133,6 +133,21 @@ export function Portfolio() {
             </div>
           </Reveal>
         ))}
+      </div>
+
+      {/* In real routines — the products in everyday life */}
+      <div className="container-brand mt-16">
+        <Reveal>
+          <Eyebrow>{routines.eyebrow}</Eyebrow>
+          <h3 className="h-subhead max-w-xl">{routines.heading}</h3>
+        </Reveal>
+        <div className="mt-8 grid gap-4 sm:grid-cols-3">
+          {routines.shots.map((s, i) => (
+            <Reveal key={s.image} delay={i * 70} className="relative aspect-square overflow-hidden rounded-section">
+              <Image src={s.image} alt={s.alt} fill sizes="(max-width:640px) 100vw, 33vw" className="object-cover" />
+            </Reveal>
+          ))}
+        </div>
       </div>
 
       <div className="container-brand">
