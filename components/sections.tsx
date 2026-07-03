@@ -204,6 +204,9 @@ export function Traction() {
           <em>{tractionIntro.headlineEmphasis}</em>
           {tractionIntro.headlinePost}
         </h2>
+        <Link href="/media" className="btn-secondary mt-6">
+          Watch leaders in conversation
+        </Link>
       </Reveal>
 
       <Reveal className="mt-12">
@@ -384,14 +387,19 @@ export function Company() {
               </li>
             ))}
           </ul>
-          <Link
-            href={company.articlesOfIncorporation}
-            className="btn-secondary mt-6"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Articles of Incorporation (PDF)
-          </Link>
+          <div className="mt-6 flex flex-wrap gap-x-8 gap-y-3">
+            <Link
+              href={company.articlesOfIncorporation}
+              className="btn-secondary"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Articles of Incorporation (PDF)
+            </Link>
+            <Link href="/team" className="btn-secondary">
+              Meet the team &amp; advisors
+            </Link>
+          </div>
         </Reveal>
 
         <Reveal delay={80} className="rounded-card border border-hairline bg-white p-8">

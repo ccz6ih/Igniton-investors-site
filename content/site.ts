@@ -21,42 +21,39 @@ export const site = {
 
 export type NavItem = { label: string; href: string }
 
-// Mirrors the consumer nav's shape (Products/Science/Results/About) but points
-// at the investor equivalents, plus investor-only sections.
+// Simplified top nav — three easy destinations. Everything else lives in the
+// footer and is cross-linked from the homepage.
 export const nav: NavItem[] = [
-  { label: 'Overview', href: '/#overview' },
-  { label: 'Portfolio', href: '/#portfolio' },
+  { label: 'Science', href: '/#traction' },
   { label: 'Technology', href: '/technology' },
-  { label: 'Traction', href: '/#traction' },
-  { label: 'Vision', href: '/vision' },
-  { label: 'Media', href: '/media' },
-  { label: 'Team', href: '/team' },
-  { label: 'Roadmap', href: '/#roadmap' },
+  { label: 'About', href: '/vision' },
 ]
 
 export const headerCta: NavItem = { label: 'Contact IR', href: '/#contact' }
 
 export const footerColumns: { heading: string; links: NavItem[] }[] = [
   {
-    heading: 'Company',
+    heading: 'Explore',
     links: [
       { label: 'Overview', href: '/#overview' },
-      { label: 'Company & Gaia', href: '/#company' },
-      { label: 'Team & Advisors', href: '/team' },
+      { label: 'Portfolio', href: '/#portfolio' },
+      { label: 'Technology', href: '/technology' },
+      { label: 'Science & Traction', href: '/#traction' },
     ],
   },
   {
-    heading: 'The Business',
+    heading: 'Company',
     links: [
-      { label: 'Technology', href: '/technology' },
-      { label: 'Portfolio', href: '/#portfolio' },
-      { label: 'Traction', href: '/#traction' },
+      { label: 'About / Vision', href: '/vision' },
+      { label: 'Team & Advisors', href: '/team' },
+      { label: 'Company & Gaia', href: '/#company' },
       { label: 'Roadmap', href: '/#roadmap' },
     ],
   },
   {
-    heading: 'Investor Relations',
+    heading: 'More',
     links: [
+      { label: 'Media', href: '/media' },
       { label: 'Contact IR', href: '/#contact' },
       { label: 'Shop at igniton.com ↗', href: 'https://igniton.com' },
     ],
