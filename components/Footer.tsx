@@ -1,47 +1,32 @@
-import Link from 'next/link'
 import Image from 'next/image'
-import { footerColumns, site } from '@/content/site'
+import { site } from '@/content/site'
 import { disclaimers } from '@/content/disclaimers'
 
-// Dark navy footer with gold wordmark, investor links, "Powered by Ignitons™",
-// and the full disclaimer block. Legal must review disclaimers before launch.
+// Minimal navy footer: logo, a single "Shop at igniton.com" link, and the
+// legal disclaimer block. Legal must review disclaimers before launch.
 export function Footer() {
   const year = 2026 // build-stamped; update at release
 
   return (
     <footer className="bg-navy text-white on-dark">
       <div className="container-brand py-16">
-        <div className="grid gap-10 md:grid-cols-4">
-          <div>
-            {/* Reverse logo treatment (white on navy) — never re-typeset the wordmark. */}
-            <Image
-              src="/brand/logo.png"
-              alt={site.name}
-              width={160}
-              height={48}
-              className="h-8 w-auto brightness-0 invert"
-            />
-            <p className="mt-4 max-w-xs text-sm text-white/70">
-              A revenue business today. A wellness technology tomorrow.
-            </p>
-          </div>
-
-          {footerColumns.map((col) => (
-            <div key={col.heading}>
-              <h2 className="mb-3 text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-gold">
-                {col.heading}
-              </h2>
-              <ul className="flex flex-col gap-2">
-                {col.links.map((l) => (
-                  <li key={l.href}>
-                    <Link href={l.href} className="text-sm text-white/75 transition-colors hover:text-white">
-                      {l.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+        <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
+          {/* Reverse logo treatment (white on navy) — never re-typeset the wordmark. */}
+          <Image
+            src="/brand/logo.png"
+            alt={site.name}
+            width={160}
+            height={48}
+            className="h-8 w-auto brightness-0 invert"
+          />
+          <a
+            href={site.consumerUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm font-semibold uppercase tracking-[0.18em] text-gold transition-opacity hover:opacity-80"
+          >
+            Shop at {site.consumerLabel} ↗
+          </a>
         </div>
 
         {/* Disclaimer block */}

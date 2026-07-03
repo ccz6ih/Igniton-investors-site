@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { nav, headerCta, site } from '@/content/site'
+import { nav, site } from '@/content/site'
 
 // Light, sticky header matching the consumer chrome: native logo (+ "Investors"
 // lockup) left · investor nav center/right · bright-gold Contact IR button, with
@@ -42,27 +42,16 @@ export function Header() {
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-6 lg:flex" aria-label="Investor navigation">
+        <nav className="hidden items-center gap-8 lg:flex" aria-label="Investor navigation">
           {nav.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-navy/75 transition-colors hover:text-navy"
+              className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-navy/75 transition-colors hover:text-navy"
             >
               {item.label}
             </Link>
           ))}
-          <a
-            href={site.consumerUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-gold transition-opacity hover:opacity-70"
-          >
-            Shop ↗
-          </a>
-          <Link href={headerCta.href} className="btn-primary btn-primary--gold">
-            {headerCta.label}
-          </Link>
         </nav>
 
         <button
@@ -92,25 +81,6 @@ export function Header() {
                 </Link>
               </li>
             ))}
-            <li>
-              <a
-                href={site.consumerUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block py-1 text-sm font-semibold uppercase tracking-[0.14em] text-gold"
-              >
-                Shop at {site.consumerLabel} ↗
-              </a>
-            </li>
-            <li className="pt-2">
-              <Link
-                href={headerCta.href}
-                onClick={() => setOpen(false)}
-                className="btn-primary btn-primary--gold w-full"
-              >
-                {headerCta.label}
-              </Link>
-            </li>
           </ul>
         </nav>
       )}
