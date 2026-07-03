@@ -32,12 +32,37 @@ export function Thesis() {
           </Reveal>
         ))}
       </div>
-      <Reveal className="mt-10 flex flex-wrap gap-x-8 gap-y-2 text-xs font-semibold uppercase tracking-[0.14em] text-warm-gray">
-        {credibility.map((c) => (
-          <span key={c}>{c}</span>
-        ))}
-      </Reveal>
     </Section>
+  )
+}
+
+/* ---------------------------------------------------- CREDIBILITY TICKER */
+export function CredibilityTicker() {
+  return (
+    <div className="relative overflow-hidden bg-navy text-white">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            'radial-gradient(60% 120% at 50% 0%, rgba(211,162,60,0.12), transparent 70%)',
+        }}
+      />
+      <div className="marquee relative py-4">
+        <div className="marquee-track items-center">
+          {[...credibility, ...credibility].map((c, i) => (
+            <span key={i} className="flex items-center gap-4 whitespace-nowrap">
+              <span className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-white/85">
+                {c}
+              </span>
+              <span className="text-gold" aria-hidden="true">
+                ✦
+              </span>
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
   )
 }
 

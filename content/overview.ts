@@ -62,9 +62,13 @@ export const pillars: Pillar[] = [
 ]
 
 export const credibility = [
-  'Gaia Inc. — NASDAQ: GAIA',
+  'Majority-owned by Gaia Inc. (NASDAQ: GAIA)',
   'University-led, peer-reviewed studies',
   'Three 2025 COVR Visionary Awards',
   'Medical & scientific advisory board',
+  'As seen in Top Doctor Magazine',
+  'Featured on Gaia',
+  'Endorsed by Dave Asprey',
+  '10,000+ customers',
   'Made in Colorado, USA',
 ]

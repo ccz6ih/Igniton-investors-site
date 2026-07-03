@@ -1,5 +1,6 @@
 import { Hero } from '@/components/Hero'
 import {
+  CredibilityTicker,
   Thesis,
   Technology,
   Portfolio,
@@ -15,6 +16,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <CredibilityTicker />
       <Thesis />
       <Technology />
       <Portfolio />
