@@ -35,16 +35,45 @@ export const technology = {
     ],
   },
 
-  // Inside-the-lab gallery (frames from the company's own facility B-roll).
-  lab: {
-    eyebrow: 'Inside the lab',
-    heading: 'A real facility. A real process.',
-    body: 'The cold-plasma and photonics process runs in Igniton’s own Colorado facility — the same instrumentation lineage behind the published studies. This is manufacturing know-how, not a white-label supplement.',
+  // The actual apparatus — real equipment photos, grouped current vs original.
+  apparatus: {
+    eyebrow: 'The apparatus',
+    heading: 'From CERN-era instruments to a compact Colorado system.',
+    body: 'Igniton (eNPQ quasi-particle) technology was developed from the 1990s. In 1995 a laboratory was established in Switzerland, with much of the measurement hardware rented from CERN. Once the physics was characterized, a compact, energy-efficient cold-plasma system was designed and built in Colorado — where the process runs today.',
+    groups: [
+      {
+        label: 'Today — Colorado',
+        note: 'Hot plasma replaced by cold plasma: far more energy-efficient and compact.',
+        shots: [
+          { image: '/apparatus/coldplasma.jpg', caption: 'High-vacuum cold-plasma with coherent photonic-stream complex — Si-wafers with quantum-well nano-layers' },
+          { image: '/apparatus/deposition.jpg', caption: 'Direct igniton deposition equipment' },
+          { image: '/apparatus/deposition-protons.jpg', caption: 'Direct igniton deposition into protons in the molecule mix' },
+          { image: '/apparatus/control.jpg', caption: 'Computer control unit & vacuum plasma chambers' },
+        ],
+      },
+      {
+        label: 'Original characterization — Swiss laboratory (CERN-era)',
+        note: 'The instruments that verified and measured the eNPQ quasi-particle before industrialization.',
+        shots: [
+          { image: '/apparatus/resonance.jpg', caption: 'Hot-plasma resonance chamber' },
+          { image: '/apparatus/light-matter.jpg', caption: 'Light–matter interaction — laser sample disintegration' },
+          { image: '/apparatus/acceleration.jpg', caption: 'eNQP acceleration stage' },
+          { image: '/apparatus/detectors-array.jpg', caption: 'eNQP detectors array — spherical, electronically focused' },
+          { image: '/apparatus/deflector.jpg', caption: 'Vertical magneto-static / RF deflector' },
+          { image: '/apparatus/counting.jpg', caption: 'Electronic control & counting systems' },
+        ],
+      },
+    ],
+  },
+
+  // A few facility B-roll frames — the human side of the operation.
+  facility: {
+    eyebrow: 'In the facility',
+    heading: 'Made in Colorado — in-house, end to end.',
     shots: [
-      { image: '/lab/equipment.jpg', caption: 'Cold-plasma / photonics processing equipment' },
       { image: '/lab/cleanroom.jpg', caption: 'Controlled-environment handling' },
       { image: '/lab/production.jpg', caption: 'In-house formulation & encapsulation' },
-      { image: '/lab/measurement.jpg', caption: 'Process monitoring & GDV measurement' },
+      { image: '/lab/measurement.jpg', caption: 'Process monitoring & measurement' },
     ],
   },
 

@@ -9,26 +9,51 @@ import { disclaimers } from '@/content/disclaimers'
 export const metadata: Metadata = {
   title: 'Technology — The Moat',
   description:
-    'Igniton’s defensible asset is the process, not the ingredient list: a cold-plasma enhancement run in its own Colorado facility, a 30-year science lineage, and GDV measurement. Inside the lab.',
+    'Igniton’s defensible asset is the process, not the ingredient list: a cold-plasma enhancement system developed from CERN-era instruments and rebuilt in its own Colorado facility. Inside the apparatus.',
   alternates: { canonical: '/technology' },
+}
+
+function ShotGrid({
+  shots,
+  cols,
+}: {
+  shots: { image: string; caption: string }[]
+  cols: string
+}) {
+  return (
+    <div className={`mt-6 grid gap-5 ${cols}`}>
+      {shots.map((s, i) => (
+        <Reveal
+          key={s.image}
+          delay={(i % 4) * 60}
+          className="overflow-hidden rounded-section border border-hairline bg-white"
+        >
+          <div className="relative aspect-[4/3] bg-navy">
+            <Image src={s.image} alt={s.caption} fill sizes="(max-width:640px) 100vw, 33vw" className="object-cover" />
+          </div>
+          <p className="px-4 py-3 text-xs leading-snug text-navy">{s.caption}</p>
+        </Reveal>
+      ))}
+    </div>
+  )
 }
 
 export default function TechnologyPage() {
   const t = technology
   return (
     <>
-      {/* Hero — navy with a darkened lab-equipment backdrop */}
+      {/* Hero — navy with a darkened equipment backdrop */}
       <section className="relative overflow-hidden bg-navy text-white on-dark">
         <Image
-          src="/lab/equipment.jpg"
-          alt="Igniton cold-plasma processing equipment"
+          src="/apparatus/light-matter.jpg"
+          alt=""
           fill
           priority
           sizes="100vw"
-          className="object-cover opacity-25"
+          className="object-cover opacity-30"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/80 to-navy/50" />
-        <div className="container-brand relative z-10 flex min-h-[60vh] flex-col justify-center py-24">
+        <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/85 to-navy/60" />
+        <div className="container-brand relative z-10 flex min-h-[62vh] flex-col justify-center py-24">
           <Reveal>
             <p className="eyebrow mb-5">{t.eyebrow}</p>
           </Reveal>
@@ -57,23 +82,26 @@ export default function TechnologyPage() {
         </div>
       </Section>
 
-      {/* Inside the lab — the gallery that makes it pop */}
+      {/* The apparatus — the real equipment */}
       <Section tone="alt">
         <Reveal className="max-w-3xl">
-          <Eyebrow>{t.lab.eyebrow}</Eyebrow>
-          <h2 className="h-section">{t.lab.heading}</h2>
-          <p className="mt-6 text-warm-gray">{t.lab.body}</p>
+          <Eyebrow>{t.apparatus.eyebrow}</Eyebrow>
+          <h2 className="h-section">{t.apparatus.heading}</h2>
+          <p className="mt-6 text-warm-gray">{t.apparatus.body}</p>
         </Reveal>
-        <div className="mt-12 grid gap-6 sm:grid-cols-2">
-          {t.lab.shots.map((s, i) => (
-            <Reveal key={s.image} delay={(i % 2) * 80} className="overflow-hidden rounded-section border border-hairline bg-white">
-              <div className="relative aspect-video">
-                <Image src={s.image} alt={s.caption} fill sizes="(max-width:640px) 100vw, 50vw" className="object-cover" />
-              </div>
-              <p className="px-5 py-4 text-sm font-medium text-navy">{s.caption}</p>
-            </Reveal>
-          ))}
-        </div>
+
+        {t.apparatus.groups.map((g, gi) => (
+          <Reveal key={g.label} className="mt-12">
+            <div className="flex flex-wrap items-baseline justify-between gap-2 border-t border-hairline pt-6">
+              <h3 className="font-display text-2xl text-navy">{g.label}</h3>
+              <p className="text-xs uppercase tracking-[0.12em] text-gold">{g.note}</p>
+            </div>
+            <ShotGrid
+              shots={g.shots}
+              cols={gi === 0 ? 'sm:grid-cols-2 lg:grid-cols-4' : 'sm:grid-cols-2 lg:grid-cols-3'}
+            />
+          </Reveal>
+        ))}
       </Section>
 
       {/* Lineage timeline */}
@@ -93,9 +121,18 @@ export default function TechnologyPage() {
         </ol>
       </Section>
 
-      {/* IP / moat */}
+      {/* In the facility */}
       <Section tone="alt">
-        <Reveal className="rounded-card bg-white p-8 shadow-[0_1px_0_rgba(18,18,65,0.04)]">
+        <Reveal className="max-w-3xl">
+          <Eyebrow>{t.facility.eyebrow}</Eyebrow>
+          <h2 className="h-section">{t.facility.heading}</h2>
+        </Reveal>
+        <ShotGrid shots={t.facility.shots} cols="sm:grid-cols-3" />
+      </Section>
+
+      {/* IP / moat */}
+      <Section tone="primary">
+        <Reveal className="rounded-card bg-off-white p-8">
           <h2 className="h-subhead">{t.ip.heading}</h2>
           <p className="mt-3 max-w-3xl text-sm leading-relaxed text-warm-gray">{t.ip.body}</p>
           <p className="mt-4 flex flex-wrap items-center gap-3 text-sm">
