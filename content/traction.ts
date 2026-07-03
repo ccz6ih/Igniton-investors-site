@@ -40,6 +40,13 @@ export const scientificValidation = [
   'Medical & scientific advisory board (see Team).',
 ]
 
+// Physician / advisory-board validation (faithful excerpt from her published quote).
+export const physicianEndorsement = {
+  quote:
+    'In my practice, I’ve seen how inflammation, stress, and cellular dysfunction silently sabotage the aging process. Igniton products offer breakthrough support… I am seeing the profound benefits from my personal use and I’m excited to recommend IgniCognition™ and IgniLongevity™ to my patients.',
+  attribution: 'Dr. Gail King, M.D., FACOG, FAARM — Igniton Medical Advisory Board',
+}
+
 // Endorsement — verify permission to attribute for investor use before launch.
 export const endorsement = {
   quote:

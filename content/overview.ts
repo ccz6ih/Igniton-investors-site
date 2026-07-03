@@ -34,9 +34,9 @@ export const metrics: Metric[] = [
   },
   {
     label: 'Gaia ownership',
-    value: null,
-    verified: false,
-    note: 'source references "two-thirds" — confirm exact %',
+    value: '~2/3',
+    verified: true,
+    note: 'Gaia Inc. (NASDAQ: GAIA) — largest investor',
   },
 ]
 

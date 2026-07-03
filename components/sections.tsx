@@ -7,7 +7,7 @@ import { MetricCell } from './Metric'
 import { pillars, credibility } from '@/content/overview'
 import { technology } from '@/content/technology'
 import { portfolioIntro, products } from '@/content/portfolio'
-import { tractionIntro, businessMetrics, scientificValidation, endorsement, pendingProof, awards } from '@/content/traction'
+import { tractionIntro, businessMetrics, scientificValidation, endorsement, physicianEndorsement, pendingProof, awards } from '@/content/traction'
 import { company } from '@/content/company'
 import { roadmapIntro, horizons } from '@/content/roadmap'
 import { disclaimers } from '@/content/disclaimers'
@@ -217,6 +217,18 @@ export function Traction() {
           </figure>
         </Reveal>
       </div>
+
+      {/* Physician / advisory-board validation */}
+      <Reveal className="mt-10">
+        <figure className="rounded-card border-l-2 border-gold bg-off-white p-8">
+          <blockquote className="font-display text-lg italic leading-relaxed text-navy md:text-xl">
+            “{physicianEndorsement.quote}”
+          </blockquote>
+          <figcaption className="mt-4 text-sm text-warm-gray">
+            {physicianEndorsement.attribution}
+          </figcaption>
+        </figure>
+      </Reveal>
 
       {/* COVR awards — verified */}
       <Reveal className="mt-14">
