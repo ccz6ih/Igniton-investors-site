@@ -7,7 +7,7 @@ import { MetricCell } from './Metric'
 import { pillars, credibility } from '@/content/overview'
 import { technology } from '@/content/technology'
 import { portfolioIntro, products } from '@/content/portfolio'
-import { tractionIntro, businessMetrics, scientificValidation, endorsement, physicianEndorsement, pendingProof, awards } from '@/content/traction'
+import { tractionIntro, businessMetrics, sellThrough, scientificValidation, endorsement, physicianEndorsement, pendingProof, awards } from '@/content/traction'
 import { company } from '@/content/company'
 import { roadmapIntro, horizons } from '@/content/roadmap'
 import { disclaimers } from '@/content/disclaimers'
@@ -64,37 +64,11 @@ export function Technology() {
         ))}
       </div>
 
-      {/* Lineage timeline */}
-      <Reveal className="mt-16">
-        <h3 className="font-display text-2xl">{technology.lineage.heading}</h3>
-        <p className="mt-1 text-xs uppercase tracking-[0.14em] text-gold">{technology.lineage.note}</p>
-        <ol className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {technology.lineage.timeline.map((t) => (
-            <li key={t.year} className="border-l-2 border-gold pl-4">
-              <span className="font-display text-xl text-navy">{t.year}</span>
-              <p className="mt-2 text-sm text-warm-gray">{t.text}</p>
-            </li>
-          ))}
-        </ol>
+      <Reveal className="mt-10">
+        <Link href="/technology" className="btn-secondary">
+          Explore the full technology &amp; lab
+        </Link>
       </Reveal>
-
-      {/* IP — status is a placeholder */}
-      <Reveal className="mt-14 rounded-card bg-off-white p-8">
-        <h3 className="h-subhead">{technology.ip.heading}</h3>
-        <p className="mt-3 max-w-3xl text-sm leading-relaxed text-warm-gray">{technology.ip.body}</p>
-        <p className="mt-4 flex items-center gap-3 text-sm">
-          <span className="font-semibold text-navy">Patent / IP status:</span>
-          {technology.ip.status ? (
-            <span>{technology.ip.status}</span>
-          ) : (
-            <span className="chip-pending" title="Client to supply patent/application/trade-secret status">
-              Pending verification
-            </span>
-          )}
-        </p>
-      </Reveal>
-
-      <p className="mt-8 text-xs italic text-warm-gray">{disclaimers.framework}</p>
     </Section>
   )
 }
@@ -183,11 +157,13 @@ export function Traction() {
 
       <Reveal className="mt-12">
         <h3 className="text-xs font-semibold uppercase tracking-[0.16em] text-warm-gray">Business metrics</h3>
-        <dl className="mt-6 grid grid-cols-2 gap-8 sm:grid-cols-4 lg:grid-cols-7">
+        <dl className="mt-6 grid grid-cols-1 gap-8 sm:grid-cols-3">
           {businessMetrics.map((m) => (
             <MetricCell key={m.label} metric={m} />
           ))}
         </dl>
+        <p className="mt-6 max-w-2xl text-sm leading-relaxed text-warm-gray">{sellThrough}</p>
+        <p className="mt-2 text-[0.7rem] text-warm-gray">Figures are directional and approximate.</p>
       </Reveal>
 
       <div className="mt-14 grid gap-10 lg:grid-cols-2">

@@ -35,6 +35,19 @@ export const technology = {
     ],
   },
 
+  // Inside-the-lab gallery (frames from the company's own facility B-roll).
+  lab: {
+    eyebrow: 'Inside the lab',
+    heading: 'A real facility. A real process.',
+    body: 'The cold-plasma and photonics process runs in Igniton’s own Colorado facility — the same instrumentation lineage behind the published studies. This is manufacturing know-how, not a white-label supplement.',
+    shots: [
+      { image: '/lab/equipment.jpg', caption: 'Cold-plasma / photonics processing equipment' },
+      { image: '/lab/cleanroom.jpg', caption: 'Controlled-environment handling' },
+      { image: '/lab/production.jpg', caption: 'In-house formulation & encapsulation' },
+      { image: '/lab/measurement.jpg', caption: 'Process monitoring & GDV measurement' },
+    ],
+  },
+
   // IP is a placeholder: the source describes "a patented process" but states no
   // patent numbers. Do not assert specifics without documentation.
   ip: {

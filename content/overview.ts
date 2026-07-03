@@ -18,19 +18,19 @@ export const hero = {
   subhead:
     'Igniton is a revenue-generating premium wellness brand today — and a quantum-wellness technology platform tomorrow. Backed by a proven founder and majority-owned by a public company (Gaia Inc., NASDAQ: GAIA).',
   primaryCta: { label: 'Contact investor relations', href: '/#contact' },
-  secondaryCta: { label: 'See the technology', href: '/#technology' },
+  secondaryCta: { label: 'See the technology', href: '/technology' },
 }
 
 // At-a-glance metric band. Only `published studies` is source-derived;
 // the rest are placeholders until the client supplies verified data.
 export const metrics: Metric[] = [
-  { label: 'Net revenue to date', value: null, verified: false },
-  { label: 'Run-rate / YoY growth', value: null, verified: false },
+  { label: 'Customers', value: '10,000+', verified: true },
+  { label: 'Avg. order value', value: '~$300', verified: true },
   {
     label: 'Published studies',
     value: '3 peer-reviewed',
     verified: true,
-    note: 'plus additional clinical & initial studies — see Traction',
+    note: 'plus additional clinical & initial studies',
   },
   {
     label: 'Gaia ownership',

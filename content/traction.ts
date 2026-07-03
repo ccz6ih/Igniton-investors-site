@@ -10,16 +10,16 @@ export const tractionIntro = {
   headlinePost: '.',
 }
 
-// All business metrics pending client verification.
+// Real, client-provided directional metrics.
 export const businessMetrics: Metric[] = [
-  { label: 'Net revenue', value: null, verified: false },
-  { label: 'Growth / run-rate', value: null, verified: false },
-  { label: 'Orders / customers', value: null, verified: false },
-  { label: 'Subscription mix', value: null, verified: false },
-  { label: 'AOV', value: null, verified: false },
-  { label: 'Repeat rate', value: null, verified: false },
-  { label: 'CAC / LTV', value: null, verified: false },
+  { label: 'Customers', value: '10,000+', verified: true },
+  { label: 'Average order value', value: '~$300', verified: true },
+  { label: 'Avg. repeat cycle', value: '~8 months', verified: true },
 ]
+
+// A durable-demand signal stated in prose alongside the metrics.
+export const sellThrough =
+  'The product line has sold through inventory multiple times — a repeatable, demand-led restock pattern rather than a one-time launch spike.'
 
 // Verified via public press release (igniton.com/blogs/press-release):
 // Igniton won three 2025 COVR Visionary Awards (Coalition of Visionary Resources).

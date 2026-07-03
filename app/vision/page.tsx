@@ -51,8 +51,17 @@ function MovementBlock({ m }: { m: Movement }) {
 export default function VisionPage() {
   return (
     <>
-      {/* Hero — navy, starfield + warm glow */}
+      {/* Hero — navy, atmospheric backdrop + starfield + warm glow */}
       <section className="relative overflow-hidden bg-navy text-white on-dark">
+        <Image
+          src="/hero/sunset.jpg"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover opacity-20"
+        />
+        <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-b from-navy/75 via-navy/85 to-navy" />
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 opacity-70"
@@ -73,7 +82,7 @@ export default function VisionPage() {
               'radial-gradient(closest-side, rgba(211,162,60,.22), rgba(25,24,128,.12) 45%, transparent 70%)',
           }}
         />
-        <div className="container-brand relative z-10 flex min-h-[72vh] flex-col justify-center py-24 text-center">
+        <div className="container-brand relative z-10 flex min-h-[82vh] flex-col justify-center py-28 text-center">
           <Reveal>
             <p className="eyebrow mb-6">{visionHero.eyebrow}</p>
           </Reveal>

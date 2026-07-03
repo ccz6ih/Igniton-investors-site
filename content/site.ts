@@ -26,7 +26,7 @@ export type NavItem = { label: string; href: string }
 export const nav: NavItem[] = [
   { label: 'Overview', href: '/#overview' },
   { label: 'Portfolio', href: '/#portfolio' },
-  { label: 'Technology', href: '/#technology' },
+  { label: 'Technology', href: '/technology' },
   { label: 'Traction', href: '/#traction' },
   { label: 'Vision', href: '/vision' },
   { label: 'Team', href: '/team' },
@@ -47,7 +47,7 @@ export const footerColumns: { heading: string; links: NavItem[] }[] = [
   {
     heading: 'The Business',
     links: [
-      { label: 'Technology', href: '/#technology' },
+      { label: 'Technology', href: '/technology' },
       { label: 'Portfolio', href: '/#portfolio' },
       { label: 'Traction', href: '/#traction' },
       { label: 'Roadmap', href: '/#roadmap' },
