@@ -29,6 +29,7 @@ export const nav: NavItem[] = [
   { label: 'Technology', href: '/technology' },
   { label: 'Traction', href: '/#traction' },
   { label: 'Vision', href: '/vision' },
+  { label: 'Media', href: '/media' },
   { label: 'Team', href: '/team' },
   { label: 'Roadmap', href: '/#roadmap' },
 ]
