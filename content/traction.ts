@@ -56,8 +56,30 @@ export const endorsement = {
   note: 'Confirm permission to quote/attribute for investor use.',
 }
 
+// "Measured in blood" — the IgniLongevity study biomarkers (** FDA marker kept).
+export const bloodwork = {
+  eyebrow: 'Measured in blood',
+  headlineLead: 'Don’t take our word. Take ',
+  headlineEmphasis: 'a blood test',
+  headlinePost: '.',
+  body: 'Markers your doctor may already track at your annual physical. In the IgniLongevity study, the enhanced group moved every one.**',
+  markers: [
+    { value: '−37%', label: 'IL-6', sub: 'Inflammation marker' },
+    { value: '−28%', label: 'CRP', sub: 'C-reactive protein' },
+    { value: '−13%', label: 'GGT', sub: 'Liver / oxidative stress' },
+    { value: '−9%', label: 'Diastolic BP', sub: 'Blood pressure' },
+  ],
+  cite: 'Igniton-enhanced group vs. baseline at 30 days · n=70 · published in a peer-reviewed journal.',
+}
+
+// Verified customer reviews (client-confirmed rating).
+export const reviews = {
+  rating: '4.9',
+  label: 'average rating · verified buyers',
+  quote:
+    'At 70, I’ve learned that longevity isn’t just about living longer, it’s about living well… Since adding IgniCognition into my routine, I’ve noticed a difference in how steady my energy feels throughout the day. It’s not a spike-and-crash. It’s consistent, clear, and reliable.',
+  by: 'Maria Romano — Verified Buyer',
+}
+
 // Items not yet substantiated — omit until proof supplied.
-export const pendingProof = [
-  '“As seen in” publication names',
-  'Specific customer-review counts (theme defaults were placeholders)',
-]
+export const pendingProof = ['“As seen in” publication names']

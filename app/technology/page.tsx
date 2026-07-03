@@ -104,8 +104,44 @@ export default function TechnologyPage() {
         ))}
       </Section>
 
-      {/* Lineage timeline */}
+      {/* GDV measurement comparison */}
       <Section tone="primary">
+        <Reveal className="max-w-3xl">
+          <Eyebrow>{t.gdv.eyebrow}</Eyebrow>
+          <h2 className="h-section">
+            {t.gdv.headlineLead}
+            <em>{t.gdv.headlineEmphasis}</em>
+            {t.gdv.headlinePost}
+          </h2>
+          <p className="mt-6 text-warm-gray">{t.gdv.body}</p>
+        </Reveal>
+        <div className="mt-10 grid gap-6 sm:grid-cols-2">
+          {t.gdv.compare.map((c, i) => (
+            <Reveal
+              key={c.tag}
+              delay={i * 80}
+              className={`rounded-section p-8 ${
+                i === 1 ? 'bg-navy text-white on-dark' : 'border border-hairline bg-off-white'
+              }`}
+            >
+              <p className={`text-xs font-semibold uppercase tracking-[0.16em] ${i === 1 ? 'text-gold' : 'text-warm-gray'}`}>
+                {c.tag}
+              </p>
+              <p className={`mt-1 font-display text-xl ${i === 1 ? 'text-white' : 'text-navy'}`}>{c.label}</p>
+              <p className={`mt-6 font-display text-[clamp(3rem,7vw,4.5rem)] leading-none ${i === 1 ? 'text-gold' : 'text-navy'}`}>
+                {c.energy}
+              </p>
+              <p className={`mt-2 text-xs ${i === 1 ? 'text-white/60' : 'text-warm-gray'}`}>
+                {t.gdv.unit} · Inner noise = {c.noise}
+              </p>
+            </Reveal>
+          ))}
+        </div>
+        <p className="mt-6 text-xs italic text-warm-gray">{disclaimers.framework}</p>
+      </Section>
+
+      {/* Lineage timeline */}
+      <Section tone="alt">
         <Reveal>
           <Eyebrow>Science lineage</Eyebrow>
           <h2 className="h-section max-w-3xl">{t.lineage.heading}</h2>
@@ -122,7 +158,7 @@ export default function TechnologyPage() {
       </Section>
 
       {/* In the facility */}
-      <Section tone="alt">
+      <Section tone="primary">
         <Reveal className="max-w-3xl">
           <Eyebrow>{t.facility.eyebrow}</Eyebrow>
           <h2 className="h-section">{t.facility.heading}</h2>
@@ -131,8 +167,8 @@ export default function TechnologyPage() {
       </Section>
 
       {/* IP / moat */}
-      <Section tone="primary">
-        <Reveal className="rounded-card bg-off-white p-8">
+      <Section tone="alt">
+        <Reveal className="rounded-card bg-white p-8">
           <h2 className="h-subhead">{t.ip.heading}</h2>
           <p className="mt-3 max-w-3xl text-sm leading-relaxed text-warm-gray">{t.ip.body}</p>
           <p className="mt-4 flex flex-wrap items-center gap-3 text-sm">

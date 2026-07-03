@@ -66,6 +66,20 @@ export const technology = {
     ],
   },
 
+  // GDV measurement comparison — framework/measurement, paired with the note.
+  gdv: {
+    eyebrow: 'Measured, not asserted',
+    headlineLead: 'Your body is 70% water. What state ',
+    headlineEmphasis: 'is yours',
+    headlinePost: ' in?',
+    body: 'Gas Discharge Visualization (GDV) — pioneered by advisor Prof. Konstantin Korotkov and used in the published trials — measures a sample’s energy output and molecular order. Untreated water, next to Igniton-charged water.',
+    unit: 'Energy · 10⁻² Joules',
+    compare: [
+      { tag: 'Uncharged', label: 'Standard water', energy: '5.56', noise: '3,033' },
+      { tag: 'Igniton', label: 'Charged water', energy: '14.04', noise: '1' },
+    ],
+  },
+
   // A few facility B-roll frames — the human side of the operation.
   facility: {
     eyebrow: 'In the facility',

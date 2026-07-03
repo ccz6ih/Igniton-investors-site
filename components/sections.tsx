@@ -7,7 +7,7 @@ import { MetricCell } from './Metric'
 import { pillars, credibility } from '@/content/overview'
 import { technology } from '@/content/technology'
 import { portfolioIntro, products } from '@/content/portfolio'
-import { tractionIntro, businessMetrics, sellThrough, scientificValidation, endorsement, physicianEndorsement, pendingProof, awards } from '@/content/traction'
+import { tractionIntro, businessMetrics, sellThrough, scientificValidation, endorsement, physicianEndorsement, bloodwork, reviews, pendingProof, awards } from '@/content/traction'
 import { company } from '@/content/company'
 import { roadmapIntro, horizons } from '@/content/roadmap'
 import { disclaimers } from '@/content/disclaimers'
@@ -194,6 +194,27 @@ export function Traction() {
         </Reveal>
       </div>
 
+      {/* Measured in blood — IgniLongevity biomarkers */}
+      <Reveal className="mt-14 rounded-section bg-navy p-8 text-white on-dark md:p-12">
+        <p className="eyebrow mb-4">{bloodwork.eyebrow}</p>
+        <h3 className="h-section text-white">
+          {bloodwork.headlineLead}
+          <em>{bloodwork.headlineEmphasis}</em>
+          {bloodwork.headlinePost}
+        </h3>
+        <p className="mt-4 max-w-2xl text-sm text-white/70">{bloodwork.body}</p>
+        <dl className="mt-8 grid grid-cols-2 gap-x-8 gap-y-8 sm:grid-cols-4">
+          {bloodwork.markers.map((m) => (
+            <div key={m.label} className="border-t border-white/15 pt-4">
+              <dd className="font-display text-[clamp(2rem,4vw,3rem)] leading-none text-gold">{m.value}</dd>
+              <dt className="mt-2 text-sm font-semibold text-white">{m.label}</dt>
+              <dt className="text-xs text-white/55">{m.sub}</dt>
+            </div>
+          ))}
+        </dl>
+        <p className="mt-6 text-[0.7rem] text-white/45">{bloodwork.cite}</p>
+      </Reveal>
+
       {/* Physician / advisory-board validation */}
       <Reveal className="mt-10">
         <figure className="rounded-card border-l-2 border-gold bg-off-white p-8">
@@ -202,6 +223,23 @@ export function Traction() {
           </blockquote>
           <figcaption className="mt-4 text-sm text-warm-gray">
             {physicianEndorsement.attribution}
+          </figcaption>
+        </figure>
+      </Reveal>
+
+      {/* Verified customer reviews */}
+      <Reveal className="mt-10 grid gap-8 rounded-card border border-hairline p-8 md:grid-cols-[auto,1fr] md:items-center">
+        <div className="flex flex-col items-start gap-1 md:border-r md:border-hairline md:pr-8">
+          <span className="text-gold" aria-hidden="true">★★★★★</span>
+          <span className="font-display text-4xl text-navy">{reviews.rating}</span>
+          <span className="max-w-[9rem] text-xs uppercase tracking-[0.12em] text-warm-gray">{reviews.label}</span>
+        </div>
+        <figure>
+          <blockquote className="font-display text-lg italic leading-relaxed text-navy">
+            “{reviews.quote}”
+          </blockquote>
+          <figcaption className="mt-3 text-xs font-semibold uppercase tracking-[0.14em] text-warm-gray">
+            {reviews.by}
           </figcaption>
         </figure>
       </Reveal>
