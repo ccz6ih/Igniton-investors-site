@@ -6,18 +6,27 @@ import { home, disclaimer } from '@/content/deck'
 export default function HomePage() {
   return (
     <>
-      {/* Cosmic hero — Igniton wordmark + HIT chair (from the deck) */}
-      <section className="relative bg-black">
+      {/* Cosmic hero — full-screen (from the deck) */}
+      <section className="relative h-[calc(100svh-72px)] min-h-[460px] w-full overflow-hidden bg-black">
         <Image
           src={home.heroImage}
           alt="Igniton — www.igniton.com"
-          width={1672}
-          height={941}
+          fill
           priority
           sizes="100vw"
-          className="mx-auto h-auto w-full max-w-[1600px]"
+          className="object-cover object-center"
         />
-        <p className="absolute bottom-3 left-1/2 -translate-x-1/2 text-[0.6rem] uppercase tracking-[0.18em] text-white/45">
+        {/* subtle cinematic overlay for depth */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/25 via-black/0 to-black/50"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0"
+          style={{ boxShadow: 'inset 0 0 200px 40px rgba(0,0,0,0.45)' }}
+        />
+        <p className="absolute inset-x-0 bottom-4 z-10 text-center text-[0.6rem] uppercase tracking-[0.2em] text-white/55">
           {home.confidential}
         </p>
       </section>
