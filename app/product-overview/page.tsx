@@ -28,25 +28,27 @@ export default function ProductOverviewPage() {
               <h2 className="mt-4 text-xl">
                 <BrandName suffix={prod.suffix} />
               </h2>
-              <div className="mt-3 flex flex-col gap-2">
+              <ul className="mt-3 space-y-1.5 text-sm font-semibold text-navy">
+                {prod.stats.map((s) => (
+                  <li key={s}>{s}</li>
+                ))}
+              </ul>
+              {prod.basis && <p className="mt-3 text-xs italic text-warm-gray">{prod.basis}</p>}
+
+              {/* Study download buttons — below the data, larger/readable */}
+              <div className="mt-5 flex flex-col gap-2.5">
                 {prod.studies.map((s) => (
                   <a
                     key={s.label}
                     href={s.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="rounded border border-hairline px-3 py-2 text-center text-xs font-semibold text-navy transition-colors hover:bg-off-white"
+                    className="rounded border border-navy px-4 py-3 text-center text-sm font-semibold text-navy transition-colors hover:bg-navy hover:text-white"
                   >
                     {s.label}
                   </a>
                 ))}
               </div>
-              <ul className="mt-4 space-y-1.5 text-sm font-semibold text-navy">
-                {prod.stats.map((s) => (
-                  <li key={s}>{s}</li>
-                ))}
-              </ul>
-              {prod.basis && <p className="mt-3 text-xs italic text-warm-gray">{prod.basis}</p>}
             </Reveal>
           ))}
         </div>

@@ -34,7 +34,9 @@ export default function HomePage() {
       {/* Company statement + video + science carousel */}
       <Section tone="primary">
         <Reveal className="text-center">
-          <h1 className="font-display text-3xl text-navy sm:text-4xl">{home.company}</h1>
+          <h1 className="font-display text-3xl text-navy sm:text-4xl">
+            <span className="italic">Igni</span>ton, Inc.
+          </h1>
           <p className="mx-auto mt-3 max-w-2xl text-lg text-warm-gray">{home.tagline}</p>
         </Reveal>
 
