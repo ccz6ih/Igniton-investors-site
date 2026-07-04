@@ -35,28 +35,38 @@ export default function ProductOverviewPage() {
               </ul>
               {prod.basis && <p className="mt-3 text-xs italic text-warm-gray">{prod.basis}</p>}
 
-              {/* Study download buttons — below the data, larger/readable */}
-              <div className="mt-5 flex flex-col gap-2.5">
-                {prod.studies.map((s) => (
-                  <a
-                    key={s.label}
-                    href={s.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="rounded border border-navy px-4 py-3 text-center text-sm font-semibold text-navy transition-colors hover:bg-navy hover:text-white"
-                  >
-                    {s.label}
-                  </a>
-                ))}
-              </div>
+              {/* Study download buttons — below the data, larger/readable.
+                  Only Cognition & Longevity have studies. */}
+              {prod.studies.length > 0 && (
+                <div className="mt-5 flex flex-col gap-2.5">
+                  {prod.studies.map((s) => (
+                    <a
+                      key={s.label}
+                      href={s.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="rounded border border-navy px-4 py-3 text-center text-sm font-semibold text-navy transition-colors hover:bg-navy hover:text-white"
+                    >
+                      {s.label}
+                    </a>
+                  ))}
+                </div>
+              )}
             </Reveal>
           ))}
         </div>
 
-        {/* COVR awards */}
-        <Reveal className="mt-14 flex flex-wrap items-center justify-center gap-8">
+        {/* COVR awards — large medallions */}
+        <Reveal className="mt-16 flex flex-wrap items-center justify-center gap-10">
           {p.awards.map((a) => (
-            <Image key={a.tier} src={a.image} alt={`COVR ${a.tier} Award`} width={110} height={110} className="h-24 w-24" />
+            <Image
+              key={a.tier}
+              src={a.image}
+              alt={`COVR ${a.tier} Award`}
+              width={260}
+              height={260}
+              className="h-40 w-40 sm:h-52 sm:w-52"
+            />
           ))}
         </Reveal>
       </Section>

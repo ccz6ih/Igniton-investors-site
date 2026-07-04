@@ -25,7 +25,7 @@ export function Footer() {
             rel="noopener noreferrer"
             className="text-sm font-semibold uppercase tracking-[0.18em] text-gold transition-opacity hover:opacity-80"
           >
-            Shop at {site.consumerLabel} ↗
+            Shop at <span className="italic">Igni</span>ton.com ↗
           </a>
         </div>
 

@@ -92,7 +92,7 @@ export const productOverview = {
       image: '/products/rem.jpg',
       stats: ['+25% REM Time', '+13% More Sleep', '-54% Interruptions', '-92% A.M. Weakness'],
       basis: 'vs. Placebo',
-      studies: [{ label: 'Download Study', href: STUDIES }],
+      studies: [],
     },
     {
       suffix: 'Peptide Eye Serum',
@@ -107,7 +107,7 @@ export const productOverview = {
         '75% Reduced appearance of Dark Circles',
       ],
       basis: '',
-      studies: [{ label: 'Download Clinical Study', href: STUDIES }],
+      studies: [],
     },
   ],
   awards: [
