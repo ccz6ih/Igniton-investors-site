@@ -9,8 +9,9 @@ export const home = {
   heroImage: '/deck/home-hero.jpg',
   company: 'Igniton, Inc.',
   tagline: 'Improving longevity, cognitive functions, memory, sleep and appearance',
-  // Company video (owner-provided).
-  video: '/lifestyle/IGNITON_DEMO_BIOHACKING_CONF_5_20_FINAL_HD_1080p.mp4',
+  // Company video — streamed from Google Drive (file must be "anyone with the
+  // link can view"). Embedded via Drive's preview player; nothing hosted in repo.
+  videoDriveId: '1Vj2SwAml-JZ526hYD2PP_qUIoTmcIY_I',
   videoPoster: '/lifestyle/home-video-poster.jpg',
   confidential: 'STRICTLY PRIVATE & CONFIDENTIAL — IGNITON, INC.',
   // Science-image carousel. Owner to supply final images incl. a facility

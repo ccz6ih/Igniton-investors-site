@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { Section, Eyebrow } from '@/components/Section'
 import { Reveal } from '@/components/Reveal'
+import { HomeVideo } from '@/components/HomeVideo'
 import { home, disclaimer } from '@/content/deck'
 
 export default function HomePage() {
@@ -40,16 +41,9 @@ export default function HomePage() {
           <p className="mx-auto mt-3 max-w-2xl text-lg text-warm-gray">{home.tagline}</p>
         </Reveal>
 
-        {/* Company video */}
+        {/* Company video — streamed from Google Drive */}
         <Reveal className="mx-auto mt-10 w-full max-w-3xl">
-          <video
-            src={home.video}
-            poster={home.videoPoster}
-            controls
-            playsInline
-            preload="metadata"
-            className="aspect-video w-full rounded-section bg-navy ring-1 ring-hairline"
-          />
+          <HomeVideo driveId={home.videoDriveId} poster={home.videoPoster} />
         </Reveal>
       </Section>
 
