@@ -1,31 +1,32 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
-// TEMPORARY private-preview gate (for owner approval).
-// Any username works; the password is below (overridable via SITE_PASSWORD env).
+// TEMPORARY private-preview gate (owner approval) — simple single-password.
+// The login page (/login) sets a cookie after the password is entered.
 // To make the site public again, delete this file (and redeploy).
 const PASSWORD = process.env.SITE_PASSWORD || 'igniton2026'
+const COOKIE = 'igniton_preview'
 
 export function middleware(req: NextRequest) {
-  const auth = req.headers.get('authorization')
-  if (auth) {
-    const [scheme, encoded] = auth.split(' ')
-    if (scheme === 'Basic' && encoded) {
-      // atob is available in the Edge runtime
-      const decoded = atob(encoded) // "username:password"
-      const password = decoded.slice(decoded.indexOf(':') + 1)
-      if (password === PASSWORD) {
-        return NextResponse.next()
-      }
-    }
+  const { pathname } = req.nextUrl
+
+  // Always allow the login page and its API through.
+  if (pathname === '/login' || pathname.startsWith('/api/login')) {
+    return NextResponse.next()
   }
-  return new NextResponse('Authentication required.', {
-    status: 401,
-    headers: { 'WWW-Authenticate': 'Basic realm="Igniton Private Preview"' },
-  })
+
+  // Authorized if the cookie matches.
+  if (req.cookies.get(COOKIE)?.value === PASSWORD) {
+    return NextResponse.next()
+  }
+
+  // Otherwise send to the login page.
+  const url = req.nextUrl.clone()
+  url.pathname = '/login'
+  url.search = ''
+  return NextResponse.redirect(url)
 }
 
-// Gate everything except Next's internal assets and the favicon.
 export const config = {
   matcher: ['/((?!_next/static|_next/image|favicon.ico|brand/favicon).*)'],
 }

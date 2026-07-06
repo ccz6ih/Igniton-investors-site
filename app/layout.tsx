@@ -3,6 +3,7 @@ import { Playfair_Display, Plus_Jakarta_Sans } from 'next/font/google'
 import './globals.css'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
+import { HideOnLogin } from '@/components/HideOnLogin'
 import { site } from '@/content/site'
 
 // Brand guidelines: Playfair Display is used at REGULAR weight for headlines and
@@ -66,9 +67,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           Skip to content
         </a>
-        <Header />
+        <HideOnLogin>
+          <Header />
+        </HideOnLogin>
         <main>{children}</main>
-        <Footer />
+        <HideOnLogin>
+          <Footer />
+        </HideOnLogin>
       </body>
     </html>
   )
