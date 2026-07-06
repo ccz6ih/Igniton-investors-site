@@ -43,7 +43,7 @@ export default function HomePage() {
 
         {/* Company video — streamed from Google Drive */}
         <Reveal className="mx-auto mt-10 w-full max-w-3xl">
-          <HomeVideo driveId={home.videoDriveId} />
+          <HomeVideo driveId={home.videoDriveId} poster={home.videoPoster} />
         </Reveal>
       </Section>
 
