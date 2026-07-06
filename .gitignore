@@ -35,6 +35,8 @@ yarn-error.log*
 /_theme_reference/
 /_client_source/
 *.zip
+# large video files can't go in the repo / static hosting — host externally
+*.mp4
 # internal client collateral must never be committed to the (public) repo
 *.pptx
 docs/*.pdf

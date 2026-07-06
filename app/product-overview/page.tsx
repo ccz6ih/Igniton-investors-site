@@ -21,7 +21,7 @@ export default function ProductOverviewPage() {
 
         <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           {p.products.map((prod, i) => (
-            <Reveal key={prod.suffix} delay={(i % 4) * 60} className="flex flex-col">
+            <Reveal key={prod.suffix} delay={(i % 4) * 60} className="flex h-full flex-col">
               <div className="relative aspect-[4/5] overflow-hidden rounded-section bg-off-white">
                 <Image src={prod.image} alt={`Igni${prod.suffix}`} fill sizes="(max-width:1024px) 50vw, 25vw" className="object-cover" />
               </div>
@@ -38,14 +38,14 @@ export default function ProductOverviewPage() {
               {/* Study download buttons — below the data, larger/readable.
                   Only Cognition & Longevity have studies. */}
               {prod.studies.length > 0 && (
-                <div className="mt-5 flex flex-col gap-2.5">
+                <div className="mt-auto flex flex-col gap-3 pt-6">
                   {prod.studies.map((s) => (
                     <a
                       key={s.label}
                       href={s.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="rounded border border-navy px-4 py-3 text-center text-sm font-semibold text-navy transition-colors hover:bg-navy hover:text-white"
+                      className="flex h-14 items-center justify-center rounded border border-navy px-3 text-center text-sm font-semibold leading-tight text-navy transition-colors hover:bg-navy hover:text-white"
                     >
                       {s.label}
                     </a>

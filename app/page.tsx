@@ -40,13 +40,16 @@ export default function HomePage() {
           <p className="mx-auto mt-3 max-w-2xl text-lg text-warm-gray">{home.tagline}</p>
         </Reveal>
 
-        {/* Video slot — owner to provide */}
+        {/* Company video */}
         <Reveal className="mx-auto mt-10 w-full max-w-3xl">
-          <div className="flex aspect-video items-center justify-center rounded-section border border-dashed border-hairline bg-off-white">
-            <span className="text-sm font-semibold uppercase tracking-[0.16em] text-warm-gray">
-              {home.videoPlaceholder}
-            </span>
-          </div>
+          <video
+            src={home.video}
+            poster={home.videoPoster}
+            controls
+            playsInline
+            preload="metadata"
+            className="aspect-video w-full rounded-section bg-navy ring-1 ring-hairline"
+          />
         </Reveal>
       </Section>
 

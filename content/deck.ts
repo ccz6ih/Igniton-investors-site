@@ -9,8 +9,9 @@ export const home = {
   heroImage: '/deck/home-hero.jpg',
   company: 'Igniton, Inc.',
   tagline: 'Improving longevity, cognitive functions, memory, sleep and appearance',
-  // Owner will provide the company video; placeholder slot until then.
-  videoPlaceholder: 'Company video — to be provided',
+  // Company video (owner-provided).
+  video: '/lifestyle/IGNITON_DEMO_BIOHACKING_CONF_5_20_FINAL_HD_1080p.mp4',
+  videoPoster: '/lifestyle/home-video-poster.jpg',
   confidential: 'STRICTLY PRIVATE & CONFIDENTIAL — IGNITON, INC.',
   // Science-image carousel. Owner to supply final images incl. a facility
   // exterior ("ask Malek"); using our real Colorado lab/apparatus shots for now.
@@ -85,7 +86,12 @@ export const productOverview = {
       image: '/products/longevity.jpg',
       stats: ['-37% IL-6', '-28% CRP', '-13% GGT', '-9% Diastolic BP', '-8% Systolic BP'],
       basis: 'vs. Placebo & Non-Charged',
-      studies: [{ label: 'Download Published Study', href: STUDIES }],
+      studies: [
+        {
+          label: 'Download Published Study',
+          href: 'https://cdn.shopify.com/s/files/1/0604/2573/2151/files/raul-et-al-2025-influence-of-an-amino-acid-composition-enhanced-with-cold-plasma-radiation-on-psychological-stress-a.pdf?v=1780012013',
+        },
+      ],
     },
     {
       suffix: 'REM Sleep',
@@ -103,8 +109,8 @@ export const productOverview = {
         '85% Brighter Looking Skin',
         '85% Smoother Skin',
         '79% Reduced Under-Eye Puffiness',
-        '75% Fewer visible wrinkles',
-        '75% Reduced appearance of Dark Circles',
+        '75% Fewer Visible Wrinkles',
+        '75% Reduced Dark Circles',
       ],
       basis: '',
       studies: [],
