@@ -28,5 +28,6 @@ export function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/((?!_next/static|_next/image|favicon.ico|brand/favicon).*)'],
+  // Also allow /brand/* (logo/favicon) so the login splash can show the logo.
+  matcher: ['/((?!_next/static|_next/image|favicon.ico|brand).*)'],
 }
