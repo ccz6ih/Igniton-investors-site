@@ -103,7 +103,7 @@ export const productOverview = {
     },
     {
       suffix: 'Peptide Eye Serum',
-      image: '/products/peptide.jpg',
+      image: '/products/peptide-serum.jpg',
       stats: [
         '+52% Hydration',
         '+30% Barrier Function',
