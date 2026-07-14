@@ -41,23 +41,27 @@ export const disclaimer = {
 /* -------------------------------------------------------------- ABOUT US */
 export const aboutUs = {
   gdv: {
-    unit: 'Energy · 10⁻² Joules',
+    heading: 'Igniton Impact on Water',
+    subheading: '(Photon Emission)',
+    unit: '10⁻³ Joules',
     compare: [
-      { label: 'Non-Enhanced Water Molecule', energy: '5.56', noise: '3033', image: '/science/gdv-regular.png' },
-      { label: 'Igniton Enhanced Water Molecule', energy: '14.04', noise: '1', image: '/science/gdv-charged.png' },
+      { label: 'Water Molecule', energy: '5.56', noise: '3033', image: '/science/gdv-regular.png' },
+      { label: 'Same Water Molecule - Igniton Enhanced', energy: '14.04', noise: '1', image: '/science/gdv-charged.png' },
     ],
   },
   outro: [
     'Igniton currently focuses on improving longevity, cognition, memory, neuronal speed, reaction time, stimulating the pineal gland, etc. The quantum interaction between protons and ignitons allow for ignitons to disperse geometrically on the proton’s peripheral gray region, and improve quantum energy and functionality of targeted molecules.',
-    'University studies published in peer-reviewed medical journals show significant improvement of memory and other cognitive functions within 30-60 days of exposure.',
+    'University studies published in peer-reviewed medical journals show significant improvement of memory and other cognitive functions within 30-60 days of ingestion.',
   ],
   inc: {
     heading: 'Igniton Inc.',
     bullets: [
-      'Colorado Tech focusing on improving longevity, cognitive functions, memory, and energy',
-      'No debt, 15 patents',
+      'Colorado Tech, based in Colorado, focusing on improving longevity, coherence, cognitive functions, memory, and energy improvement',
+      'Equity $17 million, cash $4.5 million, no debt',
+      '15 patents',
       'Global distribution network in 50 countries',
     ],
+    mapImage: '/deck/world-map.png',
   },
 }
 
@@ -155,6 +159,7 @@ export const productOverview = {
 
 /* ------------------------------------------------------------ TECHNOLOGY */
 export const technologyDeck = {
+  introHeading: 'Igniton Equipment',
   intro: [
     'Igniton (eNPQ quasi-particle) technology was originally developed in the 1990’s, and in 1995 the lab was established at CERN facility (Switzerland) with much of the hardware to verify and measure the eNPQ quasi-particle named “ignitons” rented from CERN. The current operation is in Colorado.',
     'The component stages of the eNQP (Ignitons) characterization system are from the Swiss laboratories, that were used until two years ago, when the necessary data on the nature of the quasi-particles and their industrial application had been collected, and the current equipment was designed, constructed and established in Colorado.',
@@ -224,6 +229,14 @@ export const scienceDeck = {
       'Cosmetics (restructuring telomeres in the skin)',
       'Agriculture (about 25% more seeds germinate, and grow 30% faster)',
       'New material creation',
+    ],
+  },
+  process: {
+    heading: 'Igniton process',
+    lead: 'Embedding as an operative property:',
+    points: [
+      'igniton is neutral and has no hard topological charge, can therefore be “embedded” into the electron shell of an atom',
+      'change in the electron properties of the host, without changing its chemical identity, increasing bioavailability',
     ],
   },
 }

@@ -4,6 +4,7 @@ import { Section, Eyebrow } from '@/components/Section'
 import { Reveal } from '@/components/Reveal'
 import { getContent } from '@/lib/content'
 import { PageSections } from '@/components/sections/PageSections'
+import { IgniText } from '@/components/IgniText'
 
 export const metadata: Metadata = {
   title: 'Technology',
@@ -36,10 +37,17 @@ export default async function TechnologyPage() {
       <PageSections slug="technology" slot="top" />
 
       <Section tone="primary">
-        <Reveal className="max-w-3xl space-y-5 text-sm leading-relaxed text-warm-gray">
-          {t.intro.map((p, i) => (
-            <p key={i}>{p}</p>
-          ))}
+        <Reveal>
+          {'introHeading' in t && t.introHeading && (
+            <h1 className="font-display text-3xl text-navy sm:text-4xl">
+              <IgniText>{t.introHeading}</IgniText>
+            </h1>
+          )}
+          <div className="mt-6 max-w-3xl space-y-5 text-sm leading-relaxed text-warm-gray">
+            {t.intro.map((p, i) => (
+              <p key={i}>{p}</p>
+            ))}
+          </div>
         </Reveal>
       </Section>
 
