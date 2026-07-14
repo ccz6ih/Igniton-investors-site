@@ -4,6 +4,7 @@ import { Section, Eyebrow } from '@/components/Section'
 import { Reveal } from '@/components/Reveal'
 import { BrandName } from '@/components/BrandName'
 import { getContent } from '@/lib/content'
+import { PageSections } from '@/components/sections/PageSections'
 
 export const metadata: Metadata = {
   title: 'Product Overview',
@@ -129,6 +130,7 @@ export default async function ProductOverviewPage() {
           <p className="mt-6 text-sm italic text-warm-gray">{p.chair.note}</p>
         </Reveal>
       </Section>
+      <PageSections slug="product-overview" />
     </>
   )
 }

@@ -12,36 +12,34 @@ export default function AdminDashboard() {
       </p>
 
       <div className="mt-8 grid gap-4 sm:grid-cols-2">
-        {ADMIN_PAGES.map((page) => {
-          const card = (
-            <div
-              className={`h-full rounded-xl border p-5 transition ${
-                page.ready
-                  ? 'border-hairline bg-white hover:border-gold hover:shadow-sm'
-                  : 'border-dashed border-hairline bg-off-white/40'
-              }`}
-            >
-              <div className="flex items-center justify-between">
-                <h2 className="font-display text-xl text-navy">{page.title}</h2>
-                {page.ready ? (
-                  <span className="text-sm font-semibold text-gold">Edit →</span>
-                ) : (
-                  <span className="rounded-full bg-off-white px-2.5 py-0.5 text-xs font-medium text-warm-gray">
-                    Coming soon
-                  </span>
-                )}
-              </div>
-              <p className="mt-2 text-sm text-warm-gray">{page.description}</p>
+        {ADMIN_PAGES.map((page) => (
+          <div
+            key={page.slug}
+            className={`flex h-full flex-col rounded-xl border p-5 ${
+              page.ready ? 'border-hairline bg-white' : 'border-dashed border-hairline bg-off-white/40'
+            }`}
+          >
+            <div className="flex items-center justify-between">
+              <h2 className="font-display text-xl text-navy">{page.title}</h2>
+              {!page.ready && (
+                <span className="rounded-full bg-off-white px-2.5 py-0.5 text-xs font-medium text-warm-gray">
+                  Coming soon
+                </span>
+              )}
             </div>
-          )
-          return page.ready ? (
-            <Link key={page.slug} href={`/admin/${page.slug}`} className="block">
-              {card}
-            </Link>
-          ) : (
-            <div key={page.slug}>{card}</div>
-          )
-        })}
+            <p className="mt-2 text-sm text-warm-gray">{page.description}</p>
+            {page.ready && (
+              <div className="mt-4 flex gap-4 border-t border-hairline pt-3 text-sm font-semibold">
+                <Link href={`/admin/${page.slug}`} className="text-gold hover:text-navy">
+                  Edit content →
+                </Link>
+                <Link href={`/admin/sections/${page.slug}`} className="text-gold hover:text-navy">
+                  Sections →
+                </Link>
+              </div>
+            )}
+          </div>
+        ))}
       </div>
     </div>
   )

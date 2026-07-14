@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Section, Eyebrow } from '@/components/Section'
 import { Reveal } from '@/components/Reveal'
 import { getContent } from '@/lib/content'
+import { PageSections } from '@/components/sections/PageSections'
 
 export const metadata: Metadata = {
   title: 'Science',
@@ -66,6 +67,7 @@ export default async function SciencePage() {
           </ol>
         </Reveal>
       </Section>
+      <PageSections slug="science" />
     </>
   )
 }

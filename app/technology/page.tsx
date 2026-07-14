@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { Section, Eyebrow } from '@/components/Section'
 import { Reveal } from '@/components/Reveal'
 import { getContent } from '@/lib/content'
+import { PageSections } from '@/components/sections/PageSections'
 
 export const metadata: Metadata = {
   title: 'Technology',
@@ -55,6 +56,7 @@ export default async function TechnologyPage() {
         </Reveal>
         <ApparatusList items={t.original.items} />
       </Section>
+      <PageSections slug="technology" />
     </>
   )
 }

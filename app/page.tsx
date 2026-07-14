@@ -3,6 +3,7 @@ import { Section, Eyebrow } from '@/components/Section'
 import { Reveal } from '@/components/Reveal'
 import { HomeVideo } from '@/components/HomeVideo'
 import { getContent } from '@/lib/content'
+import { PageSections } from '@/components/sections/PageSections'
 
 export default async function HomePage() {
   const [home, disclaimer] = await Promise.all([
@@ -79,6 +80,7 @@ export default async function HomePage() {
           </div>
         </Reveal>
       </Section>
+      <PageSections slug="home" />
     </>
   )
 }

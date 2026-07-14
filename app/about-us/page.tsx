@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { Section, Eyebrow } from '@/components/Section'
 import { Reveal } from '@/components/Reveal'
 import { getContent } from '@/lib/content'
+import { PageSections } from '@/components/sections/PageSections'
 
 export const metadata: Metadata = {
   title: 'About Us',
@@ -60,6 +61,7 @@ export default async function AboutUsPage() {
           ))}
         </Reveal>
       </Section>
+      <PageSections slug="about-us" />
     </>
   )
 }
