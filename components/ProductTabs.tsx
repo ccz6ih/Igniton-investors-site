@@ -1,11 +1,11 @@
 'use client'
 
-import { Children, useState, type ReactNode } from 'react'
+import { useState, type ReactNode } from 'react'
 
-// Section switcher for the Products page — the four buttons show one section at
-// a time. Panels are server-rendered and passed as children.
-export function ProductTabs({ labels, children }: { labels: string[]; children: ReactNode }) {
-  const panels = Children.toArray(children)
+// Section switcher for the Products page — the buttons show one panel at a
+// time. Panels are passed as an array (NOT children) so grouped fragments stay
+// intact; React.Children.toArray would flatten fragments and mis-map the tabs.
+export function ProductTabs({ labels, panels }: { labels: string[]; panels: ReactNode[] }) {
   const [active, setActive] = useState(0)
 
   return (

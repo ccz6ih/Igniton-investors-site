@@ -24,8 +24,7 @@ export default async function ProductsPage() {
         'Microchip Release',
         'Coherence Environment',
       ]}
-    >
-      {/* ---------------- Quantum-Enhanced Supplements ---------------- */}
+      panels={[
       <>
         <Section tone="primary">
           <Reveal className="text-center">
@@ -103,9 +102,8 @@ export default async function ProductsPage() {
             </div>
           </Reveal>
         </Section>
-      </>
+      </>,
 
-      {/* ---------------- Biophotonic Devices ---------------- */}
       <>
         <Section tone="primary">
           <Reveal>
@@ -133,9 +131,8 @@ export default async function ProductsPage() {
 
         {/* Igniton Impact on Water — shown again per deck */}
         <WaterComparison tone="alt" />
-      </>
+      </>,
 
-      {/* ---------------- Microchip Release ---------------- */}
       <>
         <Section tone="primary">
           <Reveal className="mx-auto max-w-3xl text-center">
@@ -174,9 +171,8 @@ export default async function ProductsPage() {
             <Image src={p.coherence.image} alt={p.coherence.productName} fill sizes="20rem" className="object-contain" />
           </Reveal>
         </Section>
-      </>
+      </>,
 
-      {/* ---------------- Coherence Environment ---------------- */}
       <>
         <Section tone="primary">
           <Reveal className="mx-auto max-w-3xl text-center">
@@ -207,7 +203,8 @@ export default async function ProductsPage() {
             </div>
           </Reveal>
         </Section>
-      </>
-    </ProductTabs>
+      </>,
+      ]}
+    />
   )
 }

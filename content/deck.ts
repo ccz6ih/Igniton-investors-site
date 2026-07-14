@@ -120,8 +120,6 @@ export const productOverview = {
   ],
   awards: [
     { tier: 'Gold', image: '/awards/covr-gold.png' },
-    { tier: 'Silver', image: '/awards/covr-silver.png' },
-    { tier: 'Bronze', image: '/awards/covr-bronze.png' },
   ],
   worldRecord: {
     heading: 'World Record 60 m Hurdles 40+',
