@@ -91,6 +91,27 @@ export function ScienceEditor({ initial }: { initial: ScienceDeck }) {
             addLabel="Add use"
           />
         </FieldGroup>
+
+        {state.process && (
+          <FieldGroup title="Igniton process">
+            <TextInput
+              label="Heading"
+              value={state.process.heading}
+              onChange={(v) => patch({ process: { ...state.process, heading: v } })}
+            />
+            <TextInput
+              label="Lead"
+              value={state.process.lead}
+              onChange={(v) => patch({ process: { ...state.process, lead: v } })}
+            />
+            <StringList
+              label="Points"
+              values={state.process.points}
+              onChange={(v) => patch({ process: { ...state.process, points: v } })}
+              addLabel="Add point"
+            />
+          </FieldGroup>
+        )}
       </div>
 
       <SaveBar onSave={onSave} previewHref="/science" />

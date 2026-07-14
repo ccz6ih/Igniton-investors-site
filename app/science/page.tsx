@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Section, Eyebrow } from '@/components/Section'
+import { Section } from '@/components/Section'
 import { Reveal } from '@/components/Reveal'
 import { getContent } from '@/lib/content'
 import { PageSections } from '@/components/sections/PageSections'
@@ -15,8 +15,30 @@ export default async function SciencePage() {
     <>
       <PageSections slug="science" slot="top" />
 
-      {/* IGNITON — eNPQ intro moved here from About Us, at the top */}
+      {/* Uses — moved to the top of the page */}
       <Section tone="primary">
+        <Reveal className="mx-auto max-w-3xl space-y-4">
+          {s.uses.intro.map((p, i) => (
+            <p key={i} className="font-medium text-navy">
+              {p}
+            </p>
+          ))}
+        </Reveal>
+        <Reveal className="mx-auto mt-8 max-w-3xl">
+          <h2 className="font-display text-2xl text-navy">{s.uses.heading}</h2>
+          <ol className="mt-4 space-y-3">
+            {s.uses.list.map((u, i) => (
+              <li key={u} className="flex gap-3 text-sm text-warm-gray">
+                <span className="font-display text-gold">{i + 1}.</span>
+                <span>{u}</span>
+              </li>
+            ))}
+          </ol>
+        </Reveal>
+      </Section>
+
+      {/* IGNITON — eNPQ intro */}
+      <Section tone="alt">
         <Reveal className="text-center">
           <h1 className="font-display text-4xl text-navy">{s.intro.heading}</h1>
         </Reveal>
@@ -30,7 +52,7 @@ export default async function SciencePage() {
       <PageSections slug="science" slot="afterIntro" />
 
       {/* Igniton place in physics — with a big up-arrow */}
-      <Section tone="alt">
+      <Section tone="primary">
         <Reveal className="text-center">
           <h2 className="font-display text-3xl text-navy">{s.physics.heading}</h2>
         </Reveal>
@@ -52,28 +74,7 @@ export default async function SciencePage() {
 
       <PageSections slug="science" slot="afterPhysics" />
 
-      {/* Uses */}
-      <Section tone="primary">
-        <Reveal className="mx-auto max-w-3xl space-y-4">
-          {s.uses.intro.map((p, i) => (
-            <p key={i} className="font-medium text-navy">
-              {p}
-            </p>
-          ))}
-        </Reveal>
-        <Reveal className="mx-auto mt-8 max-w-3xl">
-          <h2 className="font-display text-2xl text-navy">{s.uses.heading}</h2>
-          <ol className="mt-4 space-y-3">
-            {s.uses.list.map((u, i) => (
-              <li key={u} className="flex gap-3 text-sm text-warm-gray">
-                <span className="font-display text-gold">{i + 1}.</span>
-                <span>{u}</span>
-              </li>
-            ))}
-          </ol>
-        </Reveal>
-      </Section>
-      {/* What are Ignitons? (restored per deck) */}
+      {/* What are Ignitons? */}
       <Section tone="alt">
         <Reveal className="mx-auto max-w-3xl">
           <h2 className="font-display text-2xl text-navy sm:text-3xl">{s.whatAre.heading}</h2>

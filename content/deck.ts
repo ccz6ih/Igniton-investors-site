@@ -269,8 +269,8 @@ export const scienceDeck = {
     heading: 'Igniton process',
     lead: 'Embedding as an operative property:',
     points: [
-      'igniton is neutral and has no hard topological charge, can therefore be “embedded” into the electron shell of an atom',
-      'change in the electron properties of the host, without changing its chemical identity, increasing bioavailability',
+      'Igniton is neutral and has no hard topological charge, can therefore be “embedded” into the electron shell of an atom',
+      'Change in the electron properties of the host, without changing its chemical identity, increasing bioavailability',
     ],
   },
 }
