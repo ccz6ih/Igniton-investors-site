@@ -30,7 +30,7 @@ export function ScienceEditor({ initial }: { initial: ScienceDeck }) {
       <p className="mt-2 text-warm-gray">What ignitons are, their place in physics, and their uses.</p>
 
       <div className="mt-8 space-y-6">
-        <FieldGroup title="Opening (eNPQ intro)">
+        <FieldGroup title="Opening (IGNITON)">
           <TextInput
             label="Heading"
             value={state.intro.heading}
@@ -38,6 +38,7 @@ export function ScienceEditor({ initial }: { initial: ScienceDeck }) {
           />
           <StringList
             label="Paragraphs"
+            hint="Use *word* for italic, **word** for bold"
             values={state.intro.paragraphs}
             onChange={(v) => patch({ intro: { ...state.intro, paragraphs: v } })}
             addLabel="Add paragraph"
@@ -73,12 +74,6 @@ export function ScienceEditor({ initial }: { initial: ScienceDeck }) {
         </FieldGroup>
 
         <FieldGroup title="Uses">
-          <StringList
-            label="Intro"
-            values={state.uses.intro}
-            onChange={(v) => patch({ uses: { ...state.uses, intro: v } })}
-            addLabel="Add intro paragraph"
-          />
           <TextInput
             label="Heading"
             value={state.uses.heading}
