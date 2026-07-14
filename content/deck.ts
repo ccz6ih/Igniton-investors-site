@@ -11,6 +11,9 @@ export const home = {
   tagline: 'Improving longevity, cognitive functions, memory, sleep and appearance',
   // Company video — streamed from Google Drive (file must be "anyone with the
   // link can view"). Embedded via Drive's preview player; nothing hosted in repo.
+  // Preferred: a hosted video file (Supabase Storage) — plays on one click.
+  // Also accepts a YouTube/Vimeo/Drive link. Falls back to videoDriveId.
+  videoUrl: '',
   videoDriveId: '1Vj2SwAml-JZ526hYD2PP_qUIoTmcIY_I',
   videoPoster: '/lifestyle/home-video-poster.jpg',
   confidential: 'STRICTLY PRIVATE & CONFIDENTIAL — IGNITON, INC.',

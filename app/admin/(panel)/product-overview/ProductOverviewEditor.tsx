@@ -6,6 +6,7 @@ import { saveContent } from '@/lib/admin/actions'
 import { useUnsavedGuard } from '@/components/admin/useUnsavedGuard'
 import { TextInput, TextArea, StringList, FieldGroup, SaveBar } from '@/components/admin/ui'
 import { ImageField } from '@/components/admin/ImageField'
+import { UploadField } from '@/components/admin/UploadField'
 
 type ProductOverview = (typeof import('@/content/deck'))['productOverview']
 type Product = ProductOverview['products'][number]
@@ -144,8 +145,11 @@ export function ProductOverviewEditor({ initial }: { initial: ProductOverview })
                               value={study.label}
                               onChange={(v) => setStudy(i, si, { ...study, label: v })}
                             />
-                            <TextInput
-                              label="Link (href)"
+                            <UploadField
+                              label="PDF"
+                              hint="Upload the study PDF, or paste a link."
+                              accept="application/pdf"
+                              uploadLabel="Upload PDF"
                               value={study.href}
                               onChange={(v) => setStudy(i, si, { ...study, href: v })}
                             />

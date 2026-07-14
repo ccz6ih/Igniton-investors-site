@@ -3,6 +3,9 @@ import type { ContentKey } from '@/lib/content'
 // Storage bucket for admin-uploaded images.
 export const IMAGE_BUCKET = 'site-images'
 
+// Storage bucket for larger media + documents (video, PDF).
+export const MEDIA_BUCKET = 'site-media'
+
 // The pages that appear in the admin dashboard. `ready` flips to true as each
 // page's editor ships (Phase 1). `keys` are the content/deck.ts exports the
 // page's editor manages.

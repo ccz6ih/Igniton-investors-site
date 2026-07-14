@@ -3,18 +3,70 @@
 import { useState } from 'react'
 import Image from 'next/image'
 
-// Company video: shows the branded poster + play button, then loads Google
-// Drive's streaming player on click. (Drive can't autoplay, so its own play
-// control appears once loaded — for a true one-click + thumbnail experience,
-// host on YouTube/Vimeo instead.) The Drive file must be shared publicly.
-export function HomeVideo({ driveId, poster }: { driveId: string; poster: string }) {
+function youTubeId(url: string) {
+  const m = url.match(/(?:youtu\.be\/|[?&]v=|\/embed\/)([\w-]{11})/)
+  return m ? m[1] : null
+}
+function vimeoId(url: string) {
+  const m = url.match(/vimeo\.com\/(?:video\/)?(\d+)/)
+  return m ? m[1] : null
+}
+function driveFileId(url: string) {
+  const m = url.match(/\/d\/([\w-]+)/) || url.match(/[?&]id=([\w-]+)/)
+  return m ? m[1] : null
+}
+
+// Company video. A hosted file (e.g. Supabase Storage) plays immediately via a
+// native player — one click, no second play button. A YouTube/Vimeo/Drive link
+// uses a lightweight poster + click-to-load embed. Falls back to the legacy
+// Google Drive file ID when no videoUrl is set.
+export function HomeVideo({
+  videoUrl,
+  driveId,
+  poster,
+}: {
+  videoUrl?: string
+  driveId?: string
+  poster: string
+}) {
   const [play, setPlay] = useState(false)
+  const url = (videoUrl || '').trim()
+
+  const isEmbedLink = /youtube\.com|youtu\.be|vimeo\.com|drive\.google\.com/.test(url)
+
+  // Direct video file (incl. Supabase Storage) — native player, plays on click.
+  if (url && !isEmbedLink) {
+    return (
+      <video
+        controls
+        preload="metadata"
+        poster={poster}
+        className="aspect-video w-full rounded-section bg-navy ring-1 ring-hairline"
+      >
+        <source src={url} />
+        Your browser doesn’t support embedded video.
+      </video>
+    )
+  }
+
+  const yt = url ? youTubeId(url) : null
+  const vm = url ? vimeoId(url) : null
+  const drv = (url ? driveFileId(url) : null) || driveId || null
+  const embedSrc = yt
+    ? `https://www.youtube-nocookie.com/embed/${yt}?autoplay=1`
+    : vm
+      ? `https://player.vimeo.com/video/${vm}?autoplay=1`
+      : drv
+        ? `https://drive.google.com/file/d/${drv}/preview`
+        : ''
+
+  if (!embedSrc) return null
 
   return (
     <div className="relative aspect-video overflow-hidden rounded-section bg-navy ring-1 ring-hairline">
       {play ? (
         <iframe
-          src={`https://drive.google.com/file/d/${driveId}/preview`}
+          src={embedSrc}
           title="Igniton company video"
           allow="autoplay; fullscreen"
           allowFullScreen

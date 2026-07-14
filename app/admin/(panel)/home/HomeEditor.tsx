@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { saveContent } from '@/lib/admin/actions'
 import { TextInput, StringList, FieldGroup, SaveBar } from '@/components/admin/ui'
 import { ImageField } from '@/components/admin/ImageField'
+import { UploadField } from '@/components/admin/UploadField'
 import { useUnsavedGuard } from '@/components/admin/useUnsavedGuard'
 
 type Home = (typeof import('@/content/deck'))['home']
@@ -71,9 +72,17 @@ export function HomeEditor({
         </FieldGroup>
 
         <FieldGroup title="Company video">
+          <UploadField
+            label="Video"
+            hint="Upload an MP4 — it plays on one click. Or paste a YouTube / Vimeo / Drive link."
+            accept="video/*"
+            uploadLabel="Upload video"
+            value={home.videoUrl}
+            onChange={(v) => patchHome({ videoUrl: v })}
+          />
           <TextInput
-            label="Google Drive file ID"
-            hint="The ID from the Drive share link (drive.google.com/file/d/…/view)"
+            label="Google Drive file ID (fallback)"
+            hint="Used only when no video above. From drive.google.com/file/d/…/view"
             value={home.videoDriveId}
             onChange={(v) => patchHome({ videoDriveId: v })}
           />
