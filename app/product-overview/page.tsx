@@ -3,14 +3,15 @@ import Image from 'next/image'
 import { Section, Eyebrow } from '@/components/Section'
 import { Reveal } from '@/components/Reveal'
 import { BrandName } from '@/components/BrandName'
-import { productOverview as p } from '@/content/deck'
+import { getContent } from '@/lib/content'
 
 export const metadata: Metadata = {
   title: 'Product Overview',
   alternates: { canonical: '/product-overview' },
 }
 
-export default function ProductOverviewPage() {
+export default async function ProductOverviewPage() {
+  const p = await getContent('productOverview')
   return (
     <>
       {/* Supplements */}

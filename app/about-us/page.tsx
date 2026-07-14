@@ -2,14 +2,15 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Section, Eyebrow } from '@/components/Section'
 import { Reveal } from '@/components/Reveal'
-import { aboutUs } from '@/content/deck'
+import { getContent } from '@/lib/content'
 
 export const metadata: Metadata = {
   title: 'About Us',
   alternates: { canonical: '/about-us' },
 }
 
-export default function AboutUsPage() {
+export default async function AboutUsPage() {
+  const aboutUs = await getContent('aboutUs')
   const a = aboutUs
   return (
     <>

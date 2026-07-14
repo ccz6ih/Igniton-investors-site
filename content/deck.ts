@@ -40,12 +40,6 @@ export const disclaimer = {
 
 /* -------------------------------------------------------------- ABOUT US */
 export const aboutUs = {
-  heading: 'IGNITON',
-  intro: [
-    'Igniton (eNPQ quasi-particle) technology was originally developed in the 1990’s, and in 1995 the lab was established at CERN facility (Switzerland) with much of the hardware to verify and measure the eNPQ quasi-particle named “ignitons” rented from CERN. The current operation is in Colorado.',
-    'The component stages of the eNQP (Ignitons) characterization system are from the Swiss laboratories, that were used until two years ago, when the necessary data on the nature of the quasi-particles and their industrial application had been collected, and the current equipment was designed, constructed and established in Colorado.',
-    'Ignitons, like neutrinos, are neutral quasi-particles. In addition to being extremely small, they have no electrical charge. Igniton size and velocity are similar to neutrinos. Ignitons as the life force was known from the time of Khem (ancient Egypt) and referred to as the World Spirit. The life of the original prokaryote bacteria on Earth were solely dependent on their ability to attract and capture ignitons.',
-  ],
   gdv: {
     unit: 'Energy · 10⁻² Joules',
     compare: [
@@ -188,6 +182,16 @@ export const technologyDeck = {
 
 /* --------------------------------------------------------------- SCIENCE */
 export const scienceDeck = {
+  // Opening eNPQ intro — shown at the top of the Science page (moved here from
+  // About Us per the owner's edit). Edited in the Science admin editor.
+  intro: {
+    heading: 'IGNITON',
+    paragraphs: [
+      'Igniton (eNPQ quasi-particle) technology was originally developed in the 1990’s, and in 1995 the lab was established at CERN facility (Switzerland) with much of the hardware to verify and measure the eNPQ quasi-particle named “ignitons” rented from CERN. The current operation is in Colorado.',
+      'The component stages of the eNQP (Ignitons) characterization system are from the Swiss laboratories, that were used until two years ago, when the necessary data on the nature of the quasi-particles and their industrial application had been collected, and the current equipment was designed, constructed and established in Colorado.',
+      'Ignitons, like neutrinos, are neutral quasi-particles. In addition to being extremely small, they have no electrical charge. Igniton size and velocity are similar to neutrinos. Ignitons as the life force was known from the time of Khem (ancient Egypt) and referred to as the World Spirit. The life of the original prokaryote bacteria on Earth were solely dependent on their ability to attract and capture ignitons.',
+    ],
+  },
   whatAre: {
     heading: 'What are Ignitons?',
     paragraphs: [

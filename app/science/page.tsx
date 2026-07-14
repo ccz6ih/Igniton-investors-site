@@ -1,23 +1,24 @@
 import type { Metadata } from 'next'
 import { Section, Eyebrow } from '@/components/Section'
 import { Reveal } from '@/components/Reveal'
-import { scienceDeck as s, aboutUs } from '@/content/deck'
+import { getContent } from '@/lib/content'
 
 export const metadata: Metadata = {
   title: 'Science',
   alternates: { canonical: '/science' },
 }
 
-export default function SciencePage() {
+export default async function SciencePage() {
+  const s = await getContent('scienceDeck')
   return (
     <>
       {/* IGNITON — eNPQ intro moved here from About Us, at the top */}
       <Section tone="primary">
         <Reveal className="text-center">
-          <h1 className="font-display text-4xl text-navy">{aboutUs.heading}</h1>
+          <h1 className="font-display text-4xl text-navy">{s.intro.heading}</h1>
         </Reveal>
         <Reveal className="mx-auto mt-8 max-w-3xl space-y-5 text-sm leading-relaxed text-warm-gray">
-          {aboutUs.intro.map((p, i) => (
+          {s.intro.paragraphs.map((p, i) => (
             <p key={i}>{p}</p>
           ))}
         </Reveal>

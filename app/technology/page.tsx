@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Section, Eyebrow } from '@/components/Section'
 import { Reveal } from '@/components/Reveal'
-import { technologyDeck as t } from '@/content/deck'
+import { getContent } from '@/lib/content'
 
 export const metadata: Metadata = {
   title: 'Technology',
@@ -28,7 +28,8 @@ function ApparatusList({
   )
 }
 
-export default function TechnologyPage() {
+export default async function TechnologyPage() {
+  const t = await getContent('technologyDeck')
   return (
     <>
       <Section tone="primary">
