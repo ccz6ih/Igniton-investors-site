@@ -2,9 +2,13 @@ import Image from 'next/image'
 import { Section, Eyebrow } from '@/components/Section'
 import { Reveal } from '@/components/Reveal'
 import { HomeVideo } from '@/components/HomeVideo'
-import { home, disclaimer } from '@/content/deck'
+import { getContent } from '@/lib/content'
 
-export default function HomePage() {
+export default async function HomePage() {
+  const [home, disclaimer] = await Promise.all([
+    getContent('home'),
+    getContent('disclaimer'),
+  ])
   return (
     <>
       {/* Cosmic hero — full-screen (from the deck) */}

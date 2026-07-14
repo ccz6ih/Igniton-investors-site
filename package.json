@@ -10,6 +10,8 @@
     "assets": "powershell -ExecutionPolicy Bypass -File ./scripts/download-assets.ps1"
   },
   "dependencies": {
+    "@supabase/ssr": "^0.12.1",
+    "@supabase/supabase-js": "^2.110.3",
     "next": "^15.5.20",
     "react": "19.1.0",
     "react-dom": "19.1.0"

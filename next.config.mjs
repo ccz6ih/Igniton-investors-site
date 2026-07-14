@@ -9,6 +9,8 @@ const nextConfig = {
     remotePatterns: [
       { protocol: 'https', hostname: 'www.igniton.com' },
       { protocol: 'https', hostname: 'cdn.shopify.com' },
+      // Admin-uploaded images (Supabase Storage — site-images bucket).
+      { protocol: 'https', hostname: 'mfjibmyfbiwyckkeswnu.supabase.co' },
     ],
   },
 }
