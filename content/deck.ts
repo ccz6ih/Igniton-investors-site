@@ -100,7 +100,7 @@ export const productOverview = {
       image: '/products/rem.jpg',
       stats: ['+25% REM Time', '+13% More Sleep', '-54% Interruptions', '-92% A.M. Weakness'],
       basis: 'vs. Placebo',
-      studies: [],
+      studies: [{ label: 'Download Study', href: '' }],
     },
     {
       suffix: 'Peptide Eye Serum',
@@ -115,7 +115,7 @@ export const productOverview = {
         '75% Reduced Dark Circles',
       ],
       basis: '',
-      studies: [],
+      studies: [{ label: 'Download Clinical Study', href: '' }],
     },
   ],
   awards: [
@@ -125,7 +125,7 @@ export const productOverview = {
   ],
   worldRecord: {
     heading: 'World Record 60 m Hurdles 40+',
-    sub: '(after 9 months of using IgniLongevity & IgniCognition)',
+    sub: '12 months of using IgniLongevity & IgniCognition (after 2 years of injuries)',
     image: '/deck/world-record.jpg',
   },
   biophotonic: {
@@ -148,15 +148,46 @@ export const productOverview = {
       },
     ],
   },
-  usb: {
-    heading: 'Igniton-Coded Microchip USB Device (2027)',
-    image: '/deck/usb-gaia.jpg',
-    caption: 'Igniton release coverage 400 sq. ft.',
+  microchip: {
+    heading: 'Igniton’s Next Step - Release from microchip',
+    stick: {
+      image: '/deck/gaia-stick.png',
+      caption: 'Igniton new delivery - Gaia TV Stick',
+      sub: 'Release from microchip coding controlled by Gaia via online',
+    },
+    equipment: {
+      image: '/deck/gaia-equipment.png',
+      caption: 'Equipment for chip coding by ignitons',
+    },
+  },
+  coherence: {
+    heading: 'Igniton Coherence Imprinting Biophotons',
+    productName: 'Igni Coherence',
+    lead: 'Boosts ability of Chromatin for ignitons imprinting biophotons',
+    points: [
+      'Chromatin is an interface between a coherent field and a biological manifestation',
+      'Chromatin acting as a stabilizer of possibilities (igniton – chromatin – biophoton)',
+      'Igniton creates a change in coherence of the imprint, chromatin reacts to the imprint',
+      'Chromatin changes its topography, influencing coherent processes in the cell memory matrix',
+      'Change of conformation state of chromatin changes electron processes in the nucleus',
+      'Chromatin is stabilizing memory of coherence – anchoring information in time',
+    ],
+    image: '/products/igni-coherence.png',
   },
   chair: {
-    heading: 'H.I.T. Chair = Holoton-Igniton Therapy for Quantum Coherence (2028)',
-    image: '/deck/hit-chair.jpg',
-    note: '*In 2025 a version was built for NASA for the no gravity environment',
+    heading: 'Next Phase - Igniton Coherence Environment',
+    productTitle: 'COHERENCE HIT Chair  (partially functioning prototype)',
+    subtitle: 'Holoton only version delivered to NASA in 2026',
+    image: '/deck/hit-chair-pod.png',
+    imageNote: 'Bio-well scanners in arm rest',
+    points: [
+      'H.I.T. = Holoton-Igniton Therapy (quantum coherence)',
+      'Coherence field effect on cellular entropy',
+      'Similar to light effect on darkness',
+      'A lot of diseases and aging symptoms are results of entropy at the cellular level',
+    ],
+    equationsHeading: 'Energetic Landscape of “Coherence Chair”',
+    equationsImage: '/deck/coherence-equations.png',
   },
 }
 

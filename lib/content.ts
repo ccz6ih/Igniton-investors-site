@@ -10,6 +10,26 @@ export type ContentKey = keyof typeof defaults
 export const CONTENT_TAG = 'content'
 export const contentTag = (key: ContentKey) => `content:${key}`
 
+function isPlainObject(v: unknown): v is Record<string, unknown> {
+  return typeof v === 'object' && v !== null && !Array.isArray(v)
+}
+
+// Deep-merge saved content over the compiled-in default so newly-added fields
+// (nested included) always render from the default even when the DB row predates
+// them. Arrays are replaced wholesale (the saved value wins).
+function deepMerge<T>(base: T, override: unknown): T {
+  if (!isPlainObject(base) || !isPlainObject(override)) {
+    return (override === undefined ? base : (override as T))
+  }
+  const out: Record<string, unknown> = { ...base }
+  for (const k of Object.keys(override)) {
+    const bv = (base as Record<string, unknown>)[k]
+    const ov = override[k]
+    out[k] = isPlainObject(bv) && isPlainObject(ov) ? deepMerge(bv, ov) : ov
+  }
+  return out as T
+}
+
 async function fetchContent<K extends ContentKey>(
   key: K,
 ): Promise<(typeof defaults)[K]> {
@@ -25,9 +45,7 @@ async function fetchContent<K extends ContentKey>(
 
   if (error || !data?.data) return fallback
 
-  // Shallow-merge over the default so a newly-added default field still renders
-  // if the DB row predates it. Seeded rows carry the full object.
-  return { ...(fallback as object), ...(data.data as object) } as (typeof defaults)[K]
+  return deepMerge(fallback, data.data)
 }
 
 // Live content for a page section, cached and tagged so an admin save can

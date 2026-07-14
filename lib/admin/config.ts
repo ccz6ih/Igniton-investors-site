@@ -34,8 +34,8 @@ export const ADMIN_PAGES: AdminPage[] = [
   },
   {
     slug: 'product-overview',
-    title: 'Product Overview',
-    description: 'Products, stats, studies, awards, devices.',
+    title: 'Products',
+    description: 'Products, studies, awards, devices, microchip, coherence chair.',
     keys: ['productOverview'],
     ready: true,
   },

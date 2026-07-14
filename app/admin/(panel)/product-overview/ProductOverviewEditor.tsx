@@ -57,8 +57,11 @@ export function ProductOverviewEditor({ initial }: { initial: ProductOverview })
   const addDevice = () =>
     patchBiophotonic({ devices: [...state.biophotonic.devices, { name: '', image: '', text: '' }] })
 
-  // USB & chair ---------------------------------------------------------
-  const patchUsb = (p: Partial<ProductOverview['usb']>) => patch({ usb: { ...state.usb, ...p } })
+  // Microchip, coherence & chair ---------------------------------------
+  const patchMicrochip = (p: Partial<ProductOverview['microchip']>) =>
+    patch({ microchip: { ...state.microchip, ...p } })
+  const patchCoherence = (p: Partial<ProductOverview['coherence']>) =>
+    patch({ coherence: { ...state.coherence, ...p } })
   const patchChair = (p: Partial<ProductOverview['chair']>) => patch({ chair: { ...state.chair, ...p } })
 
   async function onSave(): Promise<string | null> {
@@ -73,8 +76,8 @@ export function ProductOverviewEditor({ initial }: { initial: ProductOverview })
       <Link href="/admin" className="text-sm font-medium text-warm-gray hover:text-navy">
         ← All pages
       </Link>
-      <h1 className="mt-3 font-display text-3xl text-navy">Product Overview</h1>
-      <p className="mt-2 text-warm-gray">Supplements, awards, world record, biophotonic devices, USB device, and HIT chair.</p>
+      <h1 className="mt-3 font-display text-3xl text-navy">Products</h1>
+      <p className="mt-2 text-warm-gray">Supplements, awards, world record, biophotonic devices, microchip release, coherence imprinting, and the coherence chair.</p>
 
       <div className="mt-8 space-y-6">
         <FieldGroup title="Section heading">
@@ -283,45 +286,118 @@ export function ProductOverviewEditor({ initial }: { initial: ProductOverview })
           </div>
         </FieldGroup>
 
-        <FieldGroup title="USB device">
+        <FieldGroup title="Microchip Release (Gaia)">
           <TextInput
             label="Heading"
-            value={state.usb.heading}
-            onChange={(v) => patchUsb({ heading: v })}
+            value={state.microchip.heading}
+            onChange={(v) => patchMicrochip({ heading: v })}
           />
+          <p className="text-sm font-semibold text-navy">Gaia TV Stick</p>
           <ImageField
-            label="Image"
-            value={state.usb.image}
-            onChange={(v) => patchUsb({ image: v })}
+            label="Stick image"
+            value={state.microchip.stick.image}
+            onChange={(v) => patchMicrochip({ stick: { ...state.microchip.stick, image: v } })}
+            aspect={635 / 255}
           />
           <TextInput
-            label="Caption"
-            value={state.usb.caption}
-            onChange={(v) => patchUsb({ caption: v })}
+            label="Stick caption"
+            value={state.microchip.stick.caption}
+            onChange={(v) => patchMicrochip({ stick: { ...state.microchip.stick, caption: v } })}
+          />
+          <TextInput
+            label="Stick sub-caption"
+            value={state.microchip.stick.sub}
+            onChange={(v) => patchMicrochip({ stick: { ...state.microchip.stick, sub: v } })}
+          />
+          <p className="text-sm font-semibold text-navy">Coding equipment</p>
+          <ImageField
+            label="Equipment image"
+            value={state.microchip.equipment.image}
+            onChange={(v) => patchMicrochip({ equipment: { ...state.microchip.equipment, image: v } })}
+          />
+          <TextInput
+            label="Equipment caption"
+            value={state.microchip.equipment.caption}
+            onChange={(v) => patchMicrochip({ equipment: { ...state.microchip.equipment, caption: v } })}
           />
         </FieldGroup>
 
-        <FieldGroup title="HIT chair">
+        <FieldGroup title="Igniton Coherence Imprinting">
+          <TextInput
+            label="Heading"
+            value={state.coherence.heading}
+            onChange={(v) => patchCoherence({ heading: v })}
+          />
+          <TextInput
+            label="Product name"
+            value={state.coherence.productName}
+            onChange={(v) => patchCoherence({ productName: v })}
+          />
+          <TextInput
+            label="Lead"
+            value={state.coherence.lead}
+            onChange={(v) => patchCoherence({ lead: v })}
+          />
+          <StringList
+            label="Points"
+            values={state.coherence.points}
+            onChange={(v) => patchCoherence({ points: v })}
+            addLabel="Add point"
+          />
+          <ImageField
+            label="Bottle image"
+            value={state.coherence.image}
+            onChange={(v) => patchCoherence({ image: v })}
+          />
+        </FieldGroup>
+
+        <FieldGroup title="Coherence Environment (HIT chair)">
           <TextInput
             label="Heading"
             value={state.chair.heading}
             onChange={(v) => patchChair({ heading: v })}
           />
-          <ImageField
-            label="Image"
-            value={state.chair.image}
-            onChange={(v) => patchChair({ image: v })}
-            aspect={16 / 9}
+          <TextInput
+            label="Product title"
+            value={state.chair.productTitle}
+            onChange={(v) => patchChair({ productTitle: v })}
           />
           <TextInput
-            label="Note"
-            value={state.chair.note}
-            onChange={(v) => patchChair({ note: v })}
+            label="Subtitle"
+            value={state.chair.subtitle}
+            onChange={(v) => patchChair({ subtitle: v })}
+          />
+          <ImageField
+            label="Chair image"
+            value={state.chair.image}
+            onChange={(v) => patchChair({ image: v })}
+            aspect={650 / 348}
+          />
+          <TextInput
+            label="Image note"
+            value={state.chair.imageNote}
+            onChange={(v) => patchChair({ imageNote: v })}
+          />
+          <StringList
+            label="Points"
+            values={state.chair.points}
+            onChange={(v) => patchChair({ points: v })}
+            addLabel="Add point"
+          />
+          <TextInput
+            label="Equations heading"
+            value={state.chair.equationsHeading}
+            onChange={(v) => patchChair({ equationsHeading: v })}
+          />
+          <ImageField
+            label="Equations image"
+            value={state.chair.equationsImage}
+            onChange={(v) => patchChair({ equationsImage: v })}
           />
         </FieldGroup>
       </div>
 
-      <SaveBar onSave={onSave} previewHref="/product-overview" />
+      <SaveBar onSave={onSave} previewHref="/products" />
     </div>
   )
 }

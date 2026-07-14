@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  async redirects() {
+    return [{ source: '/product-overview', destination: '/products', permanent: true }]
+  },
   // Public, indexable site (client decision). No noindex headers.
   images: {
     // Allow reusing brand imagery from the Shopify CDN if referenced by remote URL.

@@ -24,7 +24,7 @@ export type NavItem = { label: string; href: string }
 // Top nav mirrors the owner's deck structure.
 export const nav: NavItem[] = [
   { label: 'About Us', href: '/about-us' },
-  { label: 'Product Overview', href: '/product-overview' },
+  { label: 'Products', href: '/products' },
   { label: 'Technology', href: '/technology' },
   { label: 'Science', href: '/science' },
 ]
