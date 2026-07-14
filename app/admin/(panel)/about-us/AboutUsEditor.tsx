@@ -119,7 +119,7 @@ export function AboutUsEditor({ initial }: { initial: AboutUs }) {
         </FieldGroup>
       </div>
 
-      <SaveBar onSave={onSave} />
+      <SaveBar onSave={onSave} previewHref="/about-us" />
     </div>
   )
 }

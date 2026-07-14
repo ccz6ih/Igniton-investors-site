@@ -179,7 +179,14 @@ export function FieldGroup({ title, children }: { title: string; children: React
 }
 
 // Sticky save bar with status. `onSave` returns an error string or null.
-export function SaveBar({ onSave }: { onSave: () => Promise<string | null> }) {
+// `previewHref` (optional) shows a link to view the live page in a new tab.
+export function SaveBar({
+  onSave,
+  previewHref,
+}: {
+  onSave: () => Promise<string | null>
+  previewHref?: string
+}) {
   const [state, setState] = useState<'idle' | 'saving' | 'saved' | 'error'>('idle')
   const [msg, setMsg] = useState<string | null>(null)
 
@@ -206,14 +213,26 @@ export function SaveBar({ onSave }: { onSave: () => Promise<string | null> }) {
       >
         {msg ?? 'Edits publish to the live site the moment you save.'}
       </p>
-      <button
-        type="button"
-        onClick={handle}
-        disabled={state === 'saving'}
-        className="rounded-lg bg-navy px-6 py-2.5 font-semibold text-white transition hover:bg-navy/90 disabled:opacity-60"
-      >
-        {state === 'saving' ? 'Saving…' : 'Save & publish'}
-      </button>
+      <div className="flex items-center gap-4">
+        {previewHref && (
+          <a
+            href={previewHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm font-medium text-warm-gray transition hover:text-navy"
+          >
+            Preview ↗
+          </a>
+        )}
+        <button
+          type="button"
+          onClick={handle}
+          disabled={state === 'saving'}
+          className="rounded-lg bg-navy px-6 py-2.5 font-semibold text-white transition hover:bg-navy/90 disabled:opacity-60"
+        >
+          {state === 'saving' ? 'Saving…' : 'Save & publish'}
+        </button>
+      </div>
     </div>
   )
 }

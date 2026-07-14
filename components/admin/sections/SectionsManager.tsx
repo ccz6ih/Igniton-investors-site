@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { saveSections } from '@/lib/admin/sections-actions'
 import { SaveBar } from '@/components/admin/ui'
 import { BlockEditor } from './BlockEditor'
+import { slotsFor } from '@/lib/sections/slots'
 import { BLOCK_LIBRARY, BLOCK_LABELS, newBlock, type Block, type BlockType } from '@/lib/sections/types'
 
 export function SectionsManager({
@@ -17,9 +18,13 @@ export function SectionsManager({
   initial: Block[]
 }) {
   const [blocks, setBlocks] = useState<Block[]>(initial)
+  const slots = slotsFor(slug)
+  const previewHref = slug === 'home' ? '/' : `/${slug}`
 
   const update = (i: number, b: Block) => setBlocks((bs) => bs.map((x, j) => (j === i ? b : x)))
   const remove = (i: number) => setBlocks((bs) => bs.filter((_, j) => j !== i))
+  const toggleHidden = (i: number) =>
+    setBlocks((bs) => bs.map((x, j) => (j === i ? { ...x, hidden: !x.hidden } : x)))
   const add = (t: BlockType) => setBlocks((bs) => [...bs, newBlock(t)])
   const duplicate = (i: number) =>
     setBlocks((bs) => {
@@ -49,8 +54,9 @@ export function SectionsManager({
       </Link>
       <h1 className="mt-3 font-display text-3xl text-navy">{title} — Sections</h1>
       <p className="mt-2 max-w-xl text-warm-gray">
-        Add extra sections to the bottom of this page. Drag order with the arrows; each block is
-        pre-styled so it always matches the site.
+        Add sections anywhere on this page — pick a spot with <strong>Position</strong>. Each block
+        is pre-styled to match the site. Use <strong>Hide</strong> to stage a section without
+        publishing it.
       </p>
 
       <div className="mt-8 space-y-4">
@@ -61,18 +67,49 @@ export function SectionsManager({
         )}
 
         {blocks.map((block, i) => (
-          <div key={block.id} className="rounded-xl border border-hairline bg-white p-5">
-            <div className="mb-4 flex items-center justify-between border-b border-hairline pb-3">
-              <span className="text-sm font-semibold uppercase tracking-wide text-gold">
-                {BLOCK_LABELS[block.type]}
-              </span>
+          <div
+            key={block.id}
+            className={`rounded-xl border p-5 ${
+              block.hidden ? 'border-dashed border-hairline bg-off-white/40' : 'border-hairline bg-white'
+            }`}
+          >
+            <div className="mb-4 flex flex-wrap items-center justify-between gap-3 border-b border-hairline pb-3">
+              <div className="flex items-center gap-3">
+                <span className="text-sm font-semibold uppercase tracking-wide text-gold">
+                  {BLOCK_LABELS[block.type]}
+                </span>
+                {block.hidden && (
+                  <span className="rounded-full bg-off-white px-2 py-0.5 text-xs font-medium text-warm-gray">
+                    Hidden
+                  </span>
+                )}
+              </div>
               <div className="flex items-center gap-1.5">
                 <Ctrl label="Move up" onClick={() => move(i, -1)} disabled={i === 0}>↑</Ctrl>
                 <Ctrl label="Move down" onClick={() => move(i, 1)} disabled={i === blocks.length - 1}>↓</Ctrl>
                 <Ctrl label="Duplicate" onClick={() => duplicate(i)}>⧉</Ctrl>
+                <Ctrl label={block.hidden ? 'Show' : 'Hide'} onClick={() => toggleHidden(i)}>
+                  {block.hidden ? '🙈' : '👁'}
+                </Ctrl>
                 <Ctrl label="Remove" onClick={() => remove(i)} tone="danger">✕</Ctrl>
               </div>
             </div>
+
+            <label className="mb-4 flex items-center gap-2 text-sm">
+              <span className="font-medium text-navy">Position</span>
+              <select
+                value={block.slot ?? 'bottom'}
+                onChange={(e) => update(i, { ...block, slot: e.target.value })}
+                className="rounded-lg border border-hairline bg-white px-3 py-1.5 text-navy outline-none focus:border-gold focus:ring-2 focus:ring-gold/30"
+              >
+                {slots.map((s) => (
+                  <option key={s.id} value={s.id}>
+                    {s.label}
+                  </option>
+                ))}
+              </select>
+            </label>
+
             <BlockEditor block={block} onChange={(b) => update(i, b)} />
           </div>
         ))}
@@ -95,7 +132,7 @@ export function SectionsManager({
         </div>
       </div>
 
-      <SaveBar onSave={onSave} />
+      <SaveBar onSave={onSave} previewHref={previewHref} />
     </div>
   )
 }

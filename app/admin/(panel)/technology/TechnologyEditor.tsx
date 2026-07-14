@@ -131,7 +131,7 @@ export function TechnologyEditor({ initial }: { initial: TechnologyDeck }) {
         </FieldGroup>
       </div>
 
-      <SaveBar onSave={onSave} />
+      <SaveBar onSave={onSave} previewHref="/technology" />
     </div>
   )
 }

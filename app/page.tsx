@@ -37,6 +37,8 @@ export default async function HomePage() {
         </p>
       </section>
 
+      <PageSections slug="home" slot="afterHero" />
+
       {/* Company statement + video + science carousel */}
       <Section tone="primary">
         <Reveal className="text-center">
@@ -51,6 +53,8 @@ export default async function HomePage() {
           <HomeVideo driveId={home.videoDriveId} poster={home.videoPoster} />
         </Reveal>
       </Section>
+
+      <PageSections slug="home" slot="afterIntro" />
 
       {/* Science-image carousel (facility) */}
       <Section tone="alt">
@@ -69,6 +73,8 @@ export default async function HomePage() {
         <p className="mt-4 text-center text-xs text-warm-gray">{home.carouselCaption}</p>
       </Section>
 
+      <PageSections slug="home" slot="afterCarousel" />
+
       {/* Disclaimer */}
       <Section id="disclaimer" tone="primary">
         <Reveal className="mx-auto max-w-3xl">
@@ -80,7 +86,7 @@ export default async function HomePage() {
           </div>
         </Reveal>
       </Section>
-      <PageSections slug="home" />
+      <PageSections slug="home" slot="bottom" />
     </>
   )
 }

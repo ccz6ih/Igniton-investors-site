@@ -33,6 +33,8 @@ export default async function TechnologyPage() {
   const t = await getContent('technologyDeck')
   return (
     <>
+      <PageSections slug="technology" slot="top" />
+
       <Section tone="primary">
         <Reveal className="max-w-3xl space-y-5 text-sm leading-relaxed text-warm-gray">
           {t.intro.map((p, i) => (
@@ -40,6 +42,8 @@ export default async function TechnologyPage() {
           ))}
         </Reveal>
       </Section>
+
+      <PageSections slug="technology" slot="afterIntro" />
 
       <Section tone="alt">
         <Reveal>
@@ -49,6 +53,8 @@ export default async function TechnologyPage() {
         <ApparatusList items={t.current.items} />
       </Section>
 
+      <PageSections slug="technology" slot="afterCurrent" />
+
       <Section tone="primary">
         <Reveal>
           <Eyebrow>Technology</Eyebrow>
@@ -56,7 +62,7 @@ export default async function TechnologyPage() {
         </Reveal>
         <ApparatusList items={t.original.items} />
       </Section>
-      <PageSections slug="technology" />
+      <PageSections slug="technology" slot="bottom" />
     </>
   )
 }

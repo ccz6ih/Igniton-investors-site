@@ -15,6 +15,8 @@ export default async function AboutUsPage() {
   const a = aboutUs
   return (
     <>
+      <PageSections slug="about-us" slot="top" />
+
       {/* 1) Igniton Inc. — moved to top of page */}
       <Section tone="primary">
         <Reveal>
@@ -33,6 +35,8 @@ export default async function AboutUsPage() {
           </ul>
         </Reveal>
       </Section>
+
+      <PageSections slug="about-us" slot="afterInc" />
 
       {/* 2) GDV comparison + focus + university studies */}
       <Section tone="alt">
@@ -61,7 +65,7 @@ export default async function AboutUsPage() {
           ))}
         </Reveal>
       </Section>
-      <PageSections slug="about-us" />
+      <PageSections slug="about-us" slot="bottom" />
     </>
   )
 }

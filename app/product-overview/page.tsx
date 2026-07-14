@@ -15,6 +15,8 @@ export default async function ProductOverviewPage() {
   const p = await getContent('productOverview')
   return (
     <>
+      <PageSections slug="product-overview" slot="top" />
+
       {/* Supplements */}
       <Section tone="primary">
         <Reveal className="text-center">
@@ -73,6 +75,8 @@ export default async function ProductOverviewPage() {
         </Reveal>
       </Section>
 
+      <PageSections slug="product-overview" slot="afterProducts" />
+
       {/* World record */}
       <Section tone="alt">
         <Reveal className="mx-auto max-w-2xl text-center">
@@ -83,6 +87,8 @@ export default async function ProductOverviewPage() {
           </div>
         </Reveal>
       </Section>
+
+      <PageSections slug="product-overview" slot="afterWorldRecord" />
 
       {/* Biophotonic devices */}
       <Section tone="primary">
@@ -109,6 +115,8 @@ export default async function ProductOverviewPage() {
         </div>
       </Section>
 
+      <PageSections slug="product-overview" slot="afterDevices" />
+
       {/* USB device */}
       <Section tone="alt">
         <Reveal className="mx-auto max-w-xl text-center">
@@ -130,7 +138,7 @@ export default async function ProductOverviewPage() {
           <p className="mt-6 text-sm italic text-warm-gray">{p.chair.note}</p>
         </Reveal>
       </Section>
-      <PageSections slug="product-overview" />
+      <PageSections slug="product-overview" slot="bottom" />
     </>
   )
 }

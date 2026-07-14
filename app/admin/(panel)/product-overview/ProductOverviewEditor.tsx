@@ -310,7 +310,7 @@ export function ProductOverviewEditor({ initial }: { initial: ProductOverview })
         </FieldGroup>
       </div>
 
-      <SaveBar onSave={onSave} />
+      <SaveBar onSave={onSave} previewHref="/product-overview" />
     </div>
   )
 }

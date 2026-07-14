@@ -13,6 +13,8 @@ export default async function SciencePage() {
   const s = await getContent('scienceDeck')
   return (
     <>
+      <PageSections slug="science" slot="top" />
+
       {/* IGNITON — eNPQ intro moved here from About Us, at the top */}
       <Section tone="primary">
         <Reveal className="text-center">
@@ -24,6 +26,8 @@ export default async function SciencePage() {
           ))}
         </Reveal>
       </Section>
+
+      <PageSections slug="science" slot="afterIntro" />
 
       {/* Igniton place in physics — with a big up-arrow */}
       <Section tone="alt">
@@ -46,6 +50,8 @@ export default async function SciencePage() {
         </Reveal>
       </Section>
 
+      <PageSections slug="science" slot="afterPhysics" />
+
       {/* Uses */}
       <Section tone="primary">
         <Reveal className="mx-auto max-w-3xl space-y-4">
@@ -67,7 +73,7 @@ export default async function SciencePage() {
           </ol>
         </Reveal>
       </Section>
-      <PageSections slug="science" />
+      <PageSections slug="science" slot="bottom" />
     </>
   )
 }

@@ -5,19 +5,23 @@
 
 export type StatItem = { value: string; label: string }
 
+// Fields common to every block: id, which page slot it renders in (see
+// lib/sections/slots.ts; undefined = bottom), and whether it's hidden (staged,
+// not shown on the live page).
+type Base = { id: string; slot?: string; hidden?: boolean }
+
 export type Block =
-  | { id: string; type: 'richText'; heading: string; body: string[] }
-  | {
-      id: string
+  | (Base & { type: 'richText'; heading: string; body: string[] })
+  | (Base & {
       type: 'imageText'
       image: string
       heading: string
       body: string[]
       imageSide: 'left' | 'right'
-    }
-  | { id: string; type: 'statRow'; heading: string; stats: StatItem[] }
-  | { id: string; type: 'quote'; quote: string; attribution: string }
-  | { id: string; type: 'cta'; heading: string; body: string; buttonLabel: string; buttonHref: string }
+    })
+  | (Base & { type: 'statRow'; heading: string; stats: StatItem[] })
+  | (Base & { type: 'quote'; quote: string; attribution: string })
+  | (Base & { type: 'cta'; heading: string; body: string; buttonLabel: string; buttonHref: string })
 
 export type BlockType = Block['type']
 

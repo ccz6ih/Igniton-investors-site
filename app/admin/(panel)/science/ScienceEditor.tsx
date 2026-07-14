@@ -89,7 +89,7 @@ export function ScienceEditor({ initial }: { initial: ScienceDeck }) {
         </FieldGroup>
       </div>
 
-      <SaveBar onSave={onSave} />
+      <SaveBar onSave={onSave} previewHref="/science" />
     </div>
   )
 }

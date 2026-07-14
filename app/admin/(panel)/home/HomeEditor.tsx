@@ -129,7 +129,7 @@ export function HomeEditor({
         </FieldGroup>
       </div>
 
-      <SaveBar onSave={onSave} />
+      <SaveBar onSave={onSave} previewHref="/" />
     </div>
   )
 }
