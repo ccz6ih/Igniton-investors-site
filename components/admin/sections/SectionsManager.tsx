@@ -7,7 +7,7 @@ import { useUnsavedGuard } from '@/components/admin/useUnsavedGuard'
 import { SaveBar } from '@/components/admin/ui'
 import { BlockEditor } from './BlockEditor'
 import { slotsFor } from '@/lib/sections/slots'
-import { BLOCK_LIBRARY, BLOCK_LABELS, newBlock, type Block, type BlockType } from '@/lib/sections/types'
+import { BLOCK_LIBRARY, BLOCK_LABELS, newBlock, type Block, type CustomBlockType } from '@/lib/sections/types'
 
 export function SectionsManager({
   slug,
@@ -27,10 +27,10 @@ export function SectionsManager({
   const remove = (i: number) => setBlocks((bs) => bs.filter((_, j) => j !== i))
   const toggleHidden = (i: number) =>
     setBlocks((bs) => bs.map((x, j) => (j === i ? { ...x, hidden: !x.hidden } : x)))
-  const add = (t: BlockType) => setBlocks((bs) => [...bs, newBlock(t)])
+  const add = (t: CustomBlockType) => setBlocks((bs) => [...bs, newBlock(t)])
   const duplicate = (i: number) =>
     setBlocks((bs) => {
-      const copy = { ...(JSON.parse(JSON.stringify(bs[i])) as Block), id: newBlock(bs[i].type).id }
+      const copy = { ...(JSON.parse(JSON.stringify(bs[i])) as Block), id: newBlock('richText').id }
       const next = [...bs]
       next.splice(i + 1, 0, copy)
       return next
