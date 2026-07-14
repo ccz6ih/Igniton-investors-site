@@ -16,14 +16,20 @@ export const metadata: Metadata = {
 export default async function ProductsPage() {
   const p = await getContent('productOverview')
 
+  // Editable tab labels (fall back to the defaults if the saved list isn't the
+  // expected four — each label maps to a fixed section panel by position).
+  const tabDefaults = [
+    'Quantum-Enhanced Supplements',
+    'Biophotonic Devices',
+    'Microchip Release',
+    'Coherence Environment',
+  ]
+  const tabs =
+    'tabs' in p && Array.isArray(p.tabs) && p.tabs.length === 4 ? p.tabs : tabDefaults
+
   return (
     <ProductTabs
-      labels={[
-        'Quantum-Enhanced Supplements',
-        'Biophotonic Devices',
-        'Microchip Release',
-        'Coherence Environment',
-      ]}
+      labels={tabs}
       panels={[
       <>
         <Section tone="primary">

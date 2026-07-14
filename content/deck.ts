@@ -72,6 +72,13 @@ export const aboutUs = {
 const STUDIES = 'https://igniton.com/pages/studies-trade-journals'
 export const productOverview = {
   heading: 'Quantum-Enhanced Supplements',
+  // The four section-tab button labels (editable in the Products editor).
+  tabs: [
+    'Quantum-Enhanced Supplements',
+    'Biophotonic Devices',
+    'Microchip Release',
+    'Coherence Environment',
+  ],
   products: [
     {
       suffix: 'Cognition',

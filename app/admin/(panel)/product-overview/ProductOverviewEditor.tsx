@@ -88,6 +88,19 @@ export function ProductOverviewEditor({ initial }: { initial: ProductOverview })
           />
         </FieldGroup>
 
+        <FieldGroup title="Tab buttons">
+          {(state.tabs ?? []).map((label, i) => (
+            <TextInput
+              key={i}
+              label={`Tab ${i + 1}`}
+              value={label}
+              onChange={(v) =>
+                patch({ tabs: (state.tabs ?? []).map((x, j) => (j === i ? v : x)) })
+              }
+            />
+          ))}
+        </FieldGroup>
+
         <FieldGroup title="Products">
           <div className="space-y-6">
             {state.products.map((prod, i) => (
