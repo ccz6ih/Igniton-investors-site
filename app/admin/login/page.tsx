@@ -4,10 +4,6 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { createSupabaseBrowser } from '@/lib/supabase/client'
 
-const CONFIGURED = Boolean(
-  process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
-)
-
 export default function AdminLoginPage() {
   const router = useRouter()
   const [email, setEmail] = useState('')
@@ -42,15 +38,6 @@ export default function AdminLoginPage() {
           </h1>
           <p className="mt-2 text-sm text-white/60">Sign in to edit the site.</p>
         </div>
-
-        {!CONFIGURED && (
-          <div className="mt-8 rounded-lg border border-gold/40 bg-gold/10 p-4 text-sm text-white/80">
-            The admin isn’t finished connecting yet. The site’s Supabase keys
-            (<code className="text-gold-bright">NEXT_PUBLIC_SUPABASE_URL</code> and
-            <code className="text-gold-bright"> NEXT_PUBLIC_SUPABASE_ANON_KEY</code>) need to be
-            added in Vercel, then redeploy.
-          </div>
-        )}
 
         <form onSubmit={submit} className="mt-8 space-y-4">
           <label className="block">
