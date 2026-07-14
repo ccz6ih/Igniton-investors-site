@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import { saveSections } from '@/lib/admin/sections-actions'
+import { useUnsavedGuard } from '@/components/admin/useUnsavedGuard'
 import { SaveBar } from '@/components/admin/ui'
 import { BlockEditor } from './BlockEditor'
 import { slotsFor } from '@/lib/sections/slots'
@@ -18,6 +19,7 @@ export function SectionsManager({
   initial: Block[]
 }) {
   const [blocks, setBlocks] = useState<Block[]>(initial)
+  const guard = useUnsavedGuard(blocks)
   const slots = slotsFor(slug)
   const previewHref = slug === 'home' ? '/' : `/${slug}`
 
@@ -44,7 +46,9 @@ export function SectionsManager({
 
   async function onSave(): Promise<string | null> {
     const r = await saveSections(slug, blocks)
-    return r.ok ? null : r.error
+    if (!r.ok) return r.error
+    guard.markSaved()
+    return null
   }
 
   return (

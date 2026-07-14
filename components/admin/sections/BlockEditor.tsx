@@ -23,7 +23,7 @@ export function BlockEditor({ block, onChange }: { block: Block; onChange: (b: B
     case 'imageText':
       return (
         <div className="space-y-4">
-          <ImageField label="Image" value={block.image} onChange={(v) => onChange({ ...block, image: v })} />
+          <ImageField label="Image" value={block.image} onChange={(v) => onChange({ ...block, image: v })} aspect={4 / 3} />
           <div>
             <FieldLabel label="Image side" />
             <select

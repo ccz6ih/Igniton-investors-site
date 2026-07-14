@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import { saveContent } from '@/lib/admin/actions'
+import { useUnsavedGuard } from '@/components/admin/useUnsavedGuard'
 import { TextInput, TextArea, StringList, FieldGroup, SaveBar } from '@/components/admin/ui'
 import { ImageField } from '@/components/admin/ImageField'
 
@@ -10,6 +11,7 @@ type TechnologyDeck = (typeof import('@/content/deck'))['technologyDeck']
 
 export function TechnologyEditor({ initial }: { initial: TechnologyDeck }) {
   const [state, setState] = useState<TechnologyDeck>(initial)
+  const guard = useUnsavedGuard(state)
 
   const patch = (p: Partial<TechnologyDeck>) => setState((s) => ({ ...s, ...p }))
 
@@ -29,7 +31,9 @@ export function TechnologyEditor({ initial }: { initial: TechnologyDeck }) {
 
   async function onSave(): Promise<string | null> {
     const r = await saveContent('technologyDeck', state)
-    return r.ok ? null : r.error
+    if (!r.ok) return r.error
+    guard.markSaved()
+    return null
   }
 
   return (
@@ -69,6 +73,7 @@ export function TechnologyEditor({ initial }: { initial: TechnologyDeck }) {
                     label="Image"
                     value={item.image}
                     onChange={(v) => setCurrentItem(i, { ...item, image: v })}
+                    aspect={16 / 9}
                   />
                 </div>
                 <button
@@ -109,6 +114,7 @@ export function TechnologyEditor({ initial }: { initial: TechnologyDeck }) {
                     label="Image"
                     value={item.image}
                     onChange={(v) => setOriginalItem(i, { ...item, image: v })}
+                    aspect={16 / 9}
                   />
                 </div>
                 <button

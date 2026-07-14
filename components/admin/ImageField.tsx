@@ -5,18 +5,71 @@ import { createSupabaseBrowser } from '@/lib/supabase/client'
 import { IMAGE_BUCKET } from '@/lib/admin/config'
 import { FieldLabel } from './ui'
 
-// Uploads an image to Supabase Storage and returns its public URL. Existing
-// values may be local paths (/deck/x.jpg) or full URLs — both preview fine.
+// Cover-crops + downscales an image to a target aspect ratio, returning a JPEG
+// blob. Used for photo frames so uploads always fit cleanly (no stretching or
+// awkward cropping at display time).
+async function coverCropToBlob(file: File, aspect: number, maxWidth = 1600): Promise<Blob> {
+  let bitmap: ImageBitmap
+  try {
+    bitmap = await createImageBitmap(file, { imageOrientation: 'from-image' })
+  } catch {
+    bitmap = await createImageBitmap(file)
+  }
+
+  const srcAspect = bitmap.width / bitmap.height
+  let sw = bitmap.width
+  let sh = bitmap.height
+  let sx = 0
+  let sy = 0
+  if (srcAspect > aspect) {
+    sw = Math.round(bitmap.height * aspect)
+    sx = Math.round((bitmap.width - sw) / 2)
+  } else {
+    sh = Math.round(bitmap.width / aspect)
+    sy = Math.round((bitmap.height - sh) / 2)
+  }
+
+  let outW = sw
+  let outH = sh
+  if (outW > maxWidth) {
+    const scale = maxWidth / outW
+    outW = Math.round(outW * scale)
+    outH = Math.round(outH * scale)
+  }
+
+  const canvas = document.createElement('canvas')
+  canvas.width = outW
+  canvas.height = outH
+  const ctx = canvas.getContext('2d')
+  if (!ctx) throw new Error('This browser can’t process images.')
+  ctx.imageSmoothingQuality = 'high'
+  ctx.drawImage(bitmap, sx, sy, sw, sh, 0, 0, outW, outH)
+  bitmap.close?.()
+
+  return await new Promise<Blob>((resolve, reject) =>
+    canvas.toBlob(
+      (b) => (b ? resolve(b) : reject(new Error('Could not process the image.'))),
+      'image/jpeg',
+      0.85,
+    ),
+  )
+}
+
+// Uploads an image to Supabase Storage and returns its public URL. When
+// `aspect` (width/height) is set, the image is auto-cropped + downscaled to fit
+// that frame cleanly. Existing values may be local paths or full URLs.
 export function ImageField({
   label,
   value,
   onChange,
   hint,
+  aspect,
 }: {
   label: string
   value: string
   onChange: (url: string) => void
   hint?: string
+  aspect?: number
 }) {
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -27,23 +80,37 @@ export function ImageField({
     setBusy(true)
     setError(null)
 
-    const supabase = createSupabaseBrowser()
-    const ext = (file.name.split('.').pop() || 'jpg').toLowerCase()
-    const path = `${Date.now()}-${Math.random().toString(36).slice(2, 8)}.${ext}`
+    try {
+      const supabase = createSupabaseBrowser()
+      let body: Blob = file
+      let ext = (file.name.split('.').pop() || 'jpg').toLowerCase()
+      let contentType = file.type || 'application/octet-stream'
 
-    const { error: upErr } = await supabase.storage
-      .from(IMAGE_BUCKET)
-      .upload(path, file, { cacheControl: '31536000', upsert: false })
+      // Only reshape photo frames; leave logos/diagrams (contain fields) as-is
+      // so transparency and crispness are preserved.
+      if (aspect) {
+        body = await coverCropToBlob(file, aspect)
+        ext = 'jpg'
+        contentType = 'image/jpeg'
+      }
 
-    if (upErr) {
-      setError(upErr.message)
+      const path = `${Date.now()}-${Math.random().toString(36).slice(2, 8)}.${ext}`
+      const { error: upErr } = await supabase.storage
+        .from(IMAGE_BUCKET)
+        .upload(path, body, { cacheControl: '31536000', upsert: false, contentType })
+
+      if (upErr) {
+        setError(upErr.message)
+        return
+      }
+
+      const { data } = supabase.storage.from(IMAGE_BUCKET).getPublicUrl(path)
+      onChange(data.publicUrl)
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Upload failed.')
+    } finally {
       setBusy(false)
-      return
     }
-
-    const { data } = supabase.storage.from(IMAGE_BUCKET).getPublicUrl(path)
-    onChange(data.publicUrl)
-    setBusy(false)
   }
 
   return (
@@ -61,16 +128,10 @@ export function ImageField({
         <div className="space-y-1.5">
           <label className="inline-block cursor-pointer rounded-lg border border-navy px-3 py-1.5 text-sm font-semibold text-navy transition hover:bg-navy hover:text-white">
             {busy ? 'Uploading…' : 'Replace image'}
-            <input
-              type="file"
-              accept="image/*"
-              onChange={handleFile}
-              disabled={busy}
-              className="hidden"
-            />
+            <input type="file" accept="image/*" onChange={handleFile} disabled={busy} className="hidden" />
           </label>
+          {aspect && <p className="text-xs text-warm-gray">Auto-cropped to fit this frame.</p>}
           {error && <p className="text-xs text-red-600">{error}</p>}
-          {value && <p className="max-w-xs truncate text-xs text-warm-gray">{value}</p>}
         </div>
       </div>
     </div>

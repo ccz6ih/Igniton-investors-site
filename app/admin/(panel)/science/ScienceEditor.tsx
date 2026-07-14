@@ -3,18 +3,22 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import { saveContent } from '@/lib/admin/actions'
+import { useUnsavedGuard } from '@/components/admin/useUnsavedGuard'
 import { TextInput, StringList, FieldGroup, SaveBar } from '@/components/admin/ui'
 
 type ScienceDeck = (typeof import('@/content/deck'))['scienceDeck']
 
 export function ScienceEditor({ initial }: { initial: ScienceDeck }) {
   const [state, setState] = useState<ScienceDeck>(initial)
+  const guard = useUnsavedGuard(state)
 
   const patch = (p: Partial<ScienceDeck>) => setState((s) => ({ ...s, ...p }))
 
   async function onSave(): Promise<string | null> {
     const r = await saveContent('scienceDeck', state)
-    return r.ok ? null : r.error
+    if (!r.ok) return r.error
+    guard.markSaved()
+    return null
   }
 
   return (

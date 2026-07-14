@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import { saveContent } from '@/lib/admin/actions'
+import { useUnsavedGuard } from '@/components/admin/useUnsavedGuard'
 import { TextInput, TextArea, StringList, FieldGroup, SaveBar } from '@/components/admin/ui'
 import { ImageField } from '@/components/admin/ImageField'
 
@@ -14,6 +15,7 @@ type Device = ProductOverview['biophotonic']['devices'][number]
 
 export function ProductOverviewEditor({ initial }: { initial: ProductOverview }) {
   const [state, setState] = useState<ProductOverview>(initial)
+  const guard = useUnsavedGuard(state)
 
   const patch = (p: Partial<ProductOverview>) => setState((s) => ({ ...s, ...p }))
 
@@ -60,7 +62,9 @@ export function ProductOverviewEditor({ initial }: { initial: ProductOverview })
 
   async function onSave(): Promise<string | null> {
     const r = await saveContent('productOverview', state)
-    return r.ok ? null : r.error
+    if (!r.ok) return r.error
+    guard.markSaved()
+    return null
   }
 
   return (
@@ -105,6 +109,7 @@ export function ProductOverviewEditor({ initial }: { initial: ProductOverview })
                     label="Image"
                     value={prod.image}
                     onChange={(v) => setProduct(i, { ...prod, image: v })}
+                    aspect={4 / 5}
                   />
                   <StringList
                     label="Stats"
@@ -222,6 +227,7 @@ export function ProductOverviewEditor({ initial }: { initial: ProductOverview })
             label="Image"
             value={state.worldRecord.image}
             onChange={(v) => patchWorldRecord({ image: v })}
+            aspect={1}
           />
         </FieldGroup>
 
@@ -301,6 +307,7 @@ export function ProductOverviewEditor({ initial }: { initial: ProductOverview })
             label="Image"
             value={state.chair.image}
             onChange={(v) => patchChair({ image: v })}
+            aspect={16 / 9}
           />
           <TextInput
             label="Note"

@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { saveContent } from '@/lib/admin/actions'
 import { TextInput, StringList, FieldGroup, SaveBar } from '@/components/admin/ui'
 import { ImageField } from '@/components/admin/ImageField'
+import { useUnsavedGuard } from '@/components/admin/useUnsavedGuard'
 
 type Home = (typeof import('@/content/deck'))['home']
 type Disclaimer = (typeof import('@/content/deck'))['disclaimer']
@@ -18,6 +19,7 @@ export function HomeEditor({
 }) {
   const [home, setHome] = useState<Home>(initialHome)
   const [disclaimer, setDisclaimer] = useState<Disclaimer>(initialDisclaimer)
+  const guard = useUnsavedGuard({ home, disclaimer })
 
   const patchHome = (patch: Partial<Home>) => setHome((h) => ({ ...h, ...patch }))
 
@@ -33,7 +35,9 @@ export function HomeEditor({
       saveContent('disclaimer', disclaimer),
     ])
     const failed = results.find((r) => !r.ok)
-    return failed && !failed.ok ? failed.error : null
+    if (failed && !failed.ok) return failed.error
+    guard.markSaved()
+    return null
   }
 
   return (
@@ -51,6 +55,7 @@ export function HomeEditor({
             hint="Full-screen image at the top of the page"
             value={home.heroImage}
             onChange={(v) => patchHome({ heroImage: v })}
+            aspect={16 / 9}
           />
           <TextInput
             label="Tagline"
@@ -76,6 +81,7 @@ export function HomeEditor({
             label="Video poster (thumbnail)"
             value={home.videoPoster}
             onChange={(v) => patchHome({ videoPoster: v })}
+            aspect={16 / 9}
           />
         </FieldGroup>
 
@@ -93,6 +99,7 @@ export function HomeEditor({
                     label={`Image ${i + 1}`}
                     value={item.image}
                     onChange={(v) => setCarouselImage(i, v)}
+                    aspect={4 / 3}
                   />
                 </div>
                 <button

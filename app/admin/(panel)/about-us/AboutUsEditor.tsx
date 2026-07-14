@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import { saveContent } from '@/lib/admin/actions'
+import { useUnsavedGuard } from '@/components/admin/useUnsavedGuard'
 import { TextInput, StringList, FieldGroup, SaveBar } from '@/components/admin/ui'
 import { ImageField } from '@/components/admin/ImageField'
 
@@ -10,6 +11,7 @@ type AboutUs = (typeof import('@/content/deck'))['aboutUs']
 
 export function AboutUsEditor({ initial }: { initial: AboutUs }) {
   const [state, setState] = useState<AboutUs>(initial)
+  const guard = useUnsavedGuard(state)
 
   const patch = (p: Partial<AboutUs>) => setState((s) => ({ ...s, ...p }))
 
@@ -32,7 +34,9 @@ export function AboutUsEditor({ initial }: { initial: AboutUs }) {
 
   async function onSave(): Promise<string | null> {
     const r = await saveContent('aboutUs', state)
-    return r.ok ? null : r.error
+    if (!r.ok) return r.error
+    guard.markSaved()
+    return null
   }
 
   return (
