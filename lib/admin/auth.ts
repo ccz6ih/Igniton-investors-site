@@ -8,6 +8,7 @@ export type AdminUser = { id: string; email: string }
 // whose email is present in the `admins` table (also enforced by RLS on writes).
 export async function getAdmin(): Promise<AdminUser | null> {
   const supabase = await createSupabaseServer()
+  if (!supabase) return null
   const {
     data: { user },
   } = await supabase.auth.getUser()

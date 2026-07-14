@@ -17,6 +17,7 @@ export async function saveContent(
   if (!admin) return { ok: false, error: 'Not signed in as an admin.' }
 
   const supabase = await createSupabaseServer()
+  if (!supabase) return { ok: false, error: 'Admin is not configured (missing Supabase keys).' }
   const { error } = await supabase
     .from('content')
     .upsert(
