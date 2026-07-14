@@ -51,8 +51,12 @@ async function fetchContent<K extends ContentKey>(
 // Live content for a page section, cached and tagged so an admin save can
 // revalidate it instantly (see lib/admin/actions.ts). Falls back to the
 // compiled-in default when Supabase is unavailable.
+// Bump to force a one-time refetch of all content (busts the persisted data
+// cache after a direct DB edit that didn't go through an admin save).
+const CACHE_VERSION = 'v2'
+
 export function getContent<K extends ContentKey>(key: K) {
-  return unstable_cache(() => fetchContent(key), ['content', key], {
+  return unstable_cache(() => fetchContent(key), ['content', key, CACHE_VERSION], {
     tags: [CONTENT_TAG, contentTag(key)],
   })() as Promise<(typeof defaults)[K]>
 }
