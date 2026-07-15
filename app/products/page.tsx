@@ -171,7 +171,7 @@ export default async function ProductsPage() {
             <h2 className="font-display text-2xl text-navy sm:text-3xl">
               <RichText>{p.coherence.heading}</RichText>
             </h2>
-            <p className="mt-4 font-display text-2xl text-navy">
+            <p className="mt-4 font-display text-2xl text-gold">
               <IgniText>{p.coherence.productName}</IgniText>
             </p>
             <p className="mt-4 font-semibold text-navy">

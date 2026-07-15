@@ -3,6 +3,7 @@ import { Section, Eyebrow } from '@/components/Section'
 import { Reveal } from '@/components/Reveal'
 import { HomeVideo } from '@/components/HomeVideo'
 import { RichText } from '@/components/RichText'
+import { IgniText } from '@/components/IgniText'
 import { getContent } from '@/lib/content'
 
 // Built-in Home sections — the original hand-coded JSX, unchanged, split into
@@ -59,7 +60,9 @@ export async function HomeCarousel() {
   return (
     <Section tone="alt">
       <Reveal>
-        <Eyebrow>Igniton facility</Eyebrow>
+        <Eyebrow>
+          <IgniText>Igniton facility</IgniText>
+        </Eyebrow>
       </Reveal>
       <div className="marquee mt-6">
         <div className="marquee-track">

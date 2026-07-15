@@ -19,7 +19,12 @@ function autoBrand(text: string, keyBase: string): ReactNode[] {
   let m: RegExpExecArray | null
   while ((m = re.exec(text)) !== null) {
     if (m.index > last) out.push(text.slice(last, m.index))
-    out.push(<em key={`${keyBase}-b${i++}`}>Igni</em>)
+    // <i> (stylistic), not <em> — globals.css turns <em> inside a heading gold.
+    out.push(
+      <i className="italic" key={`${keyBase}-b${i++}`}>
+        Igni
+      </i>,
+    )
     last = m.index + 4
   }
   if (last < text.length) out.push(text.slice(last))
@@ -38,7 +43,12 @@ function parseMarkdown(text: string): ReactNode[] {
     if (tok.startsWith('**')) {
       nodes.push(<strong key={`s${key++}`}>{tok.slice(2, -2)}</strong>)
     } else {
-      nodes.push(<em key={`e${key++}`}>{tok.slice(1, -1)}</em>)
+      // <i> keeps brand italics the same colour as their heading (see above).
+      nodes.push(
+        <i className="italic" key={`e${key++}`}>
+          {tok.slice(1, -1)}
+        </i>,
+      )
     }
     last = m.index + tok.length
   }

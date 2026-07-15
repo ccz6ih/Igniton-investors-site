@@ -19,7 +19,9 @@ export default async function SciencePage() {
       {/* IGNITON — heading + life-force intro + Uses (one cohesive section) */}
       <Section tone="primary">
         <Reveal className="text-center">
-          <h1 className="font-display text-4xl text-navy">{s.intro.heading}</h1>
+          <h1 className="font-display text-4xl text-navy">
+            <RichText>{s.intro.heading}</RichText>
+          </h1>
         </Reveal>
         <Reveal className="mx-auto mt-8 max-w-3xl space-y-5 text-sm leading-relaxed text-warm-gray">
           {s.intro.paragraphs.map((p, i) => (

@@ -200,7 +200,7 @@ export const productOverview = {
 export const technologyDeck = {
   introHeading: 'Igniton Equipment',
   intro: [
-    'Igniton (eNPQ quasi-particle) technology was originally developed in the 1990’s, and in 1995 the lab was established at CERN facility (Switzerland) with much of the hardware to verify and measure the eNPQ quasi-particle named “ignitons” rented from CERN. The current operation is in Colorado.',
+    '*Igni*ton (eNPQ quasi-particle) technology was originally developed in the 1990’s, and in 1995 the lab was established at CERN facility (Switzerland) with much of the hardware to verify and measure the eNPQ quasi-particle named “ignitons” rented from CERN. The current operation is in Colorado.',
     'The component stages of the eNQP (Ignitons) characterization system are from the Swiss laboratories, that were used until two years ago, when the necessary data on the nature of the quasi-particles and their industrial application had been collected, and the current equipment was designed, constructed and established in Colorado.',
   ],
   current: {
@@ -230,7 +230,7 @@ export const scienceDeck = {
   // list (below) renders in this same section. Edited in the Science editor.
   // Use *word* for italic, **word** for bold.
   intro: {
-    heading: 'IGNITON',
+    heading: '*IGNI*TON™',
     paragraphs: [
       'Ignitons are the basis of the life force, referred to by the ancients as World Spirit. The energy some refer to as *prana* is a form (effect) of ignitons.',
       'Ignitons increase the energy and effectiveness of embedded molecules.',
