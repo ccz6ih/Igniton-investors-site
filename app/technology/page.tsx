@@ -61,7 +61,9 @@ export default async function TechnologyPage() {
       <Section tone="alt">
         <Reveal>
           <Eyebrow>Technology</Eyebrow>
-          <h2 className="font-display text-3xl text-navy">{t.current.heading}</h2>
+          <h2 className="font-display text-3xl text-navy">
+            <IgniText>{t.current.heading}</IgniText>
+          </h2>
         </Reveal>
         <ApparatusList items={t.current.items} />
       </Section>
@@ -71,7 +73,9 @@ export default async function TechnologyPage() {
       <Section tone="primary">
         <Reveal>
           <Eyebrow>Technology</Eyebrow>
-          <h2 className="font-display text-3xl text-navy">{t.original.heading}</h2>
+          <h2 className="font-display text-3xl text-navy">
+            <IgniText>{t.original.heading}</IgniText>
+          </h2>
         </Reveal>
         <ApparatusList items={t.original.items} />
       </Section>

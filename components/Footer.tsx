@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { site } from '@/content/site'
 import { disclaimers } from '@/content/disclaimers'
+import { IgniText } from '@/components/IgniText'
 
 // Minimal navy footer: logo, a single "Shop at igniton.com" link, and the
 // legal disclaimer block. Legal must review disclaimers before launch.
@@ -42,9 +43,11 @@ export function Footer() {
 
         <div className="mt-8 flex flex-col items-start justify-between gap-3 border-t border-white/10 pt-6 text-xs text-white/50 sm:flex-row sm:items-center">
           <p>
-            © {year} {site.legalName}. All rights reserved.
+            © {year} <IgniText>{site.legalName}</IgniText>. All rights reserved.
           </p>
-          <p className="font-semibold tracking-wide text-gold">Powered by Ignitons™</p>
+          <p className="font-semibold tracking-wide text-gold">
+            <IgniText>Powered by Ignitons™</IgniText>
+          </p>
         </div>
       </div>
     </footer>
