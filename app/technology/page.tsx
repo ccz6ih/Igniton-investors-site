@@ -5,6 +5,7 @@ import { Reveal } from '@/components/Reveal'
 import { getContent } from '@/lib/content'
 import { PageSections } from '@/components/sections/PageSections'
 import { IgniText } from '@/components/IgniText'
+import { RichText } from '@/components/RichText'
 
 export const metadata: Metadata = {
   title: 'Technology',
@@ -20,7 +21,9 @@ function ApparatusList({
     <div className="mt-8 space-y-14">
       {items.map((it, i) => (
         <Reveal key={it.image} delay={(i % 2) * 60}>
-          <p className="font-semibold text-navy">{it.caption}</p>
+          <p className="font-semibold text-navy">
+            <RichText>{it.caption}</RichText>
+          </p>
           <div className="relative mt-4 aspect-video w-full overflow-hidden rounded-section bg-navy">
             <Image src={it.image} alt={it.caption} fill sizes="(max-width:1024px) 100vw, 60vw" className="object-cover" />
           </div>
@@ -45,7 +48,9 @@ export default async function TechnologyPage() {
           )}
           <div className="mt-6 max-w-3xl space-y-5 text-sm leading-relaxed text-warm-gray">
             {t.intro.map((p, i) => (
-              <p key={i}>{p}</p>
+              <p key={i}>
+                <RichText>{p}</RichText>
+              </p>
             ))}
           </div>
         </Reveal>

@@ -5,6 +5,7 @@ import { Reveal } from '@/components/Reveal'
 import { getContent } from '@/lib/content'
 import { PageSections } from '@/components/sections/PageSections'
 import { WaterComparison } from '@/components/WaterComparison'
+import { RichText } from '@/components/RichText'
 
 export const metadata: Metadata = {
   title: 'About Us',
@@ -31,7 +32,9 @@ export default async function AboutUsPage() {
             {a.inc.bullets.map((b) => (
               <li key={b} className="flex gap-3 text-navy">
                 <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-gold" />
-                <span className="font-medium">{b}</span>
+                <span className="font-medium">
+                  <RichText>{b}</RichText>
+                </span>
               </li>
             ))}
           </ul>
@@ -55,7 +58,9 @@ export default async function AboutUsPage() {
       <Section tone="primary">
         <Reveal className="mx-auto max-w-3xl space-y-5 text-sm leading-relaxed text-warm-gray">
           {a.outro.map((p, i) => (
-            <p key={i}>{p}</p>
+            <p key={i}>
+              <RichText>{p}</RichText>
+            </p>
           ))}
         </Reveal>
       </Section>

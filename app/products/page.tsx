@@ -6,6 +6,7 @@ import { BrandName } from '@/components/BrandName'
 import { IgniText } from '@/components/IgniText'
 import { ProductTabs } from '@/components/ProductTabs'
 import { WaterComparison } from '@/components/WaterComparison'
+import { RichText } from '@/components/RichText'
 import { getContent } from '@/lib/content'
 
 export const metadata: Metadata = {
@@ -142,28 +143,40 @@ export default async function ProductsPage() {
       <>
         <Section tone="primary">
           <Reveal className="mx-auto max-w-3xl text-center">
-            <h2 className="font-display text-2xl text-navy sm:text-3xl">{p.microchip.heading}</h2>
+            <h2 className="font-display text-2xl text-navy sm:text-3xl">
+              <RichText>{p.microchip.heading}</RichText>
+            </h2>
             <div className="relative mx-auto mt-8 aspect-[635/255] w-full max-w-2xl overflow-hidden rounded-section">
               <Image src={p.microchip.stick.image} alt={p.microchip.stick.caption} fill sizes="42rem" className="object-cover" />
             </div>
-            <p className="mt-4 font-semibold text-navy">{p.microchip.stick.caption}</p>
-            <p className="text-sm text-warm-gray">{p.microchip.stick.sub}</p>
+            <p className="mt-4 font-semibold text-navy">
+              <RichText>{p.microchip.stick.caption}</RichText>
+            </p>
+            <p className="text-sm text-warm-gray">
+              <RichText>{p.microchip.stick.sub}</RichText>
+            </p>
 
             <div className="relative mx-auto mt-12 aspect-[415/300] w-full max-w-md">
               <Image src={p.microchip.equipment.image} alt={p.microchip.equipment.caption} fill sizes="28rem" className="object-contain" />
             </div>
-            <p className="mt-4 font-semibold text-navy">{p.microchip.equipment.caption}</p>
+            <p className="mt-4 font-semibold text-navy">
+              <RichText>{p.microchip.equipment.caption}</RichText>
+            </p>
           </Reveal>
         </Section>
 
         {/* Igniton Coherence Imprinting Biophotons */}
         <Section tone="alt">
           <Reveal className="mx-auto max-w-3xl text-center">
-            <h2 className="font-display text-2xl text-navy sm:text-3xl">{p.coherence.heading}</h2>
+            <h2 className="font-display text-2xl text-navy sm:text-3xl">
+              <RichText>{p.coherence.heading}</RichText>
+            </h2>
             <p className="mt-4 font-display text-2xl text-navy">
               <IgniText>{p.coherence.productName}</IgniText>
             </p>
-            <p className="mt-4 font-semibold text-navy">{p.coherence.lead}</p>
+            <p className="mt-4 font-semibold text-navy">
+              <RichText>{p.coherence.lead}</RichText>
+            </p>
           </Reveal>
           <Reveal className="mx-auto mt-6 max-w-2xl space-y-3">
             {p.coherence.points.map((pt, i) => (
@@ -182,9 +195,15 @@ export default async function ProductsPage() {
       <>
         <Section tone="primary">
           <Reveal className="mx-auto max-w-3xl text-center">
-            <h2 className="font-display text-2xl text-navy sm:text-3xl">{p.chair.heading}</h2>
-            <p className="mt-4 font-semibold text-navy">{p.chair.productTitle}</p>
-            <p className="text-sm text-warm-gray">{p.chair.subtitle}</p>
+            <h2 className="font-display text-2xl text-navy sm:text-3xl">
+              <RichText>{p.chair.heading}</RichText>
+            </h2>
+            <p className="mt-4 font-semibold text-navy">
+              <RichText>{p.chair.productTitle}</RichText>
+            </p>
+            <p className="text-sm text-warm-gray">
+              <RichText>{p.chair.subtitle}</RichText>
+            </p>
             <div className="relative mx-auto mt-8 aspect-[650/348] w-full max-w-2xl overflow-hidden rounded-section">
               <Image src={p.chair.image} alt={p.chair.productTitle} fill sizes="42rem" className="object-cover" />
             </div>
