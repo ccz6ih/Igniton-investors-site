@@ -2,6 +2,7 @@ import Image from 'next/image'
 import { Section, Eyebrow } from '@/components/Section'
 import { Reveal } from '@/components/Reveal'
 import { HomeVideo } from '@/components/HomeVideo'
+import { RichText } from '@/components/RichText'
 import { getContent } from '@/lib/content'
 
 // Built-in Home sections — the original hand-coded JSX, unchanged, split into
@@ -88,7 +89,9 @@ export async function HomeDisclaimer() {
         <h2 className="text-center font-display text-3xl text-navy">{disclaimer.title}</h2>
         <div className="mt-8 space-y-5 text-sm leading-relaxed text-warm-gray">
           {disclaimer.paragraphs.map((p, i) => (
-            <p key={i}>{p}</p>
+            <p key={i}>
+              <RichText>{p}</RichText>
+            </p>
           ))}
         </div>
       </Reveal>

@@ -35,9 +35,9 @@ export const home = {
 export const disclaimer = {
   title: 'Disclaimer',
   paragraphs: [
-    'This website contains forward-looking statements about Igniton, Inc. based on management’s current expectations which are subject to known and unknown uncertainties and risks. Words such as “anticipated,” “initiate,” “expect,” “intend,” “plan,” “believe,” “seek,” “estimate,” “may,” and variations of these words or similar expressions are intended to identify forward-looking statements.',
+    'This website contains forward-looking statements about *Igni*ton, Inc. based on management’s current expectations which are subject to known and unknown uncertainties and risks. Words such as “anticipated,” “initiate,” “expect,” “intend,” “plan,” “believe,” “seek,” “estimate,” “may,” and variations of these words or similar expressions are intended to identify forward-looking statements.',
     'Our actual results could differ materially from those discussed due to a number of factors, including, but not limited to, our ability to raise additional capital on favorable terms, the success of our products under development and other risk factors.',
-    'We are providing this information as of the date of this presentation and do not undertake any obligation to update any forward-looking statements contained in this presentation as a result of new information, future events or otherwise. Unless the context requires otherwise, references to “Igniton,” “the Company,” “we,” “us” and “our” refer to Igniton, Inc.',
+    'We are providing this information as of the date of this presentation and do not undertake any obligation to update any forward-looking statements contained in this presentation as a result of new information, future events or otherwise. Unless the context requires otherwise, references to “*Igni*ton,” “the Company,” “we,” “us” and “our” refer to *Igni*ton, Inc.',
   ],
 }
 
@@ -53,7 +53,7 @@ export const aboutUs = {
     ],
   },
   outro: [
-    'Igniton currently focuses on improving longevity, cognition, memory, neuronal speed, reaction time, stimulating the pineal gland, etc. The quantum interaction between protons and ignitons allow for ignitons to disperse geometrically on the proton’s peripheral gray region, and improve quantum energy and functionality of targeted molecules.',
+    '*Igni*ton currently focuses on improving longevity, cognition, memory, neuronal speed, reaction time, stimulating the pineal gland, etc. The quantum interaction between protons and ignitons allow for ignitons to disperse geometrically on the proton’s peripheral gray region, and improve quantum energy and functionality of targeted molecules.',
     'University studies published in peer-reviewed medical journals show significant improvement of memory and other cognitive functions within 30-60 days of ingestion.',
   ],
   inc: {
@@ -154,10 +154,10 @@ export const productOverview = {
     ],
   },
   microchip: {
-    heading: 'Igniton’s Next Step - Release from microchip',
+    heading: '*Igni*ton’s Next Step - Release from microchip',
     stick: {
       image: '/deck/gaia-stick.png',
-      caption: 'Igniton new delivery - Gaia TV Stick',
+      caption: '*Igni*ton new delivery - Gaia TV Stick',
       sub: 'Release from microchip coding controlled by Gaia via online',
     },
     equipment: {
@@ -166,7 +166,7 @@ export const productOverview = {
     },
   },
   coherence: {
-    heading: 'Igniton Coherence Imprinting Biophotons',
+    heading: '*Igni*ton Coherence Imprinting Biophotons',
     productName: 'Igni Coherence',
     lead: 'Boosts ability of Chromatin for ignitons imprinting biophotons',
     points: [
@@ -180,7 +180,7 @@ export const productOverview = {
     image: '/products/igni-coherence.png',
   },
   chair: {
-    heading: 'Next Phase - Igniton Coherence Environment',
+    heading: 'Next Phase - *Igni*ton Coherence Environment',
     productTitle: 'COHERENCE HIT Chair  (partially functioning prototype)',
     subtitle: 'Holoton only version delivered to NASA in 2026',
     image: '/deck/hit-chair-pod.png',

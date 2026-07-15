@@ -53,7 +53,7 @@ async function fetchContent<K extends ContentKey>(
 // compiled-in default when Supabase is unavailable.
 // Bump to force a one-time refetch of all content (busts the persisted data
 // cache after a direct DB edit that didn't go through an admin save).
-const CACHE_VERSION = 'v2'
+const CACHE_VERSION = 'v3'
 
 export function getContent<K extends ContentKey>(key: K) {
   return unstable_cache(() => fetchContent(key), ['content', key, CACHE_VERSION], {
